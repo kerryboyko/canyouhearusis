@@ -1,10 +1,8 @@
 import {
   SET_LANGUAGE,
-  ENGLISH,
-  FRANCAIS,
 } from '../constants/index';
 
-export function language(state = 'English', action = {}) {
+export function language(state = 'EN', action = {}) {
   switch(action.type){
   case SET_LANGUAGE:
     return action.language;
