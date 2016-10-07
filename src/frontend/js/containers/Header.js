@@ -11,7 +11,15 @@ import MenuItem from 'material-ui/MenuItem';
 import HamburgerIcon from 'material-ui/svg-icons/navigation/menu';
 import LanguageIcon from 'material-ui/svg-icons/action/language';
 import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+
 import Slider from 'material-ui/Slider';
+
+
+import FontIcon from 'material-ui/FontIcon';
+import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
+import DropDownMenu from 'material-ui/DropDownMenu';
+import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
@@ -39,6 +47,9 @@ class Header extends Component {
     super(props);
     this.handleLanguageChange = this.handleLanguageChange.bind(this);
     this.languageDivProps = _.pick(props, ['language']);
+    this.state = {
+     value: 3,
+    };
   }
 
   handleLanguageChange (event, value) {
@@ -52,47 +63,49 @@ class Header extends Component {
 
   render () {
     return (
-      <AppBar
-        style={{backgroundColor: palette.iceFlagBlue}}
-        title={<div>
-          <RaisedButton style={{margin: '1vh'}} label="Home" />
-          <RaisedButton style={{margin: '1vh'}} label="Learn" />
-          <RaisedButton style={{margin: '1vh'}} label="About" />
-          <RaisedButton style={{margin: '1vh'}} label="The Constitution" />
-          <RaisedButton backgroundColor={palette.iceFlagRed} style={{margin: '1vh'}} label="Donate" /></div>          
-        }
-        iconElementLeft={
-          <IconMenu
-            onChange={this.handlePageSelect}
-            iconButtonElement={<IconButton><HamburgerIcon color="white"/></IconButton>}
-            targetOrigin={{horizontal: 'right', vertical: 'top'}}
-            anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-          >
-            <MenuItem
-              primaryText={"Home"}
-              value="EN"
-            />
-            <MenuItem
-              primaryText={"Learn"}
-              value="EN"
-            />
-            <MenuItem
-              primaryText={"About"}
-              value="EN"
-            />
-            <MenuItem
-              primaryText={"The Constitution"}
-              value="EN"
-            />
-            <MenuItem
-              primaryText={"Donate"}
-              value="EN"
-            />
+      <div>
+      <Toolbar style={{backgroundColor: palette.iceFlagBlue}}>
+        <ToolbarGroup firstChild={true}>
+        <IconMenu
+          style={{marginLeft: '0.5vw', marginRight: '0.5vw', marginTop: '0.5vh'}}
+          onChange={this.handlePageSelect}
+          iconButtonElement={<IconButton><HamburgerIcon color="white"/></IconButton>}
+          targetOrigin={{horizontal: 'right', vertical: 'top'}}
+          anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+        >
+          <MenuItem
+            primaryText={"Home"}
+            value="EN"
+          />
+          <MenuItem
+            primaryText={"Learn"}
+            value="EN"
+          />
+          <MenuItem
+            primaryText={"About"}
+            value="EN"
+          />
+          <MenuItem
+            primaryText={"The Constitution"}
+            value="EN"
+          />
+          <MenuItem
+            style={{backgroundColor: palette.redHighlight}}
+            primaryText={"Donate"}
+            value="EN"
+          />
 
-          </IconMenu>
-                }
-        iconElementRight={
+        </IconMenu>
+        <FlatButton backgroundColor={palette.white} hoverColor={palette.redHighlight} style={{marginLeft: '0.5vw', marginRight: '0.5vw'}} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Home" />
+        <FlatButton backgroundColor={palette.white} hoverColor={palette.redHighlight} style={{marginLeft: '0.5vw', marginRight: '0.5vw'}} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Learn" />
+        <FlatButton backgroundColor={palette.white} hoverColor={palette.redHighlight} style={{marginLeft: '0.5vw', marginRight: '0.5vw'}} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="About" />
+        <FlatButton backgroundColor={palette.white} hoverColor={palette.redHighlight} style={{marginLeft: '0.5vw', marginRight: '0.5vw'}} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="The&nbsp;Constitution" />
+        <FlatButton backgroundColor={palette.iceFlagRed} hoverColor={palette.redHighlight} style={{marginLeft: '0.5vw', marginRight: '0.5vw', color: palette.white }} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Donate" />
+        </ToolbarGroup>
+        <ToolbarGroup lastChild={true}>
           <IconMenu
+            style={{marginLeft: '0.5vw', marginRight: '0.5vw', marginTop: '0.5vh'}}
+
             onChange={this.handleLanguageChange}
             iconButtonElement={<div style={{display:'flex', alignItems: 'center', color: palette.white}}>{this.props.language}<IconButton><LanguageIcon color="white"/></IconButton></div>
             }
@@ -108,9 +121,9 @@ class Header extends Component {
               value="IS"
             />
           </IconMenu>
-        }
-      >
-      </AppBar>
+        </ToolbarGroup>
+      </Toolbar>
+      </div>
     );
   }
 }
