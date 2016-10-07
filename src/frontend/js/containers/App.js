@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import * as actions from '../actions/index';
-import reduxify from '../utilities/reduxify';
+import reduxify from 'reduxify';
+import HeaderBar from './HeaderBar';
+import ProgressBar from './ProgressBar';
+import DonationBox from './DonationBox';
 
 class App extends Component {
   constructor(props){
@@ -10,10 +13,12 @@ class App extends Component {
   render() {
     return (
       <div>
-      {"Test Text"}
+        <HeaderBar />
+        <ProgressBar />
+        <DonationBox />
       </div>
     );
   }
 }
 
-export default reduxify(actions, ['counter'], App);
+export default reduxify(actions, [], App);
