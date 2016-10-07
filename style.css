@@ -1,0 +1,25 @@
+@import 'https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Patua+One';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+.backgroundImage {
+  background-image: url('./src/frontend/img/mb_background.jpg');
+  background-size: cover;
+  background-position: center top;
+  display: block;
+  overflow: hidden;
+  filter: blur(5px) opacity(100%);
+  -webkit-filter: blur(3px) opacity(100%);
+  height: 120%;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  position: fixed;
+  right: -10px;
+  z-index: -1;
+}
