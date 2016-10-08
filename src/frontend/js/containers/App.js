@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import * as actions from '../actions/index';
 import reduxify from 'reduxify';
-import HeaderBar from './HeaderBar';
-import ProgressBar from './ProgressBar';
-import DonationBox from './DonationBox';
+import Header from './Header';
+import Hero from './Hero';
+
 
 class App extends Component {
   constructor(props){
@@ -13,12 +13,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <HeaderBar />
-        <ProgressBar />
-        <DonationBox />
+        <Header />
+        <Hero />
       </div>
     );
   }
 }
 
-export default reduxify(actions, [], App);
+export default reduxify(actions, ['language'], App);
