@@ -13,6 +13,8 @@ import twitterIconSVG from '../../img/twitterIcon.svg';
 import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'material-ui/SvgIcon';
 import LearnPoint from './LearnPoint';
+import Header from './Header';
+
 
 const styles = StyleSheet.create({
   learnStyle: {

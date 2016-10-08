@@ -4,8 +4,10 @@
 
 import { combineReducers } from 'redux';
 import * as language from './language';
+import { routerReducer } from 'react-router-redux';
 
-const appReducer = combineReducers(Object.assign({}, language));
+
+const appReducer = combineReducers(Object.assign({}, {routing: routerReducer}, language));
 
 const rootReducer = (state, action) => {
   // if (action.type === CLEAR_TO_DEFAULT) {

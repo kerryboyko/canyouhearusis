@@ -17,6 +17,7 @@ import theConstitutionText from '../text/theConstitutionText';
 import FileDownload from 'material-ui/svg-icons/file/file-download';
 import icelandFlagSVG from '../../img/icelandFlag.svg';
 import englishFlagSVG from '../../img/englishFlag.svg';
+import Header from './Header';
 
 const styles = StyleSheet.create({
   constitutionStyle: {

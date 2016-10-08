@@ -12,9 +12,9 @@ import HamburgerIcon from 'material-ui/svg-icons/navigation/menu';
 import LanguageIcon from 'material-ui/svg-icons/action/language';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-
 import Slider from 'material-ui/Slider';
 
+import {Link} from 'react-router';
 
 import FontIcon from 'material-ui/FontIcon';
 import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
@@ -24,10 +24,11 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import palette from '../constants/palette';
-import icelandFlagSVG from '../../img/icelandFlag.svg';
-import englishFlagSVG from '../../img/englishFlag.svg';
+
 import {Tabs, Tab} from 'material-ui/Tabs';
 import {StyleSheet, css} from 'aphrodite';
+import {browserHistory} from 'react-router';
+
 
 const styles = StyleSheet.create({
   buttonStyle: {
@@ -41,23 +42,45 @@ const styles = StyleSheet.create({
   }
 });
 
+const icelandFlagSVG = './img/icelandFlag.svg';
+const englishFlagSVG = './img/englishFlag.svg';
 
 class Header extends Component {
   constructor(props){
     super(props);
     this.handleLanguageChange = this.handleLanguageChange.bind(this);
+    this.handlePageSelect = this.handlePageSelect.bind(this);
+    this.handleHomeButton = this.handleHomeButton.bind(this);
+    this.handleLearnButton = this.handleLearnButton.bind(this);
+    this.handleAboutButton = this.handleAboutButton.bind(this);
+    this.handleConstitutionButton = this.handleConstitutionButton.bind(this);
     this.languageDivProps = _.pick(props, ['language']);
     this.state = {
      value: 3,
     };
+
   }
 
   handleLanguageChange (event, value) {
     this.props.actions.setLanguage(value);
   }
   handlePageSelect (event, value) {
-    console.log("Nothing here yet!")
+    this.props.actions.push(value);
   }
+  handleHomeButton () {
+    this.props.actions.push('/');
+  }
+  handleLearnButton () {
+    this.props.actions.push('/learn');
+  }
+  handleAboutButton () {
+    this.props.actions.push('/about');
+  }
+  handleConstitutionButton () {
+    this.props.actions.push('/constitution');
+  }
+
+
 
 
 
@@ -73,33 +96,33 @@ class Header extends Component {
           targetOrigin={{horizontal: 'right', vertical: 'top'}}
           anchorOrigin={{horizontal: 'right', vertical: 'top'}}
         >
-          <MenuItem
+          <Link><MenuItem
             primaryText={"Home"}
-            value="EN"
-          />
+            value="/"
+          /></Link>
           <MenuItem
             primaryText={"Learn"}
-            value="EN"
+            value="/learn"
           />
           <MenuItem
             primaryText={"About"}
-            value="EN"
+            value="/about"
           />
           <MenuItem
             primaryText={"The Constitution"}
-            value="EN"
+            value="/constitution"
           />
           <MenuItem
             style={{backgroundColor: palette.redHighlight}}
             primaryText={"Donate"}
-            value="EN"
+            value="/donate"
           />
 
         </IconMenu>
-        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Home" />
-        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Learn" />
-        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="About" />
-        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="The&nbsp;Constitution" />
+        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} onClick={this.handleHomeButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Home" />
+        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} onClick={this.handleLearnButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Learn" />
+        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} onClick={this.handleAboutButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="About" />
+        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} onClick={this.handleConstitutionButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="The&nbsp;Constitution" />
         <FlatButton className={css(styles.buttonStyle)} backgroundColor={palette.iceFlagRed} hoverColor={palette.redHighlight} style={{color: palette.white }} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Donate" />
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>

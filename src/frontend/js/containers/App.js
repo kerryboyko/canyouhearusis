@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import * as actions from '../actions/index';
 import reduxify from 'reduxify';
 import Header from './Header';
-import Hero from './Hero';
-import Learn from './Learn';
-import About from './About';
-import TheConstitution from './TheConstitution';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 
 
 class App extends Component {
@@ -15,13 +14,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        <Hero />
-        <Learn />
-        <About />
-        <TheConstitution />
-      </div>
+      <MuiThemeProvider muiTheme={getMuiTheme(lightBaseTheme)}>
+        <div ref="App">
+          <Header />
+          {this.props.children}
+        </div>
+      </MuiThemeProvider>
     );
   }
 }

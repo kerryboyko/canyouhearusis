@@ -14,6 +14,7 @@ import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'material-ui/SvgIcon';
 import LearnPoint from './LearnPoint';
 import aboutTexts from '../text/aboutTexts'; // text.
+import Header from './Header';
 
 const styles = StyleSheet.create({
   aboutStyle: {
