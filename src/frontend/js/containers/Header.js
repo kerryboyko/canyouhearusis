@@ -27,21 +27,21 @@ import palette from '../constants/palette';
 import icelandFlagSVG from '../../img/icelandFlag.svg';
 import englishFlagSVG from '../../img/englishFlag.svg';
 import {Tabs, Tab} from 'material-ui/Tabs';
+import {StyleSheet, css} from 'aphrodite';
 
-const styles = {
-  headline: {
-    fontSize: 24,
-    paddingTop: 16,
-    marginBottom: 12,
-    fontWeight: 400,
+const styles = StyleSheet.create({
+  buttonStyle: {
+    marginLeft: '0.5vw',
+    marginRight: '0.5vw'
   },
-};
+  hideMobile: {
+    '@media (max-width: 800px)': {
+      display: 'none'
+    }
+  }
+});
 
 
-const buttonStyle = {
-  backgroundColor: 'transparent',
-  color: 'white'
-};
 class Header extends Component {
   constructor(props){
     super(props);
@@ -96,18 +96,18 @@ class Header extends Component {
           />
 
         </IconMenu>
-        <FlatButton backgroundColor={palette.white} hoverColor={palette.redHighlight} style={{marginLeft: '0.5vw', marginRight: '0.5vw'}} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Home" />
-        <FlatButton backgroundColor={palette.white} hoverColor={palette.redHighlight} style={{marginLeft: '0.5vw', marginRight: '0.5vw'}} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Learn" />
-        <FlatButton backgroundColor={palette.white} hoverColor={palette.redHighlight} style={{marginLeft: '0.5vw', marginRight: '0.5vw'}} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="About" />
-        <FlatButton backgroundColor={palette.white} hoverColor={palette.redHighlight} style={{marginLeft: '0.5vw', marginRight: '0.5vw'}} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="The&nbsp;Constitution" />
-        <FlatButton backgroundColor={palette.iceFlagRed} hoverColor={palette.redHighlight} style={{marginLeft: '0.5vw', marginRight: '0.5vw', color: palette.white }} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Donate" />
+        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Home" />
+        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Learn" />
+        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="About" />
+        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="The&nbsp;Constitution" />
+        <FlatButton className={css(styles.buttonStyle)} backgroundColor={palette.iceFlagRed} hoverColor={palette.redHighlight} style={{color: palette.white }} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Donate" />
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>
           <IconMenu
             style={{marginLeft: '0.5vw', marginRight: '0.5vw', marginTop: '0.5vh'}}
 
             onChange={this.handleLanguageChange}
-            iconButtonElement={<div style={{display:'flex', alignItems: 'center', color: palette.white}}>{this.props.language}<IconButton><LanguageIcon color="white"/></IconButton></div>
+            iconButtonElement={<div style={{display:'flex', alignItems: 'center', color: palette.white}}><img height={'20px'} width={'35px'} style={{marginRight: '1vw'}} src={this.props.language === 'IS' ? icelandFlagSVG : englishFlagSVG}/>{this.props.language}<IconButton><LanguageIcon color="white"/></IconButton></div>
             }
             targetOrigin={{horizontal: 'right', vertical: 'top'}}
             anchorOrigin={{horizontal: 'right', vertical: 'top'}}

@@ -6,6 +6,13 @@ import {StyleSheet, css} from 'aphrodite';
 import _ from 'lodash';
 import palette from '../constants/palette';
 import Paper from 'material-ui/Paper';
+import RaisedButton from 'material-ui/RaisedButton';
+import ShareIcon from 'material-ui/svg-icons/social/share';
+import facebookIconSVG from '../../img/facebookIcon.svg';
+import twitterIconSVG from '../../img/twitterIcon.svg';
+import IconButton from 'material-ui/IconButton';
+import SvgIcon from 'material-ui/SvgIcon';
+
 // import popout from '../../img/popout.svg';
 
 // import HeroPieChart from '../charts/HeroPieChart';
@@ -22,88 +29,132 @@ const subheadline = {
   IS: 'Árið 2012, með 2 / 3DS atkvæði, íslenska þjóðin sagði þinginu til þess að enact stjórnarskrá "sem byggist á" stjórnarskrá borgari ráðið hafði samið. Fjórum árum síðar, hafa þeir ekki gert neitt. Hjálpið okkur að sýna stjórnmálamenn sem þeir vinna fyrir.'
 };
 
+const TwitterIcon = (props) => (<img {...props} src={twitterIconSVG} />);
+const FacebookIcon = (props) => (<img {...props} src={facebookIconSVG} />);
+
 const styles = StyleSheet.create({
-  heroStyle : {
-    // height: '100px'
-    backgroundColor: 'rgba(0,0,0,0.7)',
+  heroStyle: {
+    backgroundColor: palette.heroBackground,
     width: '100%',
+    paddingBottom: '100px',
   },
-  headlineStyle : {
+
+  wrapper: {
+    overflow: 'hidden',
+    padding: '1vw',
+  },
+  leftContainer: {
+    float: 'left',
+    marginRight: '1vw',
+    width: '40vw',
+    textAlign: 'left',
+    '@media (max-width: 800px)': {
+      float: 'none',
+      marginRight: '0',
+      textAlign: 'center',
+      width: 'auto',
+      border: '0',
+    }
+  },
+  rightContainer: {
+    backgroundColor: 'white',
+    overflow: 'hidden',
+    float: 'right',
+    display:'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    width: '50vw',
+    marginTop: '6vh',
+    textAlign: 'center',
+    '@media (max-width:800px)': {
+      float:'none',
+      border: '0',
+      width: "100%",
+
+    }
+  },
+  headlineStyle: {
     color: 'white',
     fontFamily: "Roboto Condensed",
     fontWeight: '900',
-    fontSize: '10vw',
-    margin: '2vh 4vw'
+    fontSize: '15vh',
+    margin: '2vh 0',
+    padding: '1vh 2vw',
+    '@media (max-width: 800px)': {
+      fontSize: '7vh'
+    }
   },
   subheadline: {
     color: 'white',
     fontFamily: 'Roboto',
-    fontSize: '2vw',
-    margin: '2vh 4vw',
+    fontSize: '20px',
+    padding: '3vw',
   },
-  flexContainer : {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "stretch",
-    marginBottom: '5vh',
-    textAlign: 'center',
+  videoWrapper : {
+    justifyContent: 'center',
+
+    '@media (max-width: 800px)': {
+      position: 'relative',
+      // paddingBottom: '56.25%',
+      /* 16:9 */
+
+      paddingTop: '1vh',
+    },
   },
-  leftContainer : {
-    width: '50vw',
-    order: "1",
-    color: "white",
-    fontFamily: "Patua One",
-    textAlign: 'left',
+  videoWrapperIframe : {
+    width: 'calc(100% - 2vw)',
+    height: 'calc(48vw * (9 / 16))',
+    '@media (max-width: 800px)': {
+      width: 'calc(100% - 2vw)',
+      top: '0',
+      left: '0',
+      height: 'calc(96vw * (9 / 16) )',
+    },
   },
-  rightContainer : {
-    width: '50vw',
-    order: "2",
-  },
-  popoutStyle : {
-    maxWidth: "100%",
-    maxHeight: "90vh",
-  },
-  paragraph: {
-    marginBottom: "1vh",
-  },
-  chart: {
-    position: 'absolute',
-    width: '50vw',
-    height: '50vh',
-    margin: '0px 30px 0px 30px',
-  },
-  chartContainer: {
-    padding: '0px 30px 0px 30px',
-  },
-  videoContainer: {
-    margin: '2vh, 2vw',
-  }
+
 });
 
 class Hero extends Component {
   constructor(props){
     super(props);
   }
-
   render () {
     return (<div>
       <Paper className={css(styles.heroStyle)} zDepth={1} >
-        <div className={css(styles.flexContainer)}>
-          <div ref="leftContainer" className={css(styles.leftContainer)}>
-            <div className={css(styles.headlineStyle)}>
+        <div className={css(styles.wrapper)}>
+          <div ref="leftContainer" className={css(styles.headlineStyle, styles.leftContainer)}>
               {headline[this.props.language]}
+          </div>
+          <Paper ref="rightContainer" className={css(styles.rightContainer)}>
+            <div ref="donateLang" style={{padding: '2vh'}}>
+              <RaisedButton
+                backgroundColor={palette.iceFlagRed}
+                style={{margin: 'auto', width: '100%', height: '7vh'}}
+                labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
+                label="Donate"
+                />
+
             </div>
-          </div>
-          <div ref="rightContainer" className={css(Object.assign(styles.rightContainer))}>
-            <Paper><iframe width="640" height="360" src="https://www.youtube.com/embed/mw2z9lV3W1g" frameborder="0" allowfullscreen></iframe></Paper>
-          </div>
+            <div ref="video" className={css(styles.videoWrapper)}>
+              <iframe className={css(styles.videoWrapperIframe)} src="https://player.vimeo.com/video/7416225?byline=0&portrait=0" width="640" height="360" allowFullScreen></iframe>
+            </div>
+            <div style={{ display:'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <span style={{marginRight: '10px'}}>{this.props.language === 'IS' ? "DEILA": "SHARE"}</span>
+            <IconButton>
+              <TwitterIcon width="24px" height="24px"/>
+            </IconButton>
+            <IconButton>
+              <FacebookIcon width="24px" height="24px"/>
+            </IconButton>
+
+            </div>
+          </Paper>
         </div>
         <div className={css(styles.subheadline)}>
           {subheadline[this.props.language]}
         </div>
       </Paper>
-      </div>
+    </div>
     );
   }
 }
