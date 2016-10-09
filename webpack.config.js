@@ -22,7 +22,12 @@ module.exports = {
         'babel',
       ],
       include: path.join(__dirname, 'src/')
-    }, {
+    },
+    {
+      test: /\.json$/,
+      loader: 'json'
+    },
+    {
       test: /\.css$/,
       loader: 'style!css'
     }, {
@@ -31,6 +36,12 @@ module.exports = {
         'file?hash=sha512&digest=hex&name=[hash].[ext]',
         'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
       ]
-    }, ],
+    }],
+  },
+  externals: {
+    fs: '{}',
+    tls: '{}',
+    net: '{}',
+    console: '{}',
   }
 };

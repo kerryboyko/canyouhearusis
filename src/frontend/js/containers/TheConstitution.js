@@ -49,11 +49,6 @@ const styles = StyleSheet.create({
   }
 });
 
-
-
-
-
-
 class TheConstitution extends Component {
   constructor(props){
     super(props);
