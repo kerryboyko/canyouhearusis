@@ -6,6 +6,7 @@ import App from './frontend/js/containers/App';
 import Hero from './frontend/js/containers/Hero';
 import About from './frontend/js/containers/About';
 import Learn from './frontend/js/containers/Learn';
+import Donate from './frontend/js/containers/Donate';
 import TheConstitution from './frontend/js/containers/TheConstitution';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
@@ -31,6 +32,7 @@ export default class Root extends Component {
               <Route path="about" component={About}/>
               <Route path="learn" component={Learn}/>
               <Route path="constitution" component={TheConstitution}/>
+              <Route path="donate" component={Donate}/>
             </Route>
           </Router>
       </Provider>

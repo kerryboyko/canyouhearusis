@@ -29,4 +29,5 @@ app.use('/dist', express.static('dist'));
 app.use('/about', express.static('./'));
 app.use('/constitution', express.static('./'));
 app.use('/learn', express.static('./'));
+app.use('/donate', express.static('./'));
 app.use('/img', express.static('../img'));
