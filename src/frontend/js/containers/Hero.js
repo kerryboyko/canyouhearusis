@@ -8,16 +8,12 @@ import palette from '../constants/palette';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import ShareIcon from 'material-ui/svg-icons/social/share';
-const facebookIconSVG = './img/facebookIcon.svg';
-const twitterIconSVG = './img/twitterIcon.svg';
 import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'material-ui/SvgIcon';
-
 import {headline, subheadline} from '../text/heroText';
-
-// import popout from '../../img/popout.svg';
-
-// import HeroPieChart from '../charts/HeroPieChart';
+const facebookIconSVG = './img/facebookIcon.svg';
+const twitterIconSVG = './img/twitterIcon.svg';
+const logoSVG = './img/logo.svg';
 
 
 const TwitterIcon = (props) => (<img {...props} src={twitterIconSVG} />);
@@ -33,13 +29,35 @@ const styles = StyleSheet.create({
   wrapper: {
     overflow: 'hidden',
     padding: '1vw',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    '@media (max-width:800px)': {
+      display: 'inline-block',
+      textAlign: 'center',
+      width: '100%',
+      margin: 'auto',
+      border: '0',
+    }
+  },
+  logo: {
+    width: '43vw',
+    display:'flex',
+    justifyContent: 'center',
+    marginTop: '6vh',
+    textAlign: 'center',
+    '@media (max-width:800px)': {
+      margin: 'auto',
+      float:'none',
+      width: "100%",
+    }
   },
   leftContainer: {
     float: 'left',
     marginRight: '1vw',
-    width: '40vw',
+    width: '45vw',
     textAlign: 'left',
-    '@media (max-width: 800px)': {
+    '@media (max-width:800px)': {
       float: 'none',
       marginRight: '0',
       textAlign: 'center',
@@ -54,12 +72,12 @@ const styles = StyleSheet.create({
     display:'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    width: '50vw',
+    width: '45vw',
     marginTop: '6vh',
     textAlign: 'center',
     '@media (max-width:800px)': {
       float:'none',
-      border: '0',
+      margin: 'auto',
       width: "100%",
 
     }
@@ -71,7 +89,7 @@ const styles = StyleSheet.create({
     fontSize: '15vh',
     margin: '2vh 0',
     padding: '1vh 2vw',
-    '@media (max-width: 800px)': {
+    '@media (max-width:800px)': {
       fontSize: '7vh'
     }
   },
@@ -84,7 +102,7 @@ const styles = StyleSheet.create({
   videoWrapper : {
     justifyContent: 'center',
 
-    '@media (max-width: 800px)': {
+    '@media (max-width:800px)': {
       position: 'relative',
       // paddingBottom: '56.25%',
       /* 16:9 */
@@ -94,8 +112,8 @@ const styles = StyleSheet.create({
   },
   videoWrapperIframe : {
     width: 'calc(100% - 2vw)',
-    height: 'calc(48vw * (9 / 16))',
-    '@media (max-width: 800px)': {
+    height: 'calc(43vw * (9 / 16))',
+    '@media (max-width:800px)': {
       width: 'calc(100% - 2vw)',
       top: '0',
       left: '0',
@@ -114,7 +132,7 @@ class Hero extends Component {
       <Paper className={css(styles.heroStyle)} zDepth={1} >
         <div className={css(styles.wrapper)}>
           <div ref="leftContainer" className={css(styles.headlineStyle, styles.leftContainer)}>
-              {headline[this.props.language]}
+              <img src={logoSVG} className={css(styles.logo)}/>
           </div>
           <Paper ref="rightContainer" className={css(styles.rightContainer)}>
             <div ref="donateLang" style={{padding: '2vh'}}>
