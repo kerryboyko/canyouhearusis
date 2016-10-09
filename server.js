@@ -30,4 +30,5 @@ app.use('/about', express.static('./'));
 app.use('/constitution', express.static('./'));
 app.use('/learn', express.static('./'));
 app.use('/donate', express.static('./'));
+app.use('/thankyou', express.static('./'));
 app.use('/img', express.static('../img'));
