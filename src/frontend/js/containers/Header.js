@@ -115,12 +115,6 @@ class Header extends Component {
             primaryText={"The Constitution"}
             value="/constitution"
           />
-          <MenuItem
-            style={{backgroundColor: palette.redHighlight}}
-            primaryText={"Donate"}
-            value="/donate"
-          />
-
         </IconMenu>
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleHomeButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Home" />
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleLearnButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Learn" />
