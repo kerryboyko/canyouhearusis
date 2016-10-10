@@ -11,7 +11,7 @@ import Dialog from 'material-ui/Dialog';
 import StripeCheckout from 'react-stripe-checkout';
 import {StyleSheet, css} from 'aphrodite';
 import _ from 'lodash';
-
+import request from 'superagent';
 
 
 const styles = StyleSheet.create({
@@ -59,11 +59,28 @@ class Donate extends Component {
     this.state = {
       amount: 0,
       open: false,
+      token: null,
     };
     this.handleAmountChange = this.handleAmountChange.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.onToken = this.onToken.bind(this);
   }
+
+  onToken (token, amount) {
+    request
+      .post('/api/donation')
+      .send({token, amount})
+      .end((err, res) => {
+        if (err) {
+          console.log("ERR", err);
+          alert(err);
+        } else {
+          this.props.actions.push('/thankyou');
+        }
+      });
+  }
+
 
   handleOpen () {
     this.setState({open:true});
@@ -92,7 +109,7 @@ class Donate extends Component {
 
     return(<div className={css(styles.centerMe)}>
         <Paper className={css(styles.donateItself)} zDepth={5}>
-          <Paper zIndex={1} className={css(styles.thankYou)}>
+          <Paper zDepth={1} className={css(styles.thankYou)}>
             <div>Thank you for your donation!</div>
           </Paper>
           <div className={css(styles.currencyHeader)}>
@@ -106,7 +123,8 @@ class Donate extends Component {
                 amount={amount}
                 panelLabel={"Donate"}
                 allowRememberMe
-                token="foo"
+                token={(token) => this.onToken(token, amount)}
+                currency={"USD"}
                 label={"" + this.props.currency.symbol + (Math.floor(amount/100))}
               /></div>))}
             </div>
@@ -118,11 +136,13 @@ class Donate extends Component {
               stripeKey='pk_test_2svq4z4MVul7BOQvgdPPvRjV'
               amount={this.state.amount * 100}
               allowRememberMe
-              token="foo"
+              token={(token) => this.onToken(token, this.state.amount * 100)}
+              currency={"USD"}
               panelLabel={"Donate"}
               label={"Other"}
             /></span>
           </div>
+          {JSON.stringify(this.state.token)}
         </Paper>
       </div>);
   }

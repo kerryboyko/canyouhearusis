@@ -2,14 +2,15 @@
 // REQUIREMENTS
 // ******************
 
-var port = process.env.PORT || 3000;
-var bodyParser = require('body-parser');
-var express = require('express');
-var cors = require('cors');
-var http = require('http');
-
-var app = express();
-var server = http.Server(app);
+const port = process.env.PORT || 3000;
+const bodyParser = require('body-parser');
+const express = require('express');
+const cors = require('cors');
+const http = require('http');
+let stripeKey = process.env.STRIPE_SECRET_KEY || require('./secrets.js').STRIPE_SECRET_KEY;
+const stripe = require("stripe")(stripeKey);
+const app = express();
+const server = http.Server(app);
 
 server.listen(port, () => {
   console.log('Server is listening on port ' + port);
@@ -32,3 +33,22 @@ app.use('/learn', express.static('./'));
 app.use('/donate', express.static('./'));
 app.use('/thankyou', express.static('./'));
 app.use('/img', express.static('../img'));
+app.get('/api/test', (req, res) => {
+  console.log(req.body);
+  res.send("body" + JSON.stringify(req.body) + "answer: Foo");
+});
+
+app.post('/api/donation', (req, res) => {
+  let charge = stripe.charges.create({
+    currency: 'usd',
+    source: req.body.token.id,
+    amount: req.body.amount,
+    description: "Donation to Can You Hear Us?",
+  }, (err, charge) => {
+    if(err){
+      console.log("ERR", err);
+    } else{
+      res.send("SUCCESS_CHARGE");
+    }
+  });
+});
