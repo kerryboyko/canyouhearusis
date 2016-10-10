@@ -11,6 +11,7 @@ import ShareIcon from 'material-ui/svg-icons/social/share';
 import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'material-ui/SvgIcon';
 import {headline, subheadline} from '../text/heroText';
+import DonateDialog from './DonateDialog';
 const facebookIconSVG = './img/facebookIcon.svg';
 const twitterIconSVG = './img/twitterIcon.svg';
 const logoSVG = './img/logo.svg';
@@ -136,7 +137,7 @@ class Hero extends Component {
           </div>
           <Paper ref="rightContainer" className={css(styles.rightContainer)}>
             <div ref="donateLang" style={{padding: '2vh'}}>
-              <RaisedButton
+              <DonateDialog
                 backgroundColor={palette.iceFlagRed}
                 style={{margin: 'auto', width: '100%', height: '7vh'}}
                 labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}

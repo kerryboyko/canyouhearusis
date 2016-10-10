@@ -16,7 +16,6 @@ import request from 'superagent';
 
 const styles = StyleSheet.create({
   centerMe: {
-    width: '100%',
     margin: 'auto',
     textAlign: 'center',
   },
@@ -25,25 +24,9 @@ const styles = StyleSheet.create({
     padding: '10px',
     fontSize: '14px',
   },
-  thankYou:{
-    fontFamily: "Roboto Condensed",
-    color: palette.white,
-    backgroundColor: palette.iceFlagBlue,
-    padding: '5px',
-    fontSize: '24px',
-
-    textAlign: 'center',
-  },
-
   cashButton: {
     margin: '12px',
     width: '95px',
-  },
-  donateItself: {
-    margin: '2vh auto',
-    borderRadius: '15px',
-    padding: '10px',
-    width: '400px',
   },
   buttonChunk: {
     display: 'flex',
@@ -108,10 +91,6 @@ class Donate extends Component {
 
 
     return(<div className={css(styles.centerMe)}>
-        <Paper className={css(styles.donateItself)} zDepth={5}>
-          <Paper zDepth={1} className={css(styles.thankYou)}>
-            <div>Thank you for your donation!</div>
-          </Paper>
           <div className={css(styles.currencyHeader)}>
             Currency amounts are in {this.props.currency.name}.
           </div>
@@ -130,7 +109,7 @@ class Donate extends Component {
             </div>
           ))}
           <div>
-            <span>$<TextField floatingLabelText={"Other Amount (USD)"} onChange={this.handleAmountChange} value={this.props.amount}/>
+            <span>$<TextField floatingLabelText={" Other Amount (USD)"} onChange={this.handleAmountChange} value={this.props.amount}/>
             <StripeCheckout
               className={css(styles.cashButton)}
               stripeKey='pk_test_2svq4z4MVul7BOQvgdPPvRjV'
@@ -142,7 +121,6 @@ class Donate extends Component {
               label={"Custom Amount"}
             /></span>
           </div>
-        </Paper>
       </div>);
   }
 }
