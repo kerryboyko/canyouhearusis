@@ -3,7 +3,7 @@ import reduxify from 'reduxify';
 import * as actions from '../actions/index';
 import palette from '../constants/palette';
 import {StyleSheet, css} from 'aphrodite';
-import ProgressMeter from '../components/ProgressMeter'
+import ProgressMeter from '../components/ProgressMeter';
 
 class ProgressBar extends Component {
   constructor(props){

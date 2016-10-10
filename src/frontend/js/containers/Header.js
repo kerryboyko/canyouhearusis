@@ -29,6 +29,9 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import {StyleSheet, css} from 'aphrodite';
 import {browserHistory} from 'react-router';
 
+import DonateDialog from './DonateDialog';
+
+
 
 const styles = StyleSheet.create({
   buttonStyle: {
@@ -119,11 +122,11 @@ class Header extends Component {
           />
 
         </IconMenu>
-        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} onClick={this.handleHomeButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Home" />
-        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} onClick={this.handleLearnButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Learn" />
-        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} onClick={this.handleAboutButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="About" />
-        <FlatButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} hoverColor={palette.redHighlight} onClick={this.handleConstitutionButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="The&nbsp;Constitution" />
-        <FlatButton className={css(styles.buttonStyle)} backgroundColor={palette.iceFlagRed} hoverColor={palette.redHighlight} style={{color: palette.white }} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Donate" />
+        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleHomeButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Home" />
+        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleLearnButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Learn" />
+        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleAboutButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="About" />
+        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleConstitutionButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="The&nbsp;Constitution" />
+        <DonateDialog backgroundColor={palette.iceFlagRed} style={Object.assign(styles.buttonStyle, {margin: '10px 6px'})} labelStyle={{fontWeight: '900', color: palette.white, fontFamily: "Roboto Condensed"}} label="Donate" />
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>
           <IconMenu

@@ -51,7 +51,6 @@ const styles = StyleSheet.create({
     flexFlow: 'flex-start',
     alignItems: 'flex-start',
     alignContent: 'flex-start',
-    flexDirection: 'row',
     '@media (max-width: 800px)': {
       flexDirection: 'column',
       // paddingBottom: '56.25%',

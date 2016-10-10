@@ -15,6 +15,7 @@ import SvgIcon from 'material-ui/SvgIcon';
 import LearnPoint from './LearnPoint';
 import aboutTexts from '../text/aboutTexts'; // text.
 import Header from './Header';
+import DonateDialog from './DonateDialog';
 
 const styles = StyleSheet.create({
   aboutStyle: {
@@ -58,9 +59,9 @@ class About extends Component {
           {aboutTexts.map((pgraph) => (<div className={css(styles.textStyle)}>{pgraph[this.props.language]}</div>))}
         </div>
         <div className={css(styles.buttonStyle)}>
-          <RaisedButton
+        <DonateDialog
           backgroundColor={palette.iceFlagRed}
-          style={{margin: 'auto', height: '7vh'}}
+          style={{margin: 'auto', width: '100%', height: '7vh'}}
           labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
           label="Donate"
           />
