@@ -130,7 +130,7 @@ class Donate extends Component {
             </div>
           ))}
           <div>
-            <span>$<TextField hintText={'0.00'} floatingLabelText={"Enter a different amount"} onChange={this.handleAmountChange} value={this.props.amount}/>
+            <span>$<TextField floatingLabelText={"You can choose a custom amount here"} onChange={this.handleAmountChange} value={this.props.amount}/>
             <StripeCheckout
               className={css(styles.cashButton)}
               stripeKey='pk_test_2svq4z4MVul7BOQvgdPPvRjV'
@@ -139,10 +139,9 @@ class Donate extends Component {
               token={(token) => this.onToken(token, this.state.amount * 100)}
               currency={"USD"}
               panelLabel={"Donate"}
-              label={"Other"}
+              label={"Custom Amount"}
             /></span>
           </div>
-          {JSON.stringify(this.state.token)}
         </Paper>
       </div>);
   }

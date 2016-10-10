@@ -56,7 +56,7 @@ class Header extends Component {
     this.handleConstitutionButton = this.handleConstitutionButton.bind(this);
     this.languageDivProps = _.pick(props, ['language']);
     this.state = {
-     value: 3,
+      value: 3,
     };
 
   }
