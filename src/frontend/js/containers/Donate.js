@@ -119,7 +119,7 @@ class Donate extends Component {
             <div className={css(styles.buttonChunk)}>
               {chunk.map((amount) => (<div><StripeCheckout
                 className={css(styles.cashButton)}
-                stripeKey={process.env.STRIPE_PUBLIC_KEY}
+                stripeKey='pk_test_2svq4z4MVul7BOQvgdPPvRjV'
                 amount={amount}
                 panelLabel={"Donate"}
                 allowRememberMe
@@ -130,10 +130,10 @@ class Donate extends Component {
             </div>
           ))}
           <div>
-            <span>$<TextField floatingLabelText={"You can choose a custom amount here"} onChange={this.handleAmountChange} value={this.props.amount}/>
+            <span>$<TextField floatingLabelText={"Other Amount (USD)"} onChange={this.handleAmountChange} value={this.props.amount}/>
             <StripeCheckout
               className={css(styles.cashButton)}
-              stripeKey={process.env.STRIPE_PUBLIC_KEY}
+              stripeKey='pk_test_2svq4z4MVul7BOQvgdPPvRjV'
               amount={this.state.amount * 100}
               allowRememberMe
               token={(token) => this.onToken(token, this.state.amount * 100)}
