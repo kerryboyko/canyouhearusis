@@ -85,7 +85,7 @@ app.post('/api/donation', (req, res) => {
   }, (err, charge) => {
     if(err){
       console.log("ERR", err);
-    } else{
+    } else {
       // TODO: KNOWN BUG - Sending thank you e-mails currently doesn't work as
       // the canyouhearus.is domain is not set up yet.
       // sendThankYou(charge.source.name, charge.amount, charge.currency);
