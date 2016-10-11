@@ -1,17 +1,9 @@
 import React, {Component} from 'react';
 import reduxify from 'reduxify';
 import * as actions from '../actions/index';
-import palette from '../constants/palette';
-import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import TextField from 'material-ui/TextField';
-import CloseIcon from 'material-ui/svg-icons/navigation/close';
 import Dialog from 'material-ui/Dialog';
-import StripeCheckout from 'react-stripe-checkout';
-import {StyleSheet, css} from 'aphrodite';
-import _ from 'lodash';
-
 import Donate from './Donate';
 
 class DonateDialog extends Component {

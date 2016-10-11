@@ -4,31 +4,17 @@ import * as actions from '../actions/index';
 import React, {Component} from 'react';
 import _ from 'lodash';
 
-import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import HamburgerIcon from 'material-ui/svg-icons/navigation/menu';
 import LanguageIcon from 'material-ui/svg-icons/action/language';
 import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
-import Slider from 'material-ui/Slider';
 
-import {Link} from 'react-router';
-
-import FontIcon from 'material-ui/FontIcon';
-import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
-import DropDownMenu from 'material-ui/DropDownMenu';
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
-
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 import palette from '../constants/palette';
-
-import {Tabs, Tab} from 'material-ui/Tabs';
+import {Tab} from 'material-ui/Tabs';
 import {StyleSheet, css} from 'aphrodite';
-import {browserHistory} from 'react-router';
-
 import DonateDialog from './DonateDialog';
 import labels from '../text/labels';
 

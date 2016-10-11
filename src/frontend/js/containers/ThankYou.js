@@ -1,20 +1,11 @@
 import reduxify from '../utilities/reduxify';
 import * as actions from '../actions/index';
 import React, {Component} from 'react';
-import ReactDOM, {findDOMNode} from 'react-dom';
 import {StyleSheet, css} from 'aphrodite';
-import _ from 'lodash';
 import palette from '../constants/palette';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-import ShareIcon from 'material-ui/svg-icons/social/share';
-import facebookIconSVG from '../../img/facebookIcon.svg';
-import twitterIconSVG from '../../img/twitterIcon.svg';
-import IconButton from 'material-ui/IconButton';
-import SvgIcon from 'material-ui/SvgIcon';
-import LearnPoint from './LearnPoint';
 import thankYou from '../text/thankYou'; // text.
-import Header from './Header';
 import Social from './Social';
 
 const styles = StyleSheet.create({
