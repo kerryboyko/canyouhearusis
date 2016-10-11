@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     marginRight: '1vw',
     width: '45vw',
     textAlign: 'left',
-    '@media (max-width:800px)': {
+    '@media (max-width:800px and max-device-width:800px)': {
       float: 'none',
       marginRight: '0',
       textAlign: 'center',
@@ -97,7 +97,8 @@ const styles = StyleSheet.create({
   subheadline: {
     color: 'white',
     fontFamily: 'Roboto',
-    fontSize: '20px',
+    fontWeight: '300',
+    fontSize: "26px",
     padding: '3vw',
   },
   videoWrapper : {

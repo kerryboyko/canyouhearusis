@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontFamily: "Roboto",
-    // textAlign: 'left',
+    fontWeight: '300',
     color: palette.white,
-    fontSize: "20px",
-    lineHeight: "24px",
-    marginBottom: "24px",
+    fontSize: "26px",
+    lineHeight: "30px",
+    marginBottom: "30px",
   },
   headlineStyle: {
     fontFamily: "Roboto Condensed",

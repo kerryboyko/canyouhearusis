@@ -29,9 +29,9 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontFamily: "Roboto",
-    // textAlign: 'left',
+    fontWeight: '300',
     color: palette.white,
-    fontSize: "20px",
+    fontSize: "26px",
     lineHeight: "24px",
     marginBottom: "24px",
   },

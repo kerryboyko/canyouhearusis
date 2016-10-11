@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   subheadline: {
     color: 'white',
     fontFamily: 'Roboto',
+    fontWeight: '300',
     fontSize: '2vw',
     margin: '2vh 4vw',
   },
