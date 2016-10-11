@@ -54,6 +54,7 @@ class Donate extends Component {
     request
       .post('/api/donation')
       .send({token, amount})
+      .auth()
       .end((err, res) => {
         if (err) {
           console.log("ERR", err);
