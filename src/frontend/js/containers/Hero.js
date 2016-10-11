@@ -12,10 +12,10 @@ import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'material-ui/SvgIcon';
 import {headline, subheadline} from '../text/heroText';
 import DonateDialog from './DonateDialog';
-const facebookIconSVG = './img/facebookIcon.svg';
-const twitterIconSVG = './img/twitterIcon.svg';
+const facebookIconSVG = '../../img/facebookIcon.svg';
+const twitterIconSVG = '../../img/twitterIcon.svg';
 const logoSVG = './img/logo.svg';
-
+const logoISSVG = './img/logo-is.svg';
 
 const TwitterIcon = (props) => (<img {...props} src={twitterIconSVG} />);
 const FacebookIcon = (props) => (<img {...props} src={facebookIconSVG} />);
@@ -133,7 +133,7 @@ class Hero extends Component {
       <Paper className={css(styles.heroStyle)} zDepth={1} >
         <div className={css(styles.wrapper)}>
           <div ref="leftContainer" className={css(styles.headlineStyle, styles.leftContainer)}>
-              <img src={logoSVG} className={css(styles.logo)}/>
+              <img src={(this.props.language === "EN") ? logoSVG : logoISSVG } className={css(styles.logo)}/>
           </div>
           <Paper ref="rightContainer" className={css(styles.rightContainer)}>
             <div ref="donateLang" style={{padding: '2vh'}}>

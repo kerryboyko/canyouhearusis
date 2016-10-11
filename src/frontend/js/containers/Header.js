@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
   }
 });
 
-const icelandFlagSVG = './img/icelandFlag.svg';
-const englishFlagSVG = './img/englishFlag.svg';
+const icelandFlagSVG = '../../img/icelandFlag.svg';
+const englishFlagSVG = '../../img/englishFlag.svg';
 
 class Header extends Component {
   constructor(props){

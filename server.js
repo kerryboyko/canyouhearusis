@@ -33,7 +33,8 @@ app.use('/constitution', express.static('./'));
 app.use('/learn', express.static('./'));
 app.use('/donate', express.static('./'));
 app.use('/thankyou', express.static('./'));
-app.use('/img', express.static('../img'));
+app.use('/img', express.static('./src/frontend/img'));
+
 app.get('/api/test', (req, res) => {
   console.log(req.body);
   res.send("body" + JSON.stringify(req.body) + "answer: Foo");
