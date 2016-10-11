@@ -15,6 +15,7 @@ import SvgIcon from 'material-ui/SvgIcon';
 import LearnPoint from './LearnPoint';
 import thankYou from '../text/thankYou'; // text.
 import Header from './Header';
+import Social from './Social';
 
 const styles = StyleSheet.create({
   aboutStyle: {

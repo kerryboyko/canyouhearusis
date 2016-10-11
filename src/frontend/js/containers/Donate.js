@@ -13,6 +13,8 @@ import {StyleSheet, css} from 'aphrodite';
 import _ from 'lodash';
 import request from 'superagent';
 
+const PUBLIC_KEY = 'pk_test_2svq4z4MVul7BOQvgdPPvRjV';
+
 
 const styles = StyleSheet.create({
   centerMe: {
@@ -54,7 +56,6 @@ class Donate extends Component {
     request
       .post('/api/donation')
       .send({token, amount})
-      .auth()
       .end((err, res) => {
         if (err) {
           console.log("ERR", err);
@@ -99,7 +100,7 @@ class Donate extends Component {
             <div key={"chunk" + i} className={css(styles.buttonChunk)}>
               {chunk.map((amount, i) => (<div key={"amount" + amount}><StripeCheckout
                 className={css(styles.cashButton)}
-                stripeKey='pk_test_2svq4z4MVul7BOQvgdPPvRjV'
+                stripeKey={PUBLIC_KEY}
                 amount={amount}
                 panelLabel={"Donate"}
                 allowRememberMe
@@ -113,7 +114,7 @@ class Donate extends Component {
             <span>$<TextField floatingLabelText={" Other Amount (USD)"} onChange={this.handleAmountChange} value={this.props.amount}/>
             <StripeCheckout
               className={css(styles.cashButton)}
-              stripeKey='pk_test_2svq4z4MVul7BOQvgdPPvRjV'
+              stripeKey={PUBLIC_KEY}
               amount={this.state.amount * 100}
               allowRememberMe
               token={(token) => this.onToken(token, this.state.amount * 100)}

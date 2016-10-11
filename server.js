@@ -9,10 +9,10 @@ const express = require('express');
 const cors = require('cors');
 const http = require('http');
 const fs = require('fs');
-let stripeKey;
-if (process.env.STRIPE_SECRET_KEY){
-  stripeKey = process.env.STRIPE_SECRET_KEY;
-} else if (fs.accessSync('./secrets.js')) {
+// use the key from the server, or if we're in local dev, from the secrets.js
+// file that I have not shared to Github for obvious reasons.
+let stripeKey = process.env.STRIPE_SECRET_KEY;
+if (!process.env.STRIPE_SECRET_KEY){
   stripeKey = require('./secrets.js').STRIPE_SECRET_KEY;
 }
 const stripe = require("stripe")(stripeKey);
