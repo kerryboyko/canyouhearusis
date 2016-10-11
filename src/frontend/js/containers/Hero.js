@@ -1,19 +1,15 @@
 import reduxify from '../utilities/reduxify';
 import * as actions from '../actions/index';
 import React, {Component} from 'react';
-import ReactDOM, {findDOMNode} from 'react-dom';
 import {StyleSheet, css} from 'aphrodite';
-import _ from 'lodash';
 import palette from '../constants/palette';
 import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
-import IconButton from 'material-ui/IconButton';
-import SvgIcon from 'material-ui/SvgIcon';
 import {headline, subheadline} from '../text/heroText';
 import labels from '../text/labels';
-
 import DonateDialog from './DonateDialog';
 import Social from './Social';
+
+
 const facebookIconSVG = '../../img/facebookIcon.svg';
 const twitterIconSVG = '../../img/twitterIcon.svg';
 const logoSVG = './img/logo.svg';
