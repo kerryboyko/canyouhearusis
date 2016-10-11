@@ -21,13 +21,15 @@ import Social from './Social';
 const styles = StyleSheet.create({
   aboutStyle: {
     minHeight: 'calc(96vh - 56px)',
-    backgroundColor: palette.heroBackground,
+    backgroundColor: palette.transparent,
     width: '100%',
     padding: '3vw',
   },
   container: {
     maxWidth: '800px',
-    margin: '0 auto'
+    padding: '2vw',
+    margin: '0 auto',
+    backgroundColor: palette.heroBackground,
   },
   textStyle: {
     fontFamily: "Roboto",
@@ -56,9 +58,9 @@ class About extends Component {
   render () {
     return (<div>
       <Paper className={css(styles.aboutStyle)} zDepth={1} >
-        <div className={css(styles.container)}>
+        <Paper zDepth={5} className={css(styles.container)}>
           {aboutTexts.map((pgraph, index) => (<div key={'pgraph' + index} className={css(styles.textStyle)}>{pgraph[this.props.language]}</div>))}
-        </div>
+        </Paper>
         <div className={css(styles.buttonStyle)}>
         <DonateDialog
           backgroundColor={palette.iceFlagRed}

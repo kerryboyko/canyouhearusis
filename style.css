@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html {
+  background-blend-mode: darken;
+  transition: 6s;
+}
+
 body {
   font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }

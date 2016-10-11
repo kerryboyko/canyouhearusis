@@ -24,13 +24,15 @@ import Social from './Social';
 
 const styles = StyleSheet.create({
   constitutionStyle: {
-    backgroundColor: palette.learnBackground,
+    backgroundColor: palette.transparent,
     width: '100%',
     padding: '3vw',
   },
   container: {
     maxWidth: '800px',
-    margin: '0 auto'
+    padding: '2vw',
+    margin: '0 auto',
+    backgroundColor: palette.heroBackground,
   },
   textStyle: {
     fontFamily: "Roboto",

@@ -22,7 +22,7 @@ const FacebookIcon = (props) => (<img {...props} src={facebookIconSVG} />);
 
 const styles = StyleSheet.create({
   heroStyle: {
-    backgroundColor: palette.heroBackground,
+    backgroundColor: palette.transparent,
     width: '100%',
     paddingBottom: '100px',
   },
@@ -96,6 +96,9 @@ const styles = StyleSheet.create({
   },
   subheadline: {
     color: 'white',
+    backgroundColor: palette.heroBackground,
+    width: '80%',
+    margin: 'auto',
     fontFamily: 'Roboto',
     fontWeight: '300',
     fontSize: "26px",
@@ -152,9 +155,9 @@ class Hero extends Component {
             <Social transparent={true}/>
           </Paper>
         </div>
-        <div className={css(styles.subheadline)}>
+        <Paper className={css(styles.subheadline)}>
           {subheadline[this.props.language]}
-        </div>
+        </Paper>
       </Paper>
     </div>
     );

@@ -99,11 +99,11 @@ class LearnPoint extends Component {
   render () {
     return (
           <Paper className={css(styles.videoPaper)} zDepth={3}>
-            <div style={{border: '1px dashed #888'}} className={css(styles.videoAndTextWrapper)}>
-              <div style={{border: '1px dashed #888'}} ref="video" className={css(styles.videoWrapper)}>
+            <div className={css(styles.videoAndTextWrapper)}>
+              <div  ref="video" className={css(styles.videoWrapper)}>
                 <iframe className={css(styles.videoWrapperIframe)} src={this.props.point.video} width="640" height="360" allowFullScreen></iframe>
               </div>
-              <div className={css(styles.videoText)} style={{border: '1px dashed #888'}}>
+              <div className={css(styles.videoText)} >
                 <div className={css(styles.pointHead)}>
                   {this.props.point.head[this.props.language]}
                 </div>

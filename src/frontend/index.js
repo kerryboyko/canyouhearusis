@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Provider } from 'react-redux';
 import store, {routeTo} from './js/store/configureStore';
 import App from './js/containers/App';
@@ -12,6 +13,12 @@ import TheConstitution from './js/containers/TheConstitution';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer, push} from 'react-router-redux';
+import {StyleSheet, css} from 'aphrodite';
+
+const ANDERS_JILDEN = '../../img/Anders_Jilden.jpg';
+const KALLE_K = '../../img/Kalle_K.jpg';
+const TJ_HOLOWAYCHUK = '../../img/TJ_Holowaychuk.jpg';
+
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -22,7 +29,6 @@ const MOUNT_NODE = document.getElementById('root');
 
 export default class Root extends Component {
   render() {
-    console.log(push('foo'))
     const { store } = this.props;
     return (
       <Provider routeTo={routeTo} store={store}>
@@ -35,7 +41,6 @@ export default class Root extends Component {
               <Route path="constitution" component={TheConstitution}/>
               <Route path="donate" component={Donate}/>
               <Route path="thankyou" component={ThankYou}/>
-
             </Route>
           </Router>
       </Provider>
@@ -45,3 +50,43 @@ export default class Root extends Component {
 
 
 ReactDOM.render(<Root store={store} />, MOUNT_NODE);
+
+const backgroundStyles = StyleSheet.create({
+  fixedBackground: {
+    position:'fixed',
+    width:'100vh',
+    height:'100vh',
+    overflow:'hidden',
+  },
+  picture: {
+    position: 'absolute',
+    width: '100%',
+    height: 'auto',
+    top: '50%',
+    transform: 'translateY(-50%)'
+  }
+});
+
+const bgImageArray = [ANDERS_JILDEN, KALLE_K, TJ_HOLOWAYCHUK];
+
+bgImageArray.forEach(function(img){
+  new Image().src = img;
+  // caches images, avoiding white flash between background replacements
+});
+
+document.documentElement.style.background = 'url(' + bgImageArray[2] + ") no-repeat center center fixed";
+document.documentElement.style.backgroundSize = "cover";
+
+const backgroundSequence = (index = 0) => {
+  setTimeout(() => {
+    document.documentElement.style.background = 'url(' + bgImageArray[index] + ") no-repeat center center fixed";
+    document.documentElement.style.backgroundSize = "cover";
+    if( index + 1 >= bgImageArray.length){
+      setTimeout(() => backgroundSequence(0), 7000);
+    } else {
+      setTimeout(() => backgroundSequence(index + 1), 7000);
+    }
+  }, 7000);
+};
+
+backgroundSequence();
