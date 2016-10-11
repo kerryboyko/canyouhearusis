@@ -10,6 +10,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'material-ui/SvgIcon';
 import {headline, subheadline} from '../text/heroText';
+import labels from '../text/labels';
+
 import DonateDialog from './DonateDialog';
 import Social from './Social';
 const facebookIconSVG = '../../img/facebookIcon.svg';
@@ -145,7 +147,7 @@ class Hero extends Component {
                 backgroundColor={palette.iceFlagRed}
                 style={{margin: 'auto', width: '100%', height: '7vh'}}
                 labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
-                label="Donate"
+                label={labels.donate[this.props.language]}
                 />
 
             </div>

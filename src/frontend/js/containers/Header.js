@@ -30,6 +30,7 @@ import {StyleSheet, css} from 'aphrodite';
 import {browserHistory} from 'react-router';
 
 import DonateDialog from './DonateDialog';
+import labels from '../text/labels';
 
 
 
@@ -100,27 +101,27 @@ class Header extends Component {
           anchorOrigin={{horizontal: 'right', vertical: 'top'}}
         >
           <MenuItem
-            primaryText={"Home"}
+            primaryText={labels.home[this.props.language]}
             value="/"
           />
           <MenuItem
-            primaryText={"Learn"}
+            primaryText={labels.learn[this.props.language]}
             value="/learn"
           />
           <MenuItem
-            primaryText={"About"}
+            primaryText={labels.about[this.props.language]}
             value="/about"
           />
           <MenuItem
-            primaryText={"The Constitution"}
+            primaryText={labels.theConstitution[this.props.language]}
             value="/constitution"
           />
         </IconMenu>
-        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleHomeButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Home" />
-        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleLearnButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="Learn" />
-        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleAboutButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="About" />
-        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleConstitutionButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label="The&nbsp;Constitution" />
-        <DonateDialog backgroundColor={palette.iceFlagRed} style={Object.assign(styles.buttonStyle, {margin: '10px 6px'})} labelStyle={{fontWeight: '900', color: palette.white, fontFamily: "Roboto Condensed"}} label="Donate" />
+        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleHomeButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.home[this.props.language]} />
+        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleLearnButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.learn[this.props.language]} />
+        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleAboutButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.about[this.props.language]} />
+        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleConstitutionButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.theConstitution[this.props.language]} />
+        <DonateDialog backgroundColor={palette.iceFlagRed} style={Object.assign(styles.buttonStyle, {margin: '10px 6px'})} labelStyle={{fontWeight: '900', color: palette.white, fontFamily: "Roboto Condensed"}} label={labels.donate[this.props.language]} />
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>
           <IconMenu

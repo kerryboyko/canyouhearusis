@@ -17,6 +17,7 @@ import aboutTexts from '../text/aboutTexts'; // text.
 import Header from './Header';
 import DonateDialog from './DonateDialog';
 import Social from './Social';
+import labels from '../text/labels';
 
 const styles = StyleSheet.create({
   aboutStyle: {
@@ -66,7 +67,7 @@ class About extends Component {
           backgroundColor={palette.iceFlagRed}
           style={{margin: 'auto', marginTop: '20px', marginBottom: '20px', width: '25%', height: '7vh'}}
           labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
-          label="Donate"
+          label={labels.donate[this.props.language]}
           />
         </div>
         <Social />

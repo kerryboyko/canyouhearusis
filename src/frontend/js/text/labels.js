@@ -1,23 +1,23 @@
 export default {
-  DONATE: {
+  donate: {
     EN: "Donate",
-    IS: "etanod",
+    IS: "Styðja",
   },
-  HOME: {
+  home: {
     EN: "Home",
-    IS: "emoh",
+    IS: "Heim",
   },
-  ABOUT: {
+  about: {
     EN: "About",
-    IS: "tuoba",
+    IS: "Um",
   },
-  THE_CONSTITUTION: {
+  theConstitution: {
     EN: "The Constitution",
-    IS: "noitutitsnoc eht",
+    IS: "Stjórnarskráin",
   },
-  LEARN: {
+  learn: {
     EN: "Learn",
-    IS: "nrael",
+    IS: "Læra",
   },
 
 };

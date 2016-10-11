@@ -94,9 +94,9 @@ class Donate extends Component {
           <div className={css(styles.currencyHeader)}>
             Currency amounts are in {this.props.currency.name}.
           </div>
-          {_.chunk(this.props.currency.amounts, 3).map((chunk) => (
-            <div className={css(styles.buttonChunk)}>
-              {chunk.map((amount) => (<div><StripeCheckout
+          {_.chunk(this.props.currency.amounts, 3).map((chunk, i) => (
+            <div key={"chunk" + i} className={css(styles.buttonChunk)}>
+              {chunk.map((amount, i) => (<div key={"amount" + amount}><StripeCheckout
                 className={css(styles.cashButton)}
                 stripeKey='pk_test_2svq4z4MVul7BOQvgdPPvRjV'
                 amount={amount}
