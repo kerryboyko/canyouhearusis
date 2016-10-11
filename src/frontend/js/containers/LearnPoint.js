@@ -1,9 +1,7 @@
 import reduxify from '../utilities/reduxify';
 import * as actions from '../actions/index';
 import React, {Component} from 'react';
-import ReactDOM, {findDOMNode} from 'react-dom';
 import {StyleSheet, css} from 'aphrodite';
-import _ from 'lodash';
 import palette from '../constants/palette';
 import Paper from 'material-ui/Paper';
 

@@ -2,7 +2,6 @@ import reduxify from '../utilities/reduxify';
 import * as actions from '../actions/index';
 import React, {Component} from 'react';
 import IconButton from 'material-ui/IconButton';
-import Dialog from 'material-ui/Dialog';
 import Paper from 'material-ui/Paper';
 
 
