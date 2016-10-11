@@ -49,6 +49,32 @@ app.get('/api/test', (req, res) => {
   res.send("body" + JSON.stringify(req.body) + "answer: Foo");
 });
 
+
+var transporter = nodemailer.createTransport('smtps://brian.boyko@gmail.com:LiberTango1@smtp.gmail.com');
+
+const makeEmailText = (amount, currency) => "Thank you for your donation / Takk fyrir að styðja nýja stjórnarskrá og lýðræðið í landinu okkar." +
+'\n\n' + 'Your Donation / Styðja: ' + (currency === 'usd' ? "$" + (amount / 100) : (amount/100) ) +  " " + currency.toUpperCase() +
+'\n\n' + '-- CanYouHearUs.is';
+
+const sendThankYou = (to, amount, currency) => {
+
+  let mailOptions = {
+    from: '"Can You Hear Us" <thankyou@canyouhearus.is>', // sender address
+    to: to, // list of receivers
+    subject: 'Thank you/Takk! (CAN YOU HEAR US? / HEYRIÐI Í OKKUR?)',
+    text: makeEmailText(amount, currency), // plaintext body
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+      //return console.log(error);
+    }
+    //console.log('Message sent: ' + info.response);
+  });
+
+};
+
+
 // to integrate with stripe.
 app.post('/api/donation', (req, res) => {
   let charge = stripe.charges.create({
@@ -60,29 +86,10 @@ app.post('/api/donation', (req, res) => {
     if(err){
       console.log("ERR", err);
     } else{
-      console.log(charge);
+      // TODO: KNOWN BUG - Sending thank you e-mails currently doesn't work as
+      // the canyouhearus.is domain is not set up yet.
+      // sendThankYou(charge.source.name, charge.amount, charge.currency);
       res.send("SUCCESS_CHARGE");
     }
   });
 });
-//
-// // mailer
-// // create reusable transporter object using the default SMTP transport
-// var transporter = nodemailer.createTransport('smtps://user%40gmail.com:pass@smtp.gmail.com');
-//
-// // setup e-mail data with unicode symbols
-// var mailOptions = {
-//   from: '"Fred Foo 👥" <foo@blurdybloop.com>', // sender address
-//   to: 'bar@blurdybloop.com, baz@blurdybloop.com', // list of receivers
-//   subject: 'Hello ✔', // Subject line
-//   text: 'Hello world 🐴', // plaintext body
-//   html: '<b>Hello world 🐴</b>' // html body
-// };
-//
-// // send mail with defined transport object
-// transporter.sendMail(mailOptions, function(error, info){
-//   if(error){
-//     return console.log(error);
-//   }
-//   console.log('Message sent: ' + info.response);
-// });
