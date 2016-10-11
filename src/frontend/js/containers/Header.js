@@ -99,10 +99,10 @@ class Header extends Component {
           targetOrigin={{horizontal: 'right', vertical: 'top'}}
           anchorOrigin={{horizontal: 'right', vertical: 'top'}}
         >
-          <Link><MenuItem
+          <MenuItem
             primaryText={"Home"}
             value="/"
-          /></Link>
+          />
           <MenuItem
             primaryText={"Learn"}
             value="/learn"
@@ -127,7 +127,14 @@ class Header extends Component {
             style={{marginLeft: '0.5vw', marginRight: '0.5vw', marginTop: '0.5vh'}}
 
             onChange={this.handleLanguageChange}
-            iconButtonElement={<div style={{display:'flex', alignItems: 'center', color: palette.white}}><img height={'20px'} width={'35px'} style={{marginRight: '1vw'}} src={this.props.language === 'IS' ? icelandFlagSVG : englishFlagSVG}/>{this.props.language}<IconButton><LanguageIcon color="white"/></IconButton></div>
+            iconButtonElement={
+              <div style={{display:'flex', alignItems: 'center', color: palette.white}}>
+                <img height={'20px'} width={'35px'} style={{marginRight: '1vw'}} src={this.props.language === 'IS' ? icelandFlagSVG : englishFlagSVG}/>
+                {this.props.language}
+                <IconButton>
+                  <LanguageIcon color="white"/>
+                </IconButton>
+              </div>
             }
             targetOrigin={{horizontal: 'right', vertical: 'top'}}
             anchorOrigin={{horizontal: 'right', vertical: 'top'}}

@@ -65,6 +65,7 @@ class ThankYou extends Component {
           label="Donate"
           />
         </div>
+        <Social />
       </Paper>
     </div>
     );

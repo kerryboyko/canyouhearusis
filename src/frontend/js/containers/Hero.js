@@ -7,11 +7,11 @@ import _ from 'lodash';
 import palette from '../constants/palette';
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
-import ShareIcon from 'material-ui/svg-icons/social/share';
 import IconButton from 'material-ui/IconButton';
 import SvgIcon from 'material-ui/SvgIcon';
 import {headline, subheadline} from '../text/heroText';
 import DonateDialog from './DonateDialog';
+import Social from './Social';
 const facebookIconSVG = '../../img/facebookIcon.svg';
 const twitterIconSVG = '../../img/twitterIcon.svg';
 const logoSVG = './img/logo.svg';
@@ -149,16 +149,7 @@ class Hero extends Component {
             <div ref="video" className={css(styles.videoWrapper)}>
               <iframe className={css(styles.videoWrapperIframe)} src="https://player.vimeo.com/video/7416225?byline=0&portrait=0" width="640" height="360" allowFullScreen></iframe>
             </div>
-            <div style={{ display:'flex', justifyContent: 'center', alignItems: 'center'}}>
-            <span style={{marginRight: '10px'}}>{this.props.language === 'IS' ? "DEILA": "SHARE"}</span>
-            <IconButton>
-              <TwitterIcon width="24px" height="24px"/>
-            </IconButton>
-            <IconButton>
-              <FacebookIcon width="24px" height="24px"/>
-            </IconButton>
-
-            </div>
+            <Social transparent={true}/>
           </Paper>
         </div>
         <div className={css(styles.subheadline)}>

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- for facebook share -->
+  <meta property="og:url"                content="https://canyouhearus.is" />
+  <meta property="og:title"              content="Can You Hear Us Now? Iceland's fight for a new Constitution." />
+  <meta property="og:description"        content="Can You Hear Us Now? Iceland's people are fighting against an unresponsive Parliament that refuses to ratify the constitution that 2/3rds of Icelanders voted for. But you can help." />
+  <meta property="og:image"              content="./img/logo.svg" />
     <title>Can You Hear Us?</title>
     <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
@@ -9,5 +14,13 @@
   <div id="root">
   </div>
     <script type="text/javascript" src="./dist/bundle.js"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1805504773050740";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
