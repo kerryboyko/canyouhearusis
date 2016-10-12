@@ -4,10 +4,10 @@
   "description": "Crowdfunding website for canyouhearus.is",
   "main": "index.js",
   "scripts": {
-    "build": "node ./node_modules/.bin/webpack",
+    "pack": "node ./node_modules/.bin/webpack",
+    "build": "npm run pack && ./node_modules/.bin/babel backend -d backdist",
     "start": "npm run build && node server.js",
-    "devstart": "npm run build && nodemon server.js",
-    "testrepl": "./node_modules/.bin/babel src -d dist && node ./dist/testRepl.js"
+    "devstart": "npm run build && nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -43,6 +43,7 @@
     "jsx-loader": "^0.13.2",
     "lodash": "^4.16.1",
     "material-ui": "^0.15.4",
+    "mongodb": "^2.2.10",
     "nodemailer": "^2.6.4",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",

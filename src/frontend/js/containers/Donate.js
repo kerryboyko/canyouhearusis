@@ -9,6 +9,8 @@ import StripeCheckout from 'react-stripe-checkout';
 import {StyleSheet, css} from 'aphrodite';
 import _ from 'lodash';
 import request from 'superagent';
+const poweredByStripeSVG = '../../img/powered_by_stripe.svg';
+import LinearProgress from 'material-ui/LinearProgress';
 
 const PUBLIC_KEY = 'pk_test_2svq4z4MVul7BOQvgdPPvRjV';
 
@@ -32,6 +34,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'left',
+  },
+  poweredBy: {
+    float: 'right',
+    width: '80px'
   }
 });
 
@@ -40,60 +46,48 @@ class Donate extends Component {
     super(props);
     this.state = {
       amount: 0,
-      open: false,
-      token: null,
+      isValidAmount: false,
     };
     this.handleAmountChange = this.handleAmountChange.bind(this);
-    this.handleOpen = this.handleOpen.bind(this);
-    this.handleClose = this.handleClose.bind(this);
     this.onToken = this.onToken.bind(this);
   }
 
+
+
   onToken (token, amount) {
+    this.props.actions.setProcessing(true);
     request
       .post('/api/donation')
       .send({token, amount})
       .end((err, res) => {
+        this.setState({open:false});
         if (err) {
           console.log("ERR", err);
           alert(err);
         } else {
+          this.props.actions.setProcessing(false);
+          this.props.closeCallback();
           this.props.actions.push('/thankyou');
         }
       });
   }
 
-
-  handleOpen () {
-    this.setState({open:true});
-  }
-
-  handleClose (){
-    this.setState({open: false});
-  }
-
   handleAmountChange (event, value) {
-    if(!isNaN(value)){
-      this.setState({amount: value});
+    if(!isNaN(value) && value >= 1){
+      this.setState({amount: value, isValidAmount: true});
+    } else {
+      this.setState({isValidAmount: false});
     }
   }
   render(){
-    const actions = [
-      (<FlatButton
-        label="Cancel"
-        primary={true}
-        icon={<CloseIcon color={palette.iceFlagRed} />}
-        onTouchTap={this.handleClose}
-        labelColor={palette.iceFlagRed}
-      />)
-    ];
 
 
     return(<div className={css(styles.centerMe)}>
           <div className={css(styles.currencyHeader)}>
-            Currency amounts are in {this.props.currency.name}.
+            <a href="https://stripe.com/"><img src={poweredByStripeSVG} className={css(styles.poweredBy)}/></a>
+            { this.props.processing ? (<div>Processing...<br /><LinearProgress mode="indeterminate" /></div>) : ("Currency amounts are in " + this.props.currency.name + ".")}
           </div>
-          {_.chunk(this.props.currency.amounts, 3).map((chunk, i) => (
+          {this.props.processing ? null : _.chunk(this.props.currency.amounts, 3).map((chunk, i) => (
             <div key={"chunk" + i} className={css(styles.buttonChunk)}>
               {chunk.map((amount, i) => (<div key={"amount" + amount}><StripeCheckout
                 className={css(styles.cashButton)}
@@ -107,21 +101,23 @@ class Donate extends Component {
               /></div>))}
             </div>
           ))}
-          <div>
-            <span>$<TextField floatingLabelText={" Other Amount (USD)"} onChange={this.handleAmountChange} value={this.props.amount}/>
-            <StripeCheckout
-              className={css(styles.cashButton)}
-              stripeKey={PUBLIC_KEY}
-              amount={this.state.amount * 100}
-              allowRememberMe
-              token={(token) => this.onToken(token, this.state.amount * 100)}
-              currency={"USD"}
-              panelLabel={"Donate"}
-              label={"Custom Amount"}
-            /></span>
-          </div>
+          {this.props.processing ? null : (<div>
+            <span>
+              $<TextField floatingLabelText={" Other Amount (USD)"} onChange={this.handleAmountChange} value={this.props.amount}/>
+              {this.state.isValidAmount ? <StripeCheckout
+                className={css(styles.cashButton)}
+                stripeKey={PUBLIC_KEY}
+                amount={this.props.amount * 100}
+                allowRememberMe
+                token={(token) => this.onToken(token, this.props.amount * 100)}
+                currency={"USD"}
+                panelLabel={"Donate"}
+                label={"Custom Amount"}
+              /> : null }
+            </span>
+          </div>)}
       </div>);
   }
 }
 
-export default reduxify(actions, ['language', 'currency'], Donate);
+export default reduxify(actions, ['language', 'currency', 'processing'], Donate);

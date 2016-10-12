@@ -42,7 +42,7 @@ class ThankYou extends Component {
     return (<div>
       <Paper className={css(styles.aboutStyle)} zDepth={1} >
         <div className={css(styles.container)}>
-          {thankYou.map((pgraph) => (<div className={css(styles.textStyle)}>{pgraph[this.props.language]}</div>))}
+          {thankYou.map((pgraph, i) => (<div key={"pg" + i} className={css(styles.textStyle)}>{pgraph[this.props.language]}</div>))}
         </div>
         <Social />
       </Paper>

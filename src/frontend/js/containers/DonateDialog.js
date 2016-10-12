@@ -6,11 +6,10 @@ import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import Donate from './Donate';
 
-const pwdByStripe = '../../powered_by_stripe.svg';
 const thankYouShort = {
   EN: "Thank You!",
   IS: "Takk!"
-}
+};
 
 class DonateDialog extends Component {
   constructor(props){
@@ -37,7 +36,6 @@ class DonateDialog extends Component {
         label="Cancel"
         onTouchTap={this.handleClose}
         />,
-      <img src={pwdByStripe} width={'80px'}/>
     ];
 
     return (
@@ -57,7 +55,7 @@ class DonateDialog extends Component {
           onRequestClose={this.handleClose}
           style={{width:'480px', left: 'calc(50% - 240px)', zIndex: this.state.zindex}}
         >
-          <Donate />
+          <Donate closeCallback={this.handleClose}/>
         </Dialog>
       </div>
     );
