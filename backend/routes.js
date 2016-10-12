@@ -34,7 +34,14 @@ export const launchRoutes = (server, app) => {
   app.use('/learn', express.static('./'));
   app.use('/donate', express.static('./'));
   app.use('/thankyou', express.static('./'));
+  // app.use('/party', express.static('./'));
+  // app.use('/parties', express.static('./'));
   app.use('/img', express.static('./src/frontend/img'));
+
+  // needed for SSL certification
+  app.get('./.well-known/acme-challenge/dxrA2yKsp00Vq90Z296CGzaKIXTtLO51tg7tPAgPuNA', (req, res) => {
+    res.send("dxrA2yKsp00Vq90Z296CGzaKIXTtLO51tg7tPAgPuNA.roDmRXV7fiBiZGIUr3RBQXbsrGqcco5tY8KeofyYLcw");
+  });
 
   // just a test endpoint.
   app.get('/api/test', (req, res) => {

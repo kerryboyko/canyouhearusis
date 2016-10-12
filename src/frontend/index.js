@@ -18,6 +18,9 @@ const ANDERS_JILDEN = '../../img/Anders_Jilden.jpg';
 const KALLE_K = '../../img/Kalle_K.jpg';
 const TJ_HOLOWAYCHUK = '../../img/TJ_Holowaychuk.jpg';
 
+// temp
+import TheConstitution from './js/containers/Party';
+
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -40,6 +43,8 @@ export default class Root extends Component {
               <Route path="constitution" component={TheConstitution}/>
               <Route path="donate" component={Donate}/>
               <Route path="thankyou" component={ThankYou}/>
+              {/* <Route path="party" component={Party}/> */}
+
             </Route>
           </Router>
       </Provider>
@@ -80,11 +85,7 @@ const backgroundSequence = (index = 0) => {
   setTimeout(() => {
     document.documentElement.style.background = 'url(' + bgImageArray[index] + ") no-repeat center center fixed";
     document.documentElement.style.backgroundSize = "cover";
-    if( index + 1 >= bgImageArray.length){
-      setTimeout(() => backgroundSequence(0), 7000);
-    } else {
-      setTimeout(() => backgroundSequence(index + 1), 7000);
-    }
+    backgroundSequence((index + 1) % 3);
   }, 7000);
 };
 

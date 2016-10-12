@@ -17,28 +17,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
 
   },
-  wrapper: {
-    overflow: 'hidden',
-    padding: '1vw',
-  },
-  headlineStyle: {
-    color: 'white',
-    fontFamily: "Roboto Condensed",
-    fontWeight: '900',
-    fontSize: '15vh',
-    margin: '2vh 0',
-    padding: '1vh 2vw',
-    '@media (max-width: 800px)': {
-      fontSize: '7vh'
-    }
-  },
-  subheadline: {
-    color: 'white',
-    fontFamily: 'Roboto',
-    fontWeight: '300',
-    fontSize: '2vw',
-    margin: '2vh 4vw',
-  },
   videoPaper: {
     backgroundColor: palette.videoPaper,
     margin: '2vh 2vw',
