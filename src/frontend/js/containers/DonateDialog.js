@@ -6,6 +6,12 @@ import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import Donate from './Donate';
 
+const pwdByStripe = '../../powered_by_stripe.svg';
+const thankYouShort = {
+  EN: "Thank You!",
+  IS: "Takk!"
+}
+
 class DonateDialog extends Component {
   constructor(props){
     super(props);
@@ -30,7 +36,8 @@ class DonateDialog extends Component {
       <FlatButton
         label="Cancel"
         onTouchTap={this.handleClose}
-        />
+        />,
+      <img src={pwdByStripe} width={'80px'}/>
     ];
 
     return (
@@ -43,7 +50,7 @@ class DonateDialog extends Component {
           onTouchTap={this.handleOpen}
         />
         <Dialog
-          title="Thank you for your donation!"
+          title={thankYouShort[this.props.language]}
           actions={actions}
           modal={false}
           open={this.state.open}

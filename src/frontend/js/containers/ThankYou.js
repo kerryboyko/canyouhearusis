@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 import {StyleSheet, css} from 'aphrodite';
 import palette from '../constants/palette';
 import Paper from 'material-ui/Paper';
-import RaisedButton from 'material-ui/RaisedButton';
 import thankYou from '../text/thankYou'; // text.
 import Social from './Social';
 
@@ -27,10 +26,6 @@ const styles = StyleSheet.create({
     lineHeight: "24px",
     marginBottom: "24px",
   },
-  buttonStyle: {
-    margin: 'auto',
-    textAlign: 'center',
-  }
 });
 
 
@@ -48,14 +43,6 @@ class ThankYou extends Component {
       <Paper className={css(styles.aboutStyle)} zDepth={1} >
         <div className={css(styles.container)}>
           {thankYou.map((pgraph) => (<div className={css(styles.textStyle)}>{pgraph[this.props.language]}</div>))}
-        </div>
-        <div className={css(styles.buttonStyle)}>
-          <RaisedButton
-          backgroundColor={palette.iceFlagRed}
-          style={{margin: 'auto', height: '7vh'}}
-          labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
-          label="Donate"
-          />
         </div>
         <Social />
       </Paper>
