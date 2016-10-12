@@ -73,7 +73,7 @@ class Donate extends Component {
   }
 
   handleAmountChange (event, value) {
-    if(!isNaN(value) && value >= 1){
+    if(!isNaN(value) && ((this.props.currency === "USD" && value >= 1) || (this.props.currency === "ISK" && value >= 50))) {
       this.setState({amount: value, isValidAmount: true});
     } else {
       this.setState({isValidAmount: false});
