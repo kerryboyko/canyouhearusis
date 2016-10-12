@@ -39,7 +39,7 @@ export const launchRoutes = (server, app) => {
   app.use('/img', express.static('./src/frontend/img'));
 
   // needed for SSL certification
-  app.get('.well-known/acme-challenge/dxrA2yKsp00Vq90Z296CGzaKIXTtLO51tg7tPAgPuNA', (req, res) => {
+  app.get('/.well-known/acme-challenge/dxrA2yKsp00Vq90Z296CGzaKIXTtLO51tg7tPAgPuNA', (req, res) => {
     res.send("dxrA2yKsp00Vq90Z296CGzaKIXTtLO51tg7tPAgPuNA.roDmRXV7fiBiZGIUr3RBQXbsrGqcco5tY8KeofyYLcw");
   });
 
