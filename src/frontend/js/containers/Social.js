@@ -32,12 +32,12 @@ class Social extends Component {
               </IconButton>
             </a>
           </span>
-          <div class="fb-follow" data-href="https://www.facebook.com/Stjornarskrarfelagid/" data-layout="standard" data-size="small" data-show-faces="true"></div>
-      </div>);
+        <div className="fb-follow" data-href="https://www.facebook.com/Stjornarskrarfelagid/" data-layout="button" data-size="small" data-show-faces="true"></div>
+    </div>);
 
     return(
       <div>
-        {this.props.transparent ? mainSocial : (<Paper style={{margin: 'auto', width: '200px'}} zDepth={3}>{mainSocial}</Paper>)}
+        {this.props.transparent ? mainSocial : (<Paper style={{margin: 'auto', maxWidth:'300px'}} zDepth={3}>{mainSocial}</Paper>)}
       </div>
     );
   }
