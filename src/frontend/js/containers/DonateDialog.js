@@ -26,7 +26,7 @@ class DonateDialog extends Component {
     this.componentWillUnmount = this.componentWillUnmount.bind(this);
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.setState({mounted: true});
   }
   componentWillUnmount(){
