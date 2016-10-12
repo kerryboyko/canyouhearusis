@@ -42,6 +42,11 @@ export const launchRoutes = (server, app) => {
     res.send("dxrA2yKsp00Vq90Z296CGzaKIXTtLO51tg7tPAgPuNA.roDmRXV7fiBiZGIUr3RBQXbsrGqcco5tY8KeofyYLcw");
   });
 
+  app.get('/.well-known/acme-challenge/0HlVjM5gXRgqDWOT4wi4oK9w0sY0wDxq0Sgeoq8rsO0', (req, res) => {
+    res.send("dxrA2yKsp00Vq90Z296CGzaKIXTtLO51tg7tPAgPuNA.roDmRXV7fiBiZGIUr3RBQXbsrGqcco5tY8KeofyYLcw");
+  });
+
+
   // just a test endpoint.
   app.get('/api/test', (req, res) => {
     console.log(req.body);
