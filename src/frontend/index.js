@@ -86,11 +86,7 @@ const backgroundSequence = (index = 0) => {
   setTimeout(() => {
     document.documentElement.style.background = 'url(' + bgImageArray[index] + ") no-repeat center center fixed";
     document.documentElement.style.backgroundSize = "cover";
-    if( index + 1 >= bgImageArray.length){
-      setTimeout(() => backgroundSequence(0), 7000);
-    } else {
-      setTimeout(() => backgroundSequence(index + 1), 7000);
-    }
+    backgroundSequence((index + 1) % 3)
   }, 7000);
 };
 
