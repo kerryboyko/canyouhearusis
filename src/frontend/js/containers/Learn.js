@@ -9,87 +9,16 @@ import points from '../text/learnTexts';
 
 
 const styles = StyleSheet.create({
-  learnStyle: {
-    backgroundColor: palette.learnBackground,
-    width: '100%',
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  point: {
-    fontFamily: 'Roboto Condensed',
-    fontWeight: '700',
-
-  },
-  wrapper: {
-    overflow: 'hidden',
-    padding: '1vw',
-  },
-  headlineStyle: {
-    color: 'white',
+  headerPaper: {
+    backgroundColor: palette.iceFlagBlue,
     fontFamily: "Roboto Condensed",
-    fontWeight: '900',
-    fontSize: '15vh',
-    margin: '2vh 0',
+    color: palette.white,
+    textAlign: 'center',
+    fontSize: '26px',
+    margin: '2vh auto',
     padding: '1vh 2vw',
-    '@media (max-width: 800px)': {
-      fontSize: '7vh'
-    }
-  },
-  subheadline: {
-    color: 'white',
-    fontFamily: 'Roboto',
-    fontWeight: '300',
-    fontSize: '2vw',
-    margin: '2vh 4vw',
-  },
-  videoPaper: {
-    backgroundColor: palette.videoPaper,
-    margin: '2vh 2vw',
     width: '90vw',
   },
-  videoAndTextWrapper: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexFlow: 'flex-start',
-    alignItems: 'flex-start',
-    alignContent: 'flex-start',
-    '@media (max-width: 800px)': {
-      flexDirection: 'column',
-      // paddingBottom: '56.25%',
-      /* 16:9 */
-
-      paddingTop: '1vh',
-    },
-  },
-  videoText: {
-    padding: '2vw',
-  },
-  videoWrapper : {
-    padding: '2vw',
-    // justifyContent: 'center',
-    width: '44vw',
-
-    '@media (max-width: 800px)': {
-      position: 'relative',
-      // paddingBottom: '56.25%',
-      /* 16:9 */
-      margin: '2vw',
-      width: 'calc(100% - 2vw)',
-
-      paddingTop: '1vh',
-    },
-  },
-  videoWrapperIframe : {
-    width: 'calc(40vw)',
-    height: 'calc(40vw * (9 / 16))',
-    '@media (max-width: 800px)': {
-      width: 'calc(100% - 2vw)',
-      top: '0',
-      left: '0',
-      height: 'calc(96vw * (9 / 16) )',
-    },
-  },
-
 });
 
 class Learn extends Component {
@@ -98,12 +27,21 @@ class Learn extends Component {
   }
 
   render () {
+
+    const header = (<div>
+      {this.props.language === 'EN' ? <Paper className={css(styles.headerPaper)}>Ten reasons why the new Icelandic constitution must be enacted</Paper> : null}
+      {this.props.language === 'IS' ? <Paper className={css(styles.headerPaper)}>Tíu ástæður fyrir því að nauðsynlegt er að nýja stjórnarskráin taki gildi</Paper> : null}
+      </div>);
+
+    const footer = (<div>
+      {this.props.language === 'EN' ? <Paper className={css(styles.headerPaper)}>More to come...</Paper> : null}
+      {this.props.language === 'IS' ? <Paper className={css(styles.headerPaper)}>Meira væntalegt...</Paper> : null}
+      </div>);
+
     return (<div>
-      <Paper className={css(styles.learnStyle)} zDepth={1} >
-        <div className={css(styles.wrapper)}>
-          {points.map((point, index) => (<LearnPoint key={"point-num-" + index} point={point}/>))}
-        </div>
-      </Paper>
+      {header}
+          {points.map((point, i) => (<LearnPoint pointNumber={10 - i}left={(i % 2 === 0)}key={"point-num-" + i} point={point}/>))}
+      {footer}
     </div>
     );
   }
