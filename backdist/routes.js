@@ -82,9 +82,6 @@ var launchRoutes = exports.launchRoutes = function launchRoutes(server, app) {
         // sendThankYou(charge.source.name, charge.amount, charge.currency);
         var dbInfo = Object.assign(_lodash2.default.pick(charge, ['amount', 'currency', 'created']), { country: charge.source.country, email: charge.source.name });
         (0, _database.addDonation)(dbInfo).then(function (result) {
-          if (result) {
-            console.log(JSON.stringify(result, null, 2));
-          }
           res.send(result);
         }).catch(function (err) {
           console.log("ERR! ", err);

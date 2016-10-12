@@ -1,16 +1,25 @@
-import React, {Component} from 'react';
+import React, {
+  Component
+} from 'react';
 import reduxify from 'reduxify';
 import * as actions from '../actions/index';
 import palette from '../constants/palette';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
+import Paper from 'material-ui/Paper';
+import Divider from 'material-ui/Divider';
 import CloseIcon from 'material-ui/svg-icons/navigation/close';
+import LinearProgress from 'material-ui/LinearProgress';
 import StripeCheckout from 'react-stripe-checkout';
-import {StyleSheet, css} from 'aphrodite';
+import {
+  StyleSheet,
+  css
+} from 'aphrodite';
 import _ from 'lodash';
 import request from 'superagent';
 const poweredByStripeSVG = '../../img/powered_by_stripe.svg';
-import LinearProgress from 'material-ui/LinearProgress';
+const generositySVG = '../../img/generosity.svg';
+
 
 const PUBLIC_KEY = 'pk_test_2svq4z4MVul7BOQvgdPPvRjV';
 
@@ -19,6 +28,10 @@ const styles = StyleSheet.create({
   centerMe: {
     margin: 'auto',
     textAlign: 'center',
+  },
+  twoWays: {
+    textAlign: 'center',
+    fontFamily: "Roboto Condensed",
   },
   currencyHeader: {
     textAlign: 'center',
@@ -36,13 +49,17 @@ const styles = StyleSheet.create({
     alignItems: 'left',
   },
   poweredBy: {
-    float: 'right',
     width: '80px'
+  },
+  paperPad: {
+    marginTop: '1vh',
+    marginBottom: '2vh',
+    padding: '1vh',
   }
 });
 
 class Donate extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       amount: 0,
@@ -54,13 +71,18 @@ class Donate extends Component {
 
 
 
-  onToken (token, amount) {
+  onToken(token, amount) {
     this.props.actions.setProcessing(true);
     request
       .post('/api/donation')
-      .send({token, amount})
+      .send({
+        token,
+        amount
+      })
       .end((err, res) => {
-        this.setState({open:false});
+        this.setState({
+          open: false
+        });
         if (err) {
           console.log("ERR", err);
           alert(err);
@@ -72,22 +94,54 @@ class Donate extends Component {
       });
   }
 
-  handleAmountChange (event, value) {
-    if(!isNaN(value) && ((this.props.currency === "USD" && value >= 1) || (this.props.currency === "ISK" && value >= 50))) {
-      this.setState({amount: value, isValidAmount: true});
+  handleAmountChange(event, value) {
+    if (!isNaN(value) && ((this.props.currency === "USD" && value >= 1) || (this.props.currency === "ISK" && value >= 50))) {
+      this.setState({
+        amount: value,
+        isValidAmount: true
+      });
     } else {
-      this.setState({isValidAmount: false});
+      this.setState({
+        isValidAmount: false
+      });
     }
   }
-  render(){
+  render() {
 
+    const otherButton = () => {
+      if(this.state.isValidAmount){
+        return (<StripeCheckout
+            className={css(styles.cashButton)}
+            stripeKey={PUBLIC_KEY}
+            amount={this.props.amount * 100}
+            allowRememberMe
+            token={(token) => this.onToken(token, this.props.amount * 100)}
+            currency={"USD"}
+            panelLabel={"Donate"}
+            label={"Custom Amount"}
+          />);
+      } else {
+        return null;
+      }
+    };
 
-    return(<div className={css(styles.centerMe)}>
-          <div className={css(styles.currencyHeader)}>
-            <a href="https://stripe.com/"><img src={poweredByStripeSVG} className={css(styles.poweredBy)}/></a>
-            { this.props.processing ? (<div>Processing...<br /><LinearProgress mode="indeterminate" /></div>) : ("Currency amounts are in " + this.props.currency.name + ".")}
-          </div>
-          {this.props.processing ? null : _.chunk(this.props.currency.amounts, 3).map((chunk, i) => (
+    const pwdBy = (<a href="https://stripe.com/"><img src={poweredByStripeSVG} className={css(styles.poweredBy)}/></a>);
+
+    const processingIndicator = (<div>Processing...{pwdBy}<br /><LinearProgress mode="indeterminate" /></div>);
+
+    const generosityLink = (
+      <a href="https://www.generosity.com/fundraisers/can-you-hear-us-now--2" target="_self"><Paper className={css(styles.paperPad)} zDepth={2}>
+        <div>Click here to pledge donations<br /> in USD or ISK via</div>
+        <img width={'260px'} src={generositySVG}/>
+        <div>and get pledge rewards</div>
+      </Paper></a>);
+
+    const donateDirectly = (<div>
+      <div>Donate Directly {pwdBy}</div>
+        <div style={{fontFamily: "Roboto Condensed", fontSize: '12px'}}>
+          Currency for direct donations in USD.<br />(Support for ISK coming soon!)
+        </div>
+          {_.chunk(this.props.currency.amounts, 3).map((chunk, i) => (
             <div key={"chunk" + i} className={css(styles.buttonChunk)}>
               {chunk.map((amount, i) => (<div key={"amount" + amount}><StripeCheckout
                 className={css(styles.cashButton)}
@@ -98,25 +152,23 @@ class Donate extends Component {
                 token={(token) => this.onToken(token, amount)}
                 currency={"USD"}
                 label={"" + this.props.currency.symbol + (Math.floor(amount/100))}
-              /></div>))}
-            </div>
-          ))}
-          {this.props.processing ? null : (<div>
-            <span>
-              $<TextField floatingLabelText={" Other Amount (USD)"} onChange={this.handleAmountChange} value={this.props.amount}/>
-              {this.state.isValidAmount ? <StripeCheckout
-                className={css(styles.cashButton)}
-                stripeKey={PUBLIC_KEY}
-                amount={this.props.amount * 100}
-                allowRememberMe
-                token={(token) => this.onToken(token, this.props.amount * 100)}
-                currency={"USD"}
-                panelLabel={"Donate"}
-                label={"Custom Amount"}
-              /> : null }
-            </span>
-          </div>)}
+              />
+              </div>))}
+            </div> ))}
+        <div>
+            $<TextField floatingLabelText={" Other Amount (USD)"} onChange={this.handleAmountChange} value={this.props.amount}/>
+            {otherButton}
+        </div>
       </div>);
+
+    return (
+      <div className={css(styles.centerMe)}>
+        {this.props.processing ? processingIndicator : null}
+        {this.props.processing ? null : (<div className={css(styles.twoWays)}>There are <em>two</em> ways to support the campaign: </div>)}
+        {this.props.processing ? null : generosityLink}
+        {this.props.processing ? null : donateDirectly}
+      </div>
+    );
   }
 }
 

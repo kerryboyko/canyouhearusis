@@ -13,11 +13,17 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer, push} from 'react-router-redux';
 import {StyleSheet, css} from 'aphrodite';
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-85600067-1');
 
 const ANDERS_JILDEN = '../../img/Anders_Jilden.jpg';
 const KALLE_K = '../../img/Kalle_K.jpg';
 const TJ_HOLOWAYCHUK = '../../img/TJ_Holowaychuk.jpg';
 
+const fireTracking = () => {
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
+};
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -31,7 +37,7 @@ export default class Root extends Component {
     const { store } = this.props;
     return (
       <Provider routeTo={routeTo} store={store}>
-          <Router history={history}>
+          <Router onUpdate={fireTracking} history={history}>
             <Route path="/" component={App}>
               <IndexRoute component={Hero}/>
               <Route path="home" component={Hero}/>

@@ -60,9 +60,6 @@ export const launchRoutes = (server, app) => {
         // sendThankYou(charge.source.name, charge.amount, charge.currency);
         let dbInfo = Object.assign(_.pick(charge, ['amount', 'currency', 'created']), {country: charge.source.country, email: charge.source.name});
         addDonation(dbInfo).then((result) => {
-          if(result) {
-            console.log(JSON.stringify(result, null, 2));
-          }
           res.send(result);
         }).catch((err) => {
           console.log("ERR! ", err);
