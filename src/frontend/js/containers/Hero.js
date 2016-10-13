@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import {StyleSheet, css} from 'aphrodite';
 import palette from '../constants/palette';
 import Paper from 'material-ui/Paper';
+import RaisedButton from 'material-ui/RaisedButton';
 import {headline, subheadline} from '../text/heroText';
 import labels from '../text/labels';
 import DonateDialog from './DonateDialog';
@@ -103,16 +104,22 @@ const styles = StyleSheet.create({
       height: 'calc(96vw * (9 / 16) )',
     },
   },
+  joinus: {
+    margin: 'auto',
+    textAlign: 'center',
+    width: '300px',
+    paddingTop: '30px',
+  }
 
 });
 
 const videoLinks = {
   first: {
-    EN: "https://www.youtube.com/embed/C1qk-BQwNlA",
+    EN: "https://www.youtube.com/embed/JC0mZnJFhUg", // do shorter first
     IS: "https://www.youtube.com/embed/TS3zoZFxmuI",
   },
   second: {
-    EN: "https://www.youtube.com/embed/JC0mZnJFhUg",
+    EN: "https://www.youtube.com/embed/C1qk-BQwNlA",
     IS: "https://www.youtube.com/embed/tSLoMgiNL6s",
   },
 };
@@ -129,6 +136,17 @@ class Hero extends Component {
               <img src={(this.props.language === "EN") ? logoSVG : logoISSVG } className={css(styles.logo)}/>
               <Paper className={css(styles.subheadline)}>
                 {subheadline[this.props.language]}
+                <div className={css(styles.joinus)}>
+                  <a href="http://eepurl.com/cjSF51">
+                    <RaisedButton
+                      backgroundColor={palette.iceFlagBlue}
+                      label={"Join Us!"}
+                      style={{margin: 'auto', width: '300px', height: '7vh'}}
+                      labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
+                      labelColor={palette.white}
+                    />
+                  </a>
+                </div>
               </Paper>
           </div>
           <Paper ref="rightContainer" className={css(styles.rightContainer)}>
