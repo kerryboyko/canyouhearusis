@@ -40,7 +40,7 @@ export const addToTotal = ({amount, currency}) => new Promise((resolve, reject) 
   })
   .then((v) => ({total: v[0], db: v[1]}))
   .then(({total, db}) => {
-    let totals = db.collection('testTotal');
+    let totals = db.collection('liveTotal');
     totals.insert(total, (err, result) => {
       if(err) {
         reject(err);
@@ -56,7 +56,7 @@ export const addToTotal = ({amount, currency}) => new Promise((resolve, reject) 
 export const addDonation = (donationData, db, keepAlive) => new Promise((resolve, reject) => {
   connectToMongo(db)
     .then((db) => {
-      let donations = db.collection('testDonations');
+      let donations = db.collection('liveDonations');
       donations.insert(donationData, (err, record) => {
         if (err) {
           reject(err);
