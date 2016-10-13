@@ -8,7 +8,7 @@ import partyText from '../text/partyText';
 const statement = partyText.statement;
 import Checkmark from 'material-ui/svg-icons/action/done';
 import Cross from 'material-ui/svg-icons/content/clear';
-
+const qMark = '../../img/qMark.svg';
 
 const styles = StyleSheet.create({
   fCont: {
@@ -69,7 +69,7 @@ class Party extends Component {
 
   render () {
     const good = (<div className={css(styles.goodBackbadge)}><Checkmark className={css(styles.logo)} color={'white'} /></div>);
-    const bad = (<div className={css(styles.badBackbadge)}><Cross className={css(styles.logo)} color={'white'} /></div>);
+    const bad = (<div className={css(styles.badBackbadge)}><img src={qMark} className={css(styles.logo)} /></div>);
 
     return (
       <div className={css(styles.fCont)}>
