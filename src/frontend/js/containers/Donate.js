@@ -64,6 +64,7 @@ class Donate extends Component {
     this.state = {
       amount: 0,
       isValidAmount: false,
+      isDirect: false,
     };
     this.handleAmountChange = this.handleAmountChange.bind(this);
     this.onToken = this.onToken.bind(this);
@@ -95,10 +96,10 @@ class Donate extends Component {
   }
 
   handleAmountChange(event, value) {
-    if (!isNaN(value) && ((this.props.currency === "USD" && value >= 1) || (this.props.currency === "ISK" && value >= 50))) {
+    if (!isNaN(value)) {
       this.setState({
         amount: value,
-        isValidAmount: true
+        isValidAmount: (!isNaN(value) && value >= 1),
       });
     } else {
       this.setState({
@@ -106,24 +107,8 @@ class Donate extends Component {
       });
     }
   }
-  render() {
 
-    const otherButton = () => {
-      if(this.state.isValidAmount){
-        return (<StripeCheckout
-            className={css(styles.cashButton)}
-            stripeKey={PUBLIC_KEY}
-            amount={this.props.amount * 100}
-            allowRememberMe
-            token={(token) => this.onToken(token, this.props.amount * 100)}
-            currency={"USD"}
-            panelLabel={"Donate"}
-            label={"Custom Amount"}
-          />);
-      } else {
-        return null;
-      }
-    };
+  render() {
 
     const pwdBy = (<a href="https://stripe.com/"><img src={poweredByStripeSVG} className={css(styles.poweredBy)}/></a>);
 
@@ -136,37 +121,44 @@ class Donate extends Component {
         <div>and get pledge rewards</div>
       </Paper></a>);
 
-    const donateDirectly = (<div>
-      <div>Donate Directly {pwdBy}</div>
-        <div style={{fontFamily: "Roboto Condensed", fontSize: '12px'}}>
-          Currency for direct donations in USD.<br />(Support for ISK coming soon!)
-        </div>
-          {_.chunk(this.props.currency.amounts, 3).map((chunk, i) => (
-            <div key={"chunk" + i} className={css(styles.buttonChunk)}>
-              {chunk.map((amount, i) => (<div key={"amount" + amount}><StripeCheckout
-                className={css(styles.cashButton)}
-                stripeKey={PUBLIC_KEY}
-                amount={amount}
-                panelLabel={"Donate"}
-                allowRememberMe
-                token={(token) => this.onToken(token, amount)}
-                currency={"USD"}
-                label={"" + this.props.currency.symbol + (Math.floor(amount/100))}
-              />
-              </div>))}
-            </div> ))}
-        <div>
-            $<TextField floatingLabelText={" Other Amount (USD)"} onChange={this.handleAmountChange} value={this.props.amount}/>
-            {otherButton}
-        </div>
-      </div>);
-
     return (
       <div className={css(styles.centerMe)}>
         {this.props.processing ? processingIndicator : null}
         {this.props.processing ? null : (<div className={css(styles.twoWays)}>There are <em>two</em> ways to support the campaign: </div>)}
         {this.props.processing ? null : generosityLink}
-        {this.props.processing ? null : donateDirectly}
+        {this.props.processing ? null : <div>
+          <div>Donate Directly {pwdBy}</div>
+            <div style={{fontFamily: "Roboto Condensed", fontSize: '12px'}}>
+              Currency for direct donations in USD.<br />(Support for ISK coming soon!)
+            </div>
+              {_.chunk(this.props.currency.amounts, 3).map((chunk, i) => (
+                <div key={"chunk" + i} className={css(styles.buttonChunk)}>
+                  {chunk.map((amount, i) => (<div key={"amount" + amount}><StripeCheckout
+                    className={css(styles.cashButton)}
+                    stripeKey={PUBLIC_KEY}
+                    amount={amount}
+                    panelLabel={"Donate"}
+                    allowRememberMe
+                    token={(token) => this.onToken(token, amount)}
+                    currency={"USD"}
+                    label={"" + this.props.currency.symbol + (Math.floor(amount/100))}
+                  />
+                  </div>))}
+                </div> ))}
+            <div>
+                $<TextField floatingLabelText={" Other Amount (USD)"} onChange={this.handleAmountChange} value={this.state.amount}/>
+                {this.state.isValidAmount ? <StripeCheckout
+                    className={css(styles.cashButton)}
+                    stripeKey={PUBLIC_KEY}
+                    amount={this.props.amount * 100}
+                    allowRememberMe
+                    token={(token) => this.onToken(token, this.props.amount * 100)}
+                    currency={"USD"}
+                    panelLabel={"Donate"}
+                    label={"Custom Amount"}
+                  /> : null}
+            </div>
+          </div>}
       </div>
     );
   }

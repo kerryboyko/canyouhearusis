@@ -28,9 +28,6 @@ const styles = StyleSheet.create({
   wrapper: {
     overflow: 'hidden',
     padding: '1vw',
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
     '@media (max-width:800px)': {
       display: 'inline-block',
       textAlign: 'center',
@@ -40,11 +37,11 @@ const styles = StyleSheet.create({
     }
   },
   logo: {
-    width: '43vw',
+    width: '53vw',
     display:'flex',
-    justifyContent: 'center',
-    marginTop: '6vh',
     textAlign: 'center',
+    marginBottom: '1vw',
+    marginTop: '0.5vw',
     '@media (max-width:800px)': {
       margin: 'auto',
       float:'none',
@@ -53,14 +50,15 @@ const styles = StyleSheet.create({
   },
   leftContainer: {
     float: 'left',
-    marginRight: '1vw',
-    width: '45vw',
+    width: '53vw',
     textAlign: 'left',
-    '@media (max-width:800px and max-device-width:800px)': {
+    marginLeft: '10px',
+    '@media (max-width:800px)': {
+      width: '100%',
+      marginRight: '0px',
+      marginLeft: '0px',
       float: 'none',
-      marginRight: '0',
       textAlign: 'center',
-      width: 'auto',
       border: '0',
     }
   },
@@ -71,8 +69,7 @@ const styles = StyleSheet.create({
     display:'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    width: '45vw',
-    marginTop: '6vh',
+    width: '40vw',
     textAlign: 'center',
     '@media (max-width:800px)': {
       float:'none',
@@ -81,22 +78,9 @@ const styles = StyleSheet.create({
 
     }
   },
-  headlineStyle: {
-    color: 'white',
-    fontFamily: "Roboto Condensed",
-    fontWeight: '900',
-    fontSize: '15vh',
-    margin: '2vh 0',
-    padding: '1vh 2vw',
-    '@media (max-width:800px)': {
-      fontSize: '7vh'
-    }
-  },
   subheadline: {
     color: 'white',
     backgroundColor: palette.heroBackground,
-    width: '80%',
-    margin: 'auto',
     fontFamily: 'Roboto',
     fontWeight: '300',
     fontSize: "26px",
@@ -104,12 +88,8 @@ const styles = StyleSheet.create({
   },
   videoWrapper : {
     justifyContent: 'center',
-
     '@media (max-width:800px)': {
       position: 'relative',
-      // paddingBottom: '56.25%',
-      /* 16:9 */
-
       paddingTop: '1vh',
     },
   },
@@ -143,10 +123,13 @@ class Hero extends Component {
   }
   render () {
     return (<div>
-      <Paper className={css(styles.heroStyle)} zDepth={1} >
+      <div className={css(styles.heroStyle)} zDepth={1} >
         <div className={css(styles.wrapper)}>
-          <div ref="leftContainer" className={css(styles.headlineStyle, styles.leftContainer)}>
+          <div ref="leftContainer" className={css(styles.leftContainer)}>
               <img src={(this.props.language === "EN") ? logoSVG : logoISSVG } className={css(styles.logo)}/>
+              <Paper className={css(styles.subheadline)}>
+                {subheadline[this.props.language]}
+              </Paper>
           </div>
           <Paper ref="rightContainer" className={css(styles.rightContainer)}>
             <div ref="donateLang" style={{padding: '2vh'}}>
@@ -167,10 +150,7 @@ class Hero extends Component {
             </div>
           </Paper>
         </div>
-        <Paper className={css(styles.subheadline)}>
-          {subheadline[this.props.language]}
-        </Paper>
-      </Paper>
+      </div>
     </div>
     );
   }

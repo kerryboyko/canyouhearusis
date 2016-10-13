@@ -1,22 +1,53 @@
 // status enum: ":)", ":(", ":|"
-
-export default [
+export default[
   {
-    partyName: {
+    partyName : {
       EN: "Social Democratic Alliance",
       IS: "Samfylkingin-Jafnaðarmannaflokkur Íslands"
     },
-    leader: 'Oddný Guðbjörg Harðardóttir',
-    status: ":)",
-    description: {
+    leader : 'Oddný Guðbjörg Harðardóttir',
+    status : ":)",
+    description : {
       EN: "The Social Democratic Alliance is a social-democratic political party in Iceland. It is centre-left in alignment.",
       IS: "Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter "
     },
-    wiki: {
+    wiki : {
       EN: 'https://en.wikipedia.org/wiki/Social_Democratic_Alliance',
       IS: 'https://is.wikipedia.org/wiki/Samfylkingin'
     }
-  }
+  },
+  {
+    partyName : {
+      EN: "Left-Green Party",
+      IS: "Vinstrihreyfingin – grænt framboð"
+    },
+    leader : 'Katrín Jakobsdóttir',
+    status : ":)",
+    description : {
+      EN: "The Left-Green Movement is a left-wing and green political party in Iceland.",
+      IS: "Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter "
+    },
+    wiki : {
+      EN: 'https://en.wikipedia.org/wiki/Left-Green_Movement',
+      IS: 'https://is.wikipedia.org/wiki/??????????'
+    }
+  },
+  {
+    partyName : {
+      EN: "Pirate Party",
+      IS: "Vinstrihreyfingin – grænt framboð"
+    },
+    leader : 'Birgitta Jónsdóttir',
+    status : ":)",
+    description : {
+      EN: "Pirate parties support civil rights, direct democracy and participation in government, reform of copyright and patent law, free sharing of knowledge (open content), information privacy, transparency, freedom of information, anti-corruption and network neutrality.",
+      IS: "Prow scuttle parrel provost Sail ho shrouds spirits boom mizzenmast yardarm. Pinnace holystone mizzenmast quarter "
+    },
+    wiki : {
+      EN: 'https://en.wikipedia.org/wiki/Left-Green_Movement',
+      IS: 'https://is.wikipedia.org/wiki/??????????'
+    }
+  },
 ];
 
 /*

@@ -7,6 +7,7 @@ import Hero from './js/containers/Hero';
 import About from './js/containers/About';
 import Learn from './js/containers/Learn';
 import Donate from './js/containers/Donate';
+import DirectDonate from './js/components/DirectDonate';
 import ThankYou from './js/containers/ThankYou';
 import TheConstitution from './js/containers/TheConstitution';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -44,7 +45,7 @@ export default class Root extends Component {
               <Route path="about" component={About}/>
               <Route path="learn" component={Learn}/>
               <Route path="constitution" component={TheConstitution}/>
-              <Route path="donate" component={Donate}/>
+              <Route path="donate" component={DirectDonate}/>
               <Route path="thankyou" component={ThankYou}/>
             </Route>
           </Router>

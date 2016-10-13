@@ -10,20 +10,6 @@ import request from 'request';
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      onlyDoOnce: true,
-    };
-  }
-
-  componentWillMount () {
-    if(this.state.onlyDoOnce){
-      request('http://ipinfo.io', function(error, res, body) {
-        if(JSON.parse(body).country === "IS"){
-          this.props.actions.setLanguage("IS");
-        }
-      });
-      this.setState({onlyDoOnce: false});
-    }
   }
 
   render() {
