@@ -21,7 +21,8 @@ const poweredByStripeSVG = '../../img/powered_by_stripe.svg';
 const generositySVG = '../../img/generosity.svg';
 
 
-const PUBLIC_KEY = process.env.STRIPE_PUBLIC_KEY;
+const PUBLIC_KEY = 'pk_live_QUeujPDge97fm94rrD9VV6T8';
+
 
 
 const styles = StyleSheet.create({
