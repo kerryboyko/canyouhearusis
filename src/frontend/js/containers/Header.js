@@ -44,6 +44,7 @@ class Header extends Component {
     this.handleLearnButton = this.handleLearnButton.bind(this);
     this.handleAboutButton = this.handleAboutButton.bind(this);
     this.handleConstitutionButton = this.handleConstitutionButton.bind(this);
+    this.handlePartiesButton = this.handlePartiesButton.bind(this);
     this.languageDivProps = _.pick(props, ['language']);
     this.state = {
       value: 3,
@@ -68,6 +69,9 @@ class Header extends Component {
   }
   handleConstitutionButton () {
     this.props.actions.push('/constitution');
+  }
+  handlePartiesButton () {
+    this.props.actions.push('/parties');
   }
 
 
@@ -102,11 +106,17 @@ class Header extends Component {
             primaryText={labels.theConstitution[this.props.language]}
             value="/constitution"
           />
+          <MenuItem
+            primaryText={labels.parties[this.props.language]}
+            value="/parties"
+          />
         </IconMenu>
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleHomeButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.home[this.props.language]} />
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleLearnButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.learn[this.props.language]} />
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleAboutButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.about[this.props.language]} />
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleConstitutionButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.theConstitution[this.props.language]} />
+        <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handlePartiesButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.parties[this.props.language]} />
+
         <DonateDialog backgroundColor={palette.iceFlagRed} style={Object.assign(styles.buttonStyle, {margin: '10px 6px'})} labelStyle={{fontWeight: '900', color: palette.white, fontFamily: "Roboto Condensed"}} label={labels.donate[this.props.language]} />
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>

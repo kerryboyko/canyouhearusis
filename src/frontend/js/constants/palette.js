@@ -9,6 +9,7 @@ let palette = {
   redHighlight: 'rgb(255, 237, 79)',
   videoPaper: 'rgb(170, 170, 170)',
   transparent: 'rgba(0,0,0,0)',
+  goodGreen: 'rgb(25, 164, 26)',
   heroBackground: 'rgba(0,0,0,0.7)',
   learnBackground: 'rgba(0, 24, 64, 0.7)',
 };

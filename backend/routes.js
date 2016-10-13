@@ -35,6 +35,7 @@ export const launchRoutes = (server, app) => {
   app.use('/donate', express.static('./'));
   app.use('/thankyou', express.static('./'));
   app.use('/subscribe', express.static('./'));
+  app.use('/parties', express.static('./'));
 
   app.use('/pdf', express.static('./pdf'));
 

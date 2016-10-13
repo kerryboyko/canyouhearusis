@@ -59,7 +59,7 @@ var addToTotal = exports.addToTotal = function addToTotal(_ref) {
       var total = _ref2.total;
       var db = _ref2.db;
 
-      var totals = db.collection('testTotal');
+      var totals = db.collection('liveTotal');
       totals.insert(total, function (err, result) {
         if (err) {
           reject(err);
@@ -76,7 +76,7 @@ var addToTotal = exports.addToTotal = function addToTotal(_ref) {
 var addDonation = exports.addDonation = function addDonation(donationData, db, keepAlive) {
   return new Promise(function (resolve, reject) {
     connectToMongo(db).then(function (db) {
-      var donations = db.collection('testDonations');
+      var donations = db.collection('liveDonations');
       donations.insert(donationData, function (err, record) {
         if (err) {
           reject(err);

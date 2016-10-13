@@ -19,5 +19,9 @@ export default {
     EN: "Learn",
     IS: "Læra",
   },
+  parties: {
+    EN: "Parties",
+    IS: "Flokkar",
+  },
 
 };
