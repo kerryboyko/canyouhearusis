@@ -1,4 +1,4 @@
-import reduxify from '../utilities/reduxify';
+import reduxify from 'reduxify';
 import * as actions from '../actions/index';
 import React, {Component} from 'react';
 import {StyleSheet, css} from 'aphrodite';
