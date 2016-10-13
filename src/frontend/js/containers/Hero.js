@@ -116,11 +116,11 @@ const styles = StyleSheet.create({
 const videoLinks = {
   first: {
     EN: "https://www.youtube.com/embed/JC0mZnJFhUg", // do shorter first
-    IS: "https://www.youtube.com/embed/TS3zoZFxmuI",
+    IS: "https://www.youtube.com/embed/tSLoMgiNL6s",
   },
   second: {
     EN: "https://www.youtube.com/embed/C1qk-BQwNlA",
-    IS: "https://www.youtube.com/embed/tSLoMgiNL6s",
+    IS: "https://www.youtube.com/embed/TS3zoZFxmuI",
   },
 };
 
