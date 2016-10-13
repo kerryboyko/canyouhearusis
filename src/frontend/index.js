@@ -9,6 +9,7 @@ import Learn from './js/containers/Learn';
 import DirectDonate from './js/components/DirectDonate';
 import Subscribe from './js/containers/Subscribe';
 import ThankYou from './js/containers/ThankYou';
+import Parties from './js/containers/Parties';
 import TheConstitution from './js/containers/TheConstitution';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
@@ -48,7 +49,7 @@ export default class Root extends Component {
               <Route path="donate" component={DirectDonate}/>
               <Route path="thankyou" component={ThankYou}/>
               <Route path="subscribe" component={Subscribe}/>
-
+              <Route path="parties" component={Parties}/>
             </Route>
           </Router>
       </Provider>
