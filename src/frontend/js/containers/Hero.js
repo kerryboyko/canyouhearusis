@@ -109,11 +109,11 @@ const styles = StyleSheet.create({
 const videoLinks = {
   first: {
     EN: "https://www.youtube.com/embed/C1qk-BQwNlA",
-    IS: "https://www.youtube.com/embed/xUBmMbwjvR8",
+    IS: "https://www.youtube.com/embed/TS3zoZFxmuI",
   },
   second: {
     EN: "https://www.youtube.com/embed/JC0mZnJFhUg",
-    IS: "https://www.youtube.com/embed/eDlIMHfROX4",
+    IS: "https://www.youtube.com/embed/tSLoMgiNL6s",
   },
 };
 
