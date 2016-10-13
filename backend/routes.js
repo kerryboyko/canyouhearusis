@@ -34,11 +34,9 @@ export const launchRoutes = (server, app) => {
   app.use('/learn', express.static('./'));
   app.use('/donate', express.static('./'));
   app.use('/thankyou', express.static('./'));
-  // app.use('/party', express.static('./'));
-  // app.use('/parties', express.static('./'));
+  app.use('/pdf', express.static('./pdf'));
+
   app.use('/img', express.static('./src/frontend/img'));
-
-
 
   // just a test endpoint.
   app.get('/api/test', (req, res) => {
@@ -62,9 +60,6 @@ export const launchRoutes = (server, app) => {
         // sendThankYou(charge.source.name, charge.amount, charge.currency);
         let dbInfo = Object.assign(_.pick(charge, ['amount', 'currency', 'created']), {country: charge.source.country, email: charge.source.name});
         addDonation(dbInfo).then((result) => {
-          if(result) {
-            console.log(JSON.stringify(result, null, 2));
-          }
           res.send(result);
         }).catch((err) => {
           console.log("ERR! ", err);

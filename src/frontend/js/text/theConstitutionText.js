@@ -4,12 +4,12 @@ export default {
     IS: "Ný stjórnarskrá fólksins"
   },
   buttonEN: {
-    EN: "Get the English Version",
-    IS: "Ensk útgáfa",
+    EN: "Get the English Version [PDF]",
+    IS: "Ensk útgáfa [PDF]",
   },
   buttonIS: {
-    EN: "Get the Icelandic Version",
-    IS: "Íslensk útgáfa",
+    EN: "Get the Icelandic Version (full analysis) [PDF]",
+    IS: "Íslensk útgáfa [PDF]",
   },
   pgraphs: [
     {

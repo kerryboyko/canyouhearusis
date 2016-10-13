@@ -1,4 +1,4 @@
-export default[
+export const main = [
   {
     EN : "In 2008, Iceland suffered its worst financial crisis in modern history. Its people were angry. They believed the crisis was enabled by a government that was not responsive to them. ",
     IS : "Árið 2008 varð Ísland fyrir mesta fjármálahruni samtímasögunnar. Mikil reiði ríkti meðal almennings. Margir töldu að stjórnvöld bæru ábyrgð þar sem þau hefðu hvorki hlustað á varnaðarorð  né brugðist við aðstæðum."
@@ -19,3 +19,8 @@ export default[
     IS : "Gangið í lið með okkur - fyrir lýðræði á Íslandi og um allan heim."
   }
 ];
+
+export const us = {
+  EN: "This campaign is sponsored by the Icelandic Constitution Society (Stjórnarskrárfélagið), a registered non-profit organisation in Iceland. All funds raised in the campaign will be used to rally voters in Iceland to demand a Parliament that listens and to provide constant pressure to the new Parliament so that elected members deliver their promises on this important matter. All expenses will be fully and publicly disclosed. Any remaining funds will be used to support democracy movements internationally.",
+  IS: "Herferð þessi er unnin af Stjórnarskrárfélaginu, kt. 590810-2230, sem er almennt félag sem hefur ekki atvinnustarfsemi. Allir fjármunir sem safnast með þessari herferð verða notaðir til þess að hvetja kjósendur til þess að fá Alþingi til að sinna kröfu um nýja stjórnarskrá og veita þinginu aðhald eftir að það hefur komið saman til þess að loforðum um stjórnarskrárumbætur verði fylgt eftir. Verður gerð grein fyrir því með gegnsæum og opinberum hætti hvernig fjármunum sem safnast er varið. Verði einhver afgangur af þeirri fjárhæð sem safnast mun honum varið í að styðja lýðræðisumbætur á alþjóðlegum vettvangi."
+};

@@ -13,14 +13,17 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer, push} from 'react-router-redux';
 import {StyleSheet, css} from 'aphrodite';
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-85600067-1');
 
 const ANDERS_JILDEN = '../../img/Anders_Jilden.jpg';
 const KALLE_K = '../../img/Kalle_K.jpg';
 const TJ_HOLOWAYCHUK = '../../img/TJ_Holowaychuk.jpg';
 
-// temp
-import TheConstitution from './js/containers/Party';
-
+const fireTracking = () => {
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
+};
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -34,7 +37,7 @@ export default class Root extends Component {
     const { store } = this.props;
     return (
       <Provider routeTo={routeTo} store={store}>
-          <Router history={history}>
+          <Router onUpdate={fireTracking} history={history}>
             <Route path="/" component={App}>
               <IndexRoute component={Hero}/>
               <Route path="home" component={Hero}/>
@@ -43,8 +46,6 @@ export default class Root extends Component {
               <Route path="constitution" component={TheConstitution}/>
               <Route path="donate" component={Donate}/>
               <Route path="thankyou" component={ThankYou}/>
-              {/* <Route path="party" component={Party}/> */}
-
             </Route>
           </Router>
       </Provider>
@@ -85,7 +86,7 @@ const backgroundSequence = (index = 0) => {
   setTimeout(() => {
     document.documentElement.style.background = 'url(' + bgImageArray[index] + ") no-repeat center center fixed";
     document.documentElement.style.backgroundSize = "cover";
-    backgroundSequence((index + 1) % 3);
+    backgroundSequence((index + 1) % 3)
   }, 7000);
 };
 

@@ -56,6 +56,8 @@ var launchRoutes = exports.launchRoutes = function launchRoutes(server, app) {
   app.use('/learn', _express2.default.static('./'));
   app.use('/donate', _express2.default.static('./'));
   app.use('/thankyou', _express2.default.static('./'));
+  app.use('/pdf', _express2.default.static('./pdf'));
+
   app.use('/img', _express2.default.static('./src/frontend/img'));
 
   // just a test endpoint.
@@ -80,9 +82,6 @@ var launchRoutes = exports.launchRoutes = function launchRoutes(server, app) {
         // sendThankYou(charge.source.name, charge.amount, charge.currency);
         var dbInfo = Object.assign(_lodash2.default.pick(charge, ['amount', 'currency', 'created']), { country: charge.source.country, email: charge.source.name });
         (0, _database.addDonation)(dbInfo).then(function (result) {
-          if (result) {
-            console.log(JSON.stringify(result, null, 2));
-          }
           res.send(result);
         }).catch(function (err) {
           console.log("ERR! ", err);

@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import Donate from './Donate';
+import ReactGA from 'react-ga';
 
 const thankYouShort = {
   EN: "Thank You!",
@@ -17,25 +18,40 @@ class DonateDialog extends Component {
     this.state = {
       open: false,
       zindex: -1000,
+      mounted: false,
     };
     this.handleOpen = this.handleOpen.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.componentWillUnmount = this.componentWillUnmount.bind(this);
   }
 
+  componentDidMount(){
+    this.setState({mounted: true});
+  }
+  componentWillUnmount(){
+    this.setState({mounted: false});
+  }
   handleOpen () {
     this.setState({open: true, zindex: 1500});
+    ReactGA.event({
+      category: 'Donate',
+      action: 'Clicked A Donate Button',
+    });
   }
 
   handleClose () {
-    this.setState({open: false, zindex: -1000});
+    if(this.state.mounted){
+      this.setState({open: false, zindex: -1000});
+    }
   }
 
   render () {
     const actions = [
-      <FlatButton
+      <div>{this.props.processing ? null : <FlatButton
         label="Cancel"
         onTouchTap={this.handleClose}
-        />,
+        />}</div>,
     ];
 
     return (
@@ -63,4 +79,4 @@ class DonateDialog extends Component {
 
 }
 
-export default reduxify(actions, ['language'], DonateDialog);
+export default reduxify(actions, ['language', 'processing'], DonateDialog);

@@ -3,11 +3,14 @@ import * as actions from '../actions/index';
 import React, {Component} from 'react';
 import {StyleSheet, css} from 'aphrodite';
 import palette from '../constants/palette';
+
 import Paper from 'material-ui/Paper';
-import aboutTexts from '../text/aboutTexts'; // text.
 import DonateDialog from './DonateDialog';
+
 import Social from './Social';
+
 import labels from '../text/labels';
+import {main, us} from '../text/aboutTexts'; // text.
 
 const styles = StyleSheet.create({
   aboutStyle: {
@@ -21,6 +24,12 @@ const styles = StyleSheet.create({
     padding: '2vw',
     margin: '0 auto',
     backgroundColor: palette.heroBackground,
+  },
+  us: {
+    padding: '2vw',
+    backgroundColor: palette.iceFlagBlue,
+    fontFamily: "Roboto Condensed",
+    color: palette.white,
   },
   textStyle: {
     fontFamily: "Roboto",
@@ -50,7 +59,10 @@ class About extends Component {
     return (<div>
       <Paper className={css(styles.aboutStyle)} zDepth={1} >
         <Paper zDepth={5} className={css(styles.container)}>
-          {aboutTexts.map((pgraph, index) => (<div key={'pgraph' + index} className={css(styles.textStyle)}>{pgraph[this.props.language]}</div>))}
+          {main.map((pgraph, index) => (<div key={'pgraph' + index} className={css(styles.textStyle)}>{pgraph[this.props.language]}</div>))}
+          <Paper zDepth={5} className={css(styles.us)}>
+            {us[this.props.language]}
+          </Paper>
         </Paper>
         <div className={css(styles.buttonStyle)}>
         <DonateDialog

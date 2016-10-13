@@ -126,6 +126,17 @@ const styles = StyleSheet.create({
 
 });
 
+const videoLinks = {
+  first: {
+    EN: "https://www.youtube.com/embed/C1qk-BQwNlA",
+    IS: "https://www.youtube.com/embed/xUBmMbwjvR8",
+  },
+  second: {
+    EN: "https://www.youtube.com/embed/JC0mZnJFhUg",
+    IS: "https://www.youtube.com/embed/eDlIMHfROX4",
+  },
+};
+
 class Hero extends Component {
   constructor(props){
     super(props);
@@ -148,9 +159,12 @@ class Hero extends Component {
 
             </div>
             <div ref="video" className={css(styles.videoWrapper)}>
-              <iframe className={css(styles.videoWrapperIframe)} src="https://player.vimeo.com/video/7416225?byline=0&portrait=0" width="640" height="360" allowFullScreen></iframe>
+              <iframe className={css(styles.videoWrapperIframe)} src={videoLinks.first[this.props.language]} width="640" height="360" allowFullScreen></iframe>
             </div>
             <Social transparent={true}/>
+            <div ref="video" className={css(styles.videoWrapper)}>
+              <iframe className={css(styles.videoWrapperIframe)} src={videoLinks.second[this.props.language]} width="640" height="360" allowFullScreen></iframe>
+            </div>
           </Paper>
         </div>
         <Paper className={css(styles.subheadline)}>
