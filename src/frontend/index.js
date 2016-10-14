@@ -21,7 +21,7 @@ ReactGA.initialize('UA-85600067-1');
 
 import {
   SET_LANGUAGE,
-} from '../constants/index';
+} from './js/constants/index';
 
 
 const ANDERS_JILDEN = '../../img/Anders_Jilden.jpg';
