@@ -25,9 +25,11 @@ class App extends Component {
     request(options, (error, res, body) =>{
       body = body.substring(0, 2);
       if(body === "US"){
+        console.log("SETTING LANGUAGE TO ENGLISH");
         this.props.actions.setLanguage("EN");
       }
       if(body === "IS"){
+        console.log("SETTING LANGUAGE TO ISLANDIC");
         this.props.actions.setLanguage('IS');
       }
     });
