@@ -44,9 +44,7 @@ export default class Root extends Component {
         "Access-Control-Allow-Origin": '*',
         'Access-Control-Allow-Credentials': false,
       },
-      xhrFields: {
-        withCredentials: false
-      },
+      withCredentials: false,
     };
     request(options, (error, res, body) =>{
       console.log("ERR", error);
