@@ -46,7 +46,7 @@ const MOUNT_NODE = document.getElementById('root');
 export default class Root extends Component {
   componentWillMount(){
     let options = {
-      url: "https://ipinfo.io/country",
+      url: "http://ip-api.com/json",
       method: 'GET',
       headers: {
         "Access-Control-Allow-Origin": '*',
@@ -55,17 +55,18 @@ export default class Root extends Component {
       withCredentials: false,
     };
     request(options, (error, res, body) =>{
-      switch(body){
-      case "US":
-        store.dispatch({type: SET_LANGUAGE, language: "EN"});
-        break;
-      case "IS":
-      case "Iceland":
-        store.dispatch({type: SET_LANGUAGE, language: "IS"});
-        break;
-      default:
-        break;
-      }
+      // switch(body){
+      // case "US":
+      //   store.dispatch({type: SET_LANGUAGE, language: "EN"});
+      //   break;
+      // case "IS":
+      // case "Iceland":
+      //   store.dispatch({type: SET_LANGUAGE, language: "IS"});
+      //   break;
+      // default:
+      //   break;
+      // }
+      console.log("err", err, "res", res, "body", body);
     });
   }
   render() {
