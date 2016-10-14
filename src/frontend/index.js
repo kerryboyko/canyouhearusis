@@ -37,11 +37,9 @@ const MOUNT_NODE = document.getElementById('root');
 
 export default class Root extends Component {
   componentWillMount(){
-    request
-      .get("http://ipinfo.io")
-      .on('response', (response) => {
-        console.log(response);
-      });
+    request('http://ipinfo.io', function(error, res, body) {
+      console.log(JSON.parse(body))
+    })
 
   }
   render() {
