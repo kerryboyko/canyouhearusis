@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import request from 'request';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store, {routeTo} from './js/store/configureStore';
@@ -35,6 +36,14 @@ const history = syncHistoryWithStore(browserHistory, store);
 const MOUNT_NODE = document.getElementById('root');
 
 export default class Root extends Component {
+  componentWillMount(){
+    request
+      .get("http://ipinfo.io")
+      .on('response', (response) => {
+        console.log(response);
+      });
+
+  }
   render() {
     const { store } = this.props;
     return (
