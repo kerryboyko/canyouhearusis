@@ -58,9 +58,12 @@ var launchRoutes = exports.launchRoutes = function launchRoutes(server, app) {
   app.use('/thankyou', _express2.default.static('./'));
   app.use('/subscribe', _express2.default.static('./'));
   app.use('/parties', _express2.default.static('./'));
-
   app.use('/pdf', _express2.default.static('./pdf'));
+  app.use('/land', _express2.default.static('./'));
+  app.use('/is', _express2.default.static('./'));
+  app.use('/en', _express2.default.static('./'));
 
+  app.use('/favicon.ico', _express2.default.static('./favicon.ico'));
   app.use('/img', _express2.default.static('./src/frontend/img'));
 
   // just a test endpoint.

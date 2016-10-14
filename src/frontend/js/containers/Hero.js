@@ -13,8 +13,8 @@ import Social from './Social';
 
 const facebookIconSVG = '../../img/facebookIcon.svg';
 const twitterIconSVG = '../../img/twitterIcon.svg';
-const logoSVG = './img/logo.svg';
-const logoISSVG = './img/logo-is.svg';
+const logoSVG = '../../img/logo.svg';
+const logoISSVG = '../../img/logo-is.svg';
 
 const TwitterIcon = (props) => (<img {...props} src={twitterIconSVG} />);
 const FacebookIcon = (props) => (<img {...props} src={facebookIconSVG} />);
@@ -127,6 +127,13 @@ const videoLinks = {
 class Hero extends Component {
   constructor(props){
     super(props);
+    this.componentWillMount = this.componentWillMount.bind(this);
+  }
+  componentWillMount () {
+    if(this.props.forceLang){
+      this.props.actions.setLanguage(this.props.forceLang);
+      console.log('forced language to be ' + this.props.forceLang);
+    }
   }
   render () {
     return (<div>
