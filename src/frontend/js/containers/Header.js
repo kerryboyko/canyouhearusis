@@ -137,12 +137,12 @@ class Header extends Component {
             anchorOrigin={{horizontal: 'right', vertical: 'top'}}
           >
             <MenuItem
-              primaryText={<span><img height={'20px'} width={'35px'} src={englishFlagSVG}/>&nbsp;&nbsp;English</span>}
-              value="EN"
-            />
-            <MenuItem
               primaryText={<span><img height={'20px'} width={'35px'} src={icelandFlagSVG}/>&nbsp;&nbsp;Íslenska</span>}
               value="IS"
+            />
+            <MenuItem
+              primaryText={<span><img height={'20px'} width={'35px'} src={englishFlagSVG}/>&nbsp;&nbsp;English</span>}
+              value="EN"
             />
           </IconMenu>
         </ToolbarGroup>
