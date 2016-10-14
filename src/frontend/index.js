@@ -37,15 +37,18 @@ const MOUNT_NODE = document.getElementById('root');
 
 export default class Root extends Component {
   componentWillMount(){
-    request
-      .get('https://ipinfo.io')
-      .headers({
+    let options = {
+      url: "https://ipinfo.io",
+      method: 'GET',
+      headers: {
         "Access-Control-Allow-Origin": '*',
-      })
-      .on('response', function(error, res, body) {
-        console.log(JSON.parse(body));
-      });
-
+      },
+    };
+    request(options, (error, res, body) =>{
+      console.log("ERR", error);
+      console.log("RES", res);
+      console.log("BODY", body);
+    });
   }
   render() {
     const { store } = this.props;
