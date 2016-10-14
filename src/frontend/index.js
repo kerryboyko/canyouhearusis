@@ -42,6 +42,10 @@ export default class Root extends Component {
       method: 'GET',
       headers: {
         "Access-Control-Allow-Origin": '*',
+        'Access-Control-Allow-Credentials': false,
+      },
+      xhrFields: {
+        withCredentials: false
       },
     };
     request(options, (error, res, body) =>{
@@ -105,7 +109,7 @@ const backgroundSequence = (index = 0) => {
   setTimeout(() => {
     document.documentElement.style.background = 'url(' + bgImageArray[index] + ") no-repeat center center fixed";
     document.documentElement.style.backgroundSize = "cover";
-    backgroundSequence((index + 1) % 3)
+    backgroundSequence((index + 1) % 3);
   }, 7000);
 };
 
