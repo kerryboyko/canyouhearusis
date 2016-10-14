@@ -71,8 +71,17 @@ class TheConstitution extends Component {
           backgroundColor={palette.iceFlagBlue}
           style={{height: '5vh', margin: '1.5vw'}}
           labelStyle={{lineHeight: '5vh', fontSize: "2vh", fontFamily: "Roboto Condensed", color: palette.white }}
+          label={theConstitutionText.buttonISAnal[this.props.language]}
+          /></a>
+          <a href="./pdf/Frumvarp-Icelandic-analysis.pdf" target="_blank" download><RaisedButton
+          icon={<FileDownload />}
+
+          backgroundColor={palette.iceFlagBlue}
+          style={{height: '5vh', margin: '1.5vw'}}
+          labelStyle={{lineHeight: '5vh', fontSize: "2vh", fontFamily: "Roboto Condensed", color: palette.white }}
           label={theConstitutionText.buttonIS[this.props.language]}
           /></a>
+
         </div>
         <div className={css(styles.buttonStyle)}>
         <DonateDialog

@@ -8,8 +8,13 @@ export default {
     IS: "Ensk útgáfa [PDF]",
   },
   buttonIS: {
-    EN: "Get the Icelandic Version (full analysis) [PDF]",
+    EN: "Get the Icelandic Version [PDF]",
     IS: "Íslensk útgáfa [PDF]",
+  },
+  // "Button. Icelandic Language. Analysis." :(
+  buttonISAnal: {
+    EN: "Constitution with Notes & Analysis (Icelandic) [PDF]",
+    IS: "Frumvarp til stjórnarskipunarlaga ásamt skýringum [PDF]"
   },
   pgraphs: [
     {
