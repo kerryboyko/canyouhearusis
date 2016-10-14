@@ -130,7 +130,7 @@ class Hero extends Component {
   }
   render () {
     return (<div>
-      <div className={css(styles.heroStyle)} zDepth={1} >
+      <div className={css(styles.heroStyle)}>
         <div className={css(styles.wrapper)}>
           <div ref="leftContainer" className={css(styles.leftContainer)}>
               <img src={(this.props.language === "EN") ? logoSVG : logoISSVG } className={css(styles.logo)}/>

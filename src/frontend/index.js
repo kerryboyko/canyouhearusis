@@ -38,7 +38,7 @@ const MOUNT_NODE = document.getElementById('root');
 export default class Root extends Component {
   componentWillMount(){
     let options = {
-      url: "https://ipinfo.io",
+      url: "https://ipinfo.io/country",
       method: 'GET',
       headers: {
         "Access-Control-Allow-Origin": '*',
