@@ -36,7 +36,7 @@ export const launchRoutes = (server, app) => {
   app.use('/thankyou', express.static('./'));
   app.use('/subscribe', express.static('./'));
   app.use('/parties', express.static('./'));
-
+  app.uss('/favicon.ico', express.static('./favicon.ico'))
   app.use('/pdf', express.static('./pdf'));
 
   app.use('/img', express.static('./src/frontend/img'));
