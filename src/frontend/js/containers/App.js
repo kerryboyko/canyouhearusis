@@ -17,8 +17,9 @@ class App extends Component {
       url: "https://ipinfo.io/country",
       method: 'GET',
       headers: {
+        'Accept': 'text/html',
         "Access-Control-Allow-Origin": '*',
-        'Access-Control-Allow-Credentials': false,
+        // 'Access-Control-Allow-Credentials': false,
       },
       withCredentials: false,
     };
