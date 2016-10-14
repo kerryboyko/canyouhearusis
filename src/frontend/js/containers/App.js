@@ -14,7 +14,7 @@ class App extends Component {
   }
   componentWillMount (){
     let options = {
-      url: "http://ipinfo.io/country",
+      url: "https://ipinfo.io/country",
       method: 'GET',
       headers: {
         "Access-Control-Allow-Origin": '*',
