@@ -19,6 +19,11 @@ import {StyleSheet, css} from 'aphrodite';
 import ReactGA from 'react-ga';
 ReactGA.initialize('UA-85600067-1');
 
+import {
+  SET_LANGUAGE,
+} from '../constants/index';
+
+
 const ANDERS_JILDEN = '../../img/Anders_Jilden.jpg';
 const KALLE_K = '../../img/Kalle_K.jpg';
 const TJ_HOLOWAYCHUK = '../../img/TJ_Holowaychuk.jpg';
@@ -47,9 +52,16 @@ export default class Root extends Component {
       withCredentials: false,
     };
     request(options, (error, res, body) =>{
-      console.log("ERR", error);
-      console.log("RES", res);
-      console.log("BODY", body);
+      switch(body){
+      case "US":
+        store.dispatch({type: SET_LANGUAGE, language: "EN"});
+        break;
+      case "IS":
+        store.dispatch({type: SET_LANGUAGE, language: "IS"});
+        break;
+      default:
+        break;
+      }
     });
   }
   render() {
