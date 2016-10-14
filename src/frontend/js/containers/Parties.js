@@ -8,14 +8,7 @@ import Party from './Party';
 import partyText from '../text/partyText';
 const statement = partyText.statement;
 const pData = partyText.data;
-const partyOrder = [
-  pData.xs,
-  pData.lg,
-  pData.pp,
-  pData.bf,
-  pData.pr,
-  pData.in
-];
+const partyOrder = partyText.order;
 
 const styles = StyleSheet.create({
   main: {
@@ -52,7 +45,7 @@ class Parties extends Component {
         <Paper className={css(styles.statementPaper)} zDepth={3}>
           <div className={css(styles.statementText)}>{statement[this.props.language]}</div>
         </Paper>
-        {partyOrder.map((d, i) => <Party key={"p"+i} data={d}/>)}
+        {partyOrder.map((pRef, i) => <Party key={"p"+i} data={pData[pRef]}/>)}
       </Paper>
     );
   }
