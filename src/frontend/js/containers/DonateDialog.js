@@ -55,9 +55,10 @@ class DonateDialog extends Component {
     ];
 
     return (
-      <div>
+      <span>
         <RaisedButton
           backgroundColor={this.props.backgroundColor}
+          className={this.props.className}
           style={this.props.style}
           labelStyle={this.props.labelStyle}
           label={this.props.label}
@@ -73,7 +74,7 @@ class DonateDialog extends Component {
         >
           <Donate closeCallback={this.handleClose}/>
         </Dialog>
-      </div>
+      </span>
     );
   }
 

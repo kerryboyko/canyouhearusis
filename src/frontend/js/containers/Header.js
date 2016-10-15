@@ -23,13 +23,63 @@ import labels from '../text/labels';
 const styles = StyleSheet.create({
   buttonStyle: {
     marginLeft: '0.5vw',
-    marginRight: '0.5vw'
+    marginRight: '0.5vw',
+  },
+  donateButtonStyle: {
+    marginTop: '10px',
+    '@media (max-device-width: 800px)': {
+      marginTop: '15px',
+    }
+  },
+  donateButtonLabelStyle: {
+    '@media (max-device-width: 800px)': {
+      marginTop: '15px',
+    }
   },
   hideMobile: {
-    '@media (max-width: 800px)': {
+    '@media (max-width: 850px)': {
+      display: 'none'
+    },
+    '@media (max-device-width: 800px)': {
       display: 'none'
     }
-  }
+  },
+  showSmall: {
+    '@media (max-device-width: 800px)': {
+      display: 'none'
+    }
+  },
+  showMobile: {
+    display: 'none',
+    '@media (max-device-width: 800px)': {
+      display: 'inline-block'
+    }
+  },
+  toolbar: {
+    backgroundColor: palette.iceFlagBlue,
+    height: '56px',
+    '@media (max-device-width: 800px)': {
+      height: '100px',
+    }
+  },
+  hamburgerMenu: {
+    marginLeft: '0.5vw',
+    marginRight: '0.5vw',
+    marginTop: '0.5vh',
+  },
+  hamburgerIconButton: {
+    height: '48px',
+    width: '48px',
+    padding: '4px',
+    '@media (max-device-width: 800px)': {
+      height: '80px',
+      width: '80px'
+    }
+  },
+  hamburgerIcon: {
+    height: '100%',
+    width: '100%',
+  },
 });
 
 const icelandFlagSVG = '../../img/icelandFlag.svg';
@@ -81,12 +131,12 @@ class Header extends Component {
   render () {
     return (
       <div>
-      <Toolbar style={{backgroundColor: palette.iceFlagBlue}}>
+      <Toolbar className={css(styles.toolbar)}>
         <ToolbarGroup firstChild={true}>
         <IconMenu
-          style={{marginLeft: '0.5vw', marginRight: '0.5vw', marginTop: '0.5vh'}}
+          className={css(styles.hamburgerMenu)}
           onChange={this.handlePageSelect}
-          iconButtonElement={<IconButton><HamburgerIcon color="white"/></IconButton>}
+          iconButtonElement={<IconButton className={css(styles.hamburgerIconButton)} ><HamburgerIcon className={css(styles.hamburgerIcon)} color="white"/></IconButton>}
           targetOrigin={{horizontal: 'right', vertical: 'top'}}
           anchorOrigin={{horizontal: 'right', vertical: 'top'}}
         >
@@ -111,13 +161,21 @@ class Header extends Component {
             value="/parties"
           />
         </IconMenu>
+        {/*Shown only on desktop. */}
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleHomeButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.home[this.props.language]} />
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleLearnButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.learn[this.props.language]} />
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleAboutButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.about[this.props.language]} />
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleConstitutionButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.theConstitution[this.props.language]} />
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handlePartiesButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.parties[this.props.language]} />
-
-        <DonateDialog backgroundColor={palette.iceFlagRed} style={Object.assign(styles.buttonStyle, {margin: '10px 6px'})} labelStyle={{fontWeight: '900', color: palette.white, fontFamily: "Roboto Condensed"}} label={labels.donate[this.props.language]} />
+        <DonateDialog className={css(styles.buttonStyle, styles.donateButtonStyle, styles.showSmall)} backgroundColor={palette.iceFlagRed} labelStyle={{fontWeight: '900', color: palette.white, fontFamily: "Roboto Condensed"}} label={labels.donate[this.props.language]} />
+        {/*Shown only on Mobile*/}
+        <DonateDialog
+          className={css(styles.showMobile)}
+          backgroundColor={palette.iceFlagRed}
+          style={{margin: 'auto', width: '100%', height: '80px', marginTop: '10px'}}
+          labelStyle={{fontWeight: '900',  lineHeight: '80px', fontSize: "3em", fontFamily: "Roboto Condensed", color: palette.white }}
+          label={labels.donate[this.props.language]}
+          />
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>
           <IconMenu
