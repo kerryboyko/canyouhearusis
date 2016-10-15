@@ -50,6 +50,15 @@ const styles = StyleSheet.create({
     backgroundColor: palette.red,
     margin: "10px"
   },
+  mehBackbadge: {
+    float: 'right',
+    width: "145px",
+    height: "145px",
+    padding: '10px',
+    borderRadius: '20px',
+    backgroundColor: palette.meh,
+    margin: "10px"
+  },
   name: {
     fontFamily: "Roboto Condensed",
     overflow: 'hidden',
@@ -68,9 +77,9 @@ class Party extends Component {
   }
 
   render () {
-    const good = (<div className={css(styles.goodBackbadge)}><Checkmark className={css(styles.logo)} color={'white'} /></div>);
-    const bad = (<div className={css(styles.badBackbadge)}><img src={qMark} className={css(styles.logo)} /></div>);
-
+    const yea = (<div className={css(styles.goodBackbadge)}><Checkmark className={css(styles.logo)} color={'white'} /></div>);
+    const nay = (<div className={css(styles.badBackbadge)}><Cross className={css(styles.logo)} color={'white'} /></div>);
+    const meh = (<div className={css(styles.mehBackbadge)}><img src={qMark} className={css(styles.logo)} /></div>);
     return (
       <div className={css(styles.fCont)}>
         <div className={css(styles.logoBackbadge)}>
@@ -80,7 +89,9 @@ class Party extends Component {
           {this.props.language === 'EN' ? this.props.data.EN : null}
           {this.props.language === 'IS' ? this.props.data.IS : null}
         </div>
-        {this.props.data.support ? good : bad}
+        {this.props.data.support === "YEA" ? yea : null}
+        {this.props.data.support === "NAY" ? nay : null}
+        {this.props.data.support === "MEH" ? meh : null}
       </div>
     );
   }

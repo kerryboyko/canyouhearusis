@@ -22,73 +22,73 @@ export default {
     pp: {
       EN: "Pirate Party",
       IS: "Píratar",
-      support: true,
+      support: "YEA",
       logo: ppLogo
     },
     xs: {
       EN: 'Social Democratic Alliance',
       IS: 'Samfylkingin',
-      support: true,
+      support: "YEA",
       logo: xsLogo
     },
     lg: {
       EN: 'Left-Green Movement',
       IS: 'Vinstrihreyfingin - grænt framboð',
-      support: true,
+      support: "YEA",
       logo: lgLogo
     },
     bf: {
       EN: 'Bright Future',
       IS: 'Björt framtíð',
-      support: true,
+      support: "YEA",
       logo: bfLogo
     },
     pr: {
       EN: 'Progressive Party',
       IS: 'Framsóknarflokkurinn',
-      support: false,
+      support: "MEH",
       logo: prLogo
     },
     in: {
       EN: 'Independence Party',
       IS: 'Sjálfstæðisflokkurinn',
-      support: false,
+      support: "NAY",
       logo: inLogo
     },
     al: {
       EN: 'People\'s Front',
       IS: 'Alþýðufylkingin',
-      support: false,
+      support: "MEH",
       logo: alLogo
     },
     do: {
       EN: 'Dawn',
       IS: 'Dögun',
-      support: true,
+      support: "YEA",
       logo: doLogo
     },
     ip: {
       EN: 'Icelandic National Front',
       IS: 'Íslenska þjóðfylkingin',
-      support: false,
+      support: "MEH",
       logo: ipLogo
     },
     vi: {
       EN: 'Revival',
       IS: 'Viðreisn',
-      support: false,
+      support: "MEH",
       logo: viLogo
     },
     hf: {
       EN: 'Humanist Party',
       IS: 'Húmanistaflokkurinn',
-      support: false,
+      support: "MEH",
       logo: hfLogo
     },
     fl: {
       EN: 'People\'s Party',
       IS: 'Flokkur fólksins',
-      support: false,
+      support: "MEH",
       logo: flLogo
     }
   }
