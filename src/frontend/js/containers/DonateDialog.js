@@ -5,12 +5,26 @@ import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import Donate from './Donate';
+import DonateMobile from './DonateMobile';
 import ReactGA from 'react-ga';
+import { StyleSheet, css } from 'aphrodite';
+import { isMobile } from '../util'
 
 const thankYouShort = {
   EN: "Thank You!",
   IS: "Takk!"
 };
+
+const styles = StyleSheet.create({
+  dialog: {
+    width:'480px',
+    left: 'calc(50% - 240px)',
+    '@media (max-device-width: 800px)': {
+      width: '96%',
+      left: '2%',
+    }
+  }
+});
 
 class DonateDialog extends Component {
   constructor(props){
@@ -47,6 +61,7 @@ class DonateDialog extends Component {
   }
 
   render () {
+
     const actions = [
       <div>{this.props.processing ? null : <FlatButton
         label="Cancel"
@@ -70,9 +85,10 @@ class DonateDialog extends Component {
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
-          style={{width:'480px', left: 'calc(50% - 240px)', zIndex: this.state.zindex}}
+          className={css(styles.dialog)}
+          style={{zIndex: this.state.zindex}}
         >
-          <Donate closeCallback={this.handleClose}/>
+          {isMobile ? <DonateMobile closeCallback={this.handleClose}/> : <Donate closeCallback={this.handleClose}/>}
         </Dialog>
       </span>
     );

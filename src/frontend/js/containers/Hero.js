@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingBottom: '100px',
   },
-
   wrapper: {
+    marginTop: '1.5vw',
     overflow: 'hidden',
     padding: '1vw',
     '@media (max-width:800px)': {
@@ -37,66 +37,60 @@ const styles = StyleSheet.create({
       border: '0',
     }
   },
+  firstLine: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+  },
   logo: {
-    width: '53vw',
-    display:'flex',
-    textAlign: 'center',
+    width: '33vw',
     marginBottom: '1vw',
-    marginTop: '0.5vw',
     '@media (max-width:800px)': {
       margin: 'auto',
+      padding: '20%',
       float:'none',
       width: "100%",
-    }
-  },
-  leftContainer: {
-    float: 'left',
-    width: '53vw',
-    textAlign: 'left',
-    marginLeft: '10px',
-    '@media (max-width:800px)': {
-      width: '100%',
-      marginRight: '0px',
-      marginLeft: '0px',
-      float: 'none',
-      textAlign: 'center',
-      border: '0',
-    }
-  },
-  rightContainer: {
-    backgroundColor: 'white',
-    overflow: 'hidden',
-    float: 'right',
-    display:'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    width: '40vw',
-    textAlign: 'center',
-    '@media (max-width:800px)': {
-      float:'none',
-      margin: 'auto',
-      width: "100%",
-
     }
   },
   subheadline: {
+    marginLeft: '2vw',
     color: 'white',
     backgroundColor: palette.heroBackground,
     fontFamily: 'Roboto',
     fontWeight: '300',
-    fontSize: "26px",
+    fontSize: "24px",
     padding: '3vw',
   },
+  buttonLine: {
+    display: 'flex',
+    textAlign: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'flex-start',
+    padding: '1vh',
+    marginTop: '3vh',
+    paddingTop: '3vh',
+    marginBottom: '2vh',
+  },
+  changeElection: {
+    textAlign: 'center',
+    fontSize: '24px',
+    fontFamily: "Roboto Condensed",
+    '@media (max-device-width: 800px)': {
+      fontSize: '48px',
+    }
+  },
   videoWrapper : {
+    textAlign: 'center',
     justifyContent: 'center',
+    paddingBottom: '40px',
     '@media (max-width:800px)': {
       position: 'relative',
       paddingTop: '1vh',
     },
   },
   videoWrapperIframe : {
-    width: 'calc(100% - 2vw)',
-    height: 'calc(43vw * (9 / 16))',
     '@media (max-width:800px)': {
       width: 'calc(100% - 2vw)',
       top: '0',
@@ -104,13 +98,6 @@ const styles = StyleSheet.create({
       height: 'calc(96vw * (9 / 16) )',
     },
   },
-  joinus: {
-    margin: 'auto',
-    textAlign: 'center',
-    width: '300px',
-    paddingTop: '30px',
-  }
-
 });
 
 const videoLinks = {
@@ -139,41 +126,37 @@ class Hero extends Component {
     return (<div>
       <div className={css(styles.heroStyle)}>
         <div className={css(styles.wrapper)}>
-          <div ref="leftContainer" className={css(styles.leftContainer)}>
+          <div ref="firstLine" className={css(styles.firstLine)}>
               <img src={(this.props.language === "EN") ? logoSVG : logoISSVG } className={css(styles.logo)}/>
               <Paper className={css(styles.subheadline)}>
                 {subheadline[this.props.language]}
-                <div className={css(styles.joinus)}>
-                  <a href="http://eepurl.com/cjSF51">
-                    <RaisedButton
-                      backgroundColor={palette.iceFlagBlue}
-                      label={"Join Us!"}
-                      style={{margin: 'auto', width: '300px', height: '7vh'}}
-                      labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
-                      labelColor={palette.white}
-                    />
-                  </a>
-                </div>
               </Paper>
           </div>
-          <Paper ref="rightContainer" className={css(styles.rightContainer)}>
-            <div ref="donateLang" style={{padding: '2vh'}}>
-              <DonateDialog
-                backgroundColor={palette.iceFlagRed}
-                style={{margin: 'auto', width: '100%', height: '7vh'}}
-                labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
-                label={labels.donate[this.props.language]}
+          <Paper zDepth={5}>
+          <div className={css(styles.buttonLine)}>
+              <a href="http://eepurl.com/cjSF51">
+                <RaisedButton
+                  backgroundColor={palette.iceFlagBlue}
+                  label={"Join Us!"}
+                  style={{width: '300px', height: '7vh'}}
+                  labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
+                  labelColor={palette.white}
                 />
+              </a>
+                <DonateDialog
+                  backgroundColor={palette.iceFlagRed}
+                  style={{width: '300px', height: '7vh'}}
+                  labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
+                  label={labels.donate[this.props.language]}
+                  />
 
-            </div>
-            <div ref="video" className={css(styles.videoWrapper)}>
-              <iframe className={css(styles.videoWrapperIframe)} src={videoLinks.first[this.props.language]} width="640" height="360" allowFullScreen></iframe>
-            </div>
+          </div>
+            <div className={css(styles.changeElection)}>To change this election, please watch and share this video:</div>
             <Social transparent={true}/>
             <div ref="video" className={css(styles.videoWrapper)}>
               <iframe className={css(styles.videoWrapperIframe)} src={videoLinks.second[this.props.language]} width="640" height="360" allowFullScreen></iframe>
             </div>
-          </Paper>
+            </Paper>
         </div>
       </div>
     </div>

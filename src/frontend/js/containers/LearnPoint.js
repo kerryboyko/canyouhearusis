@@ -30,7 +30,7 @@ class LearnPoint extends Component {
         flexFlow: 'flex-start',
         alignItems: 'flex-start',
         alignContent: 'flex-start',
-        '@media (max-width: 800px)': {
+        '@media (max-device-width: 800px)': {
           flexDirection: 'column',
           // paddingBottom: '56.25%',
           /* 16:9 */
@@ -44,7 +44,7 @@ class LearnPoint extends Component {
         // justifyContent: 'center',
         width: '44vw',
 
-        '@media (max-width: 800px)': {
+        '@media (max-device-width: 800px)': {
           position: 'relative',
           // paddingBottom: '56.25%',
           /* 16:9 */
@@ -57,7 +57,7 @@ class LearnPoint extends Component {
       videoWrapperIframe : {
         width: 'calc(40vw)',
         height: 'calc(40vw * (9 / 16))',
-        '@media (max-width: 800px)': {
+        '@media (max-device-width: 800px)': {
           width: 'calc(100% - 2vw)',
           top: '0',
           left: '0',

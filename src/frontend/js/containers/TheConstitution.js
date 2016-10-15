@@ -86,8 +86,8 @@ class TheConstitution extends Component {
         <div className={css(styles.buttonStyle)}>
         <DonateDialog
           backgroundColor={palette.iceFlagRed}
-          style={{margin: 'auto', marginTop: '20px', marginBottom: '20px', width: '25%', height: '7vh'}}
-          labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
+          style={{margin: 'auto', marginTop: '20px', marginBottom: '20px', width: '25%', height: '5vh'}}
+          labelStyle={{fontWeight: '900',  lineHeight: '5vh', fontSize: "2.5vh", fontFamily: "Roboto Condensed", color: palette.white }}
           label={labels.donate[this.props.language]}
           />
         </div>

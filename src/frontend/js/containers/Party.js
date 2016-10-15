@@ -63,9 +63,12 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto Condensed",
     overflow: 'hidden',
     width: '450px',
-    fontSize: '1.25em',
+    fontSize: '2em',
     textAlign: 'center',
     color: palette.white,
+    '@media (max-device-width: 800px)': {
+      fontSize: '2em',
+    }
   },
 });
 

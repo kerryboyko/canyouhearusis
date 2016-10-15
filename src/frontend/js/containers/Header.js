@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     marginRight: '0.5vw',
     marginTop: '0.5vh',
   },
-  hamburgerIconButton: {
+  menuIconButton: {
     height: '48px',
     width: '48px',
     padding: '4px',
@@ -76,10 +76,27 @@ const styles = StyleSheet.create({
       width: '80px'
     }
   },
-  hamburgerIcon: {
+  menuIcon: {
     height: '100%',
     width: '100%',
   },
+  flags: {
+    height: '20px',
+    width: '35px',
+    '@media (max-device-width: 800px)': {
+      height: '40px',
+      width: '70px'
+    }
+  },
+  menuText: {
+    display:'flex',
+    alignItems: 'center',
+    '@media (max-device-width: 800px)': {
+      fontSize: '35px',
+      lineHeight: '35px',
+      height: '60px',
+    }
+  }
 });
 
 const icelandFlagSVG = '../../img/icelandFlag.svg';
@@ -136,28 +153,33 @@ class Header extends Component {
         <IconMenu
           className={css(styles.hamburgerMenu)}
           onChange={this.handlePageSelect}
-          iconButtonElement={<IconButton className={css(styles.hamburgerIconButton)} ><HamburgerIcon className={css(styles.hamburgerIcon)} color="white"/></IconButton>}
+          iconButtonElement={<IconButton className={css(styles.menuIconButton)} ><HamburgerIcon className={css(styles.menuIcon)} color="white"/></IconButton>}
           targetOrigin={{horizontal: 'right', vertical: 'top'}}
           anchorOrigin={{horizontal: 'right', vertical: 'top'}}
         >
           <MenuItem
             primaryText={labels.home[this.props.language]}
+            className={css(styles.menuText)}
             value="/"
           />
           <MenuItem
             primaryText={labels.learn[this.props.language]}
+            className={css(styles.menuText)}
             value="/learn"
           />
           <MenuItem
             primaryText={labels.about[this.props.language]}
+            className={css(styles.menuText)}
             value="/about"
           />
           <MenuItem
             primaryText={labels.theConstitution[this.props.language]}
+            className={css(styles.menuText)}
             value="/constitution"
           />
           <MenuItem
             primaryText={labels.parties[this.props.language]}
+            className={css(styles.menuText)}
             value="/parties"
           />
         </IconMenu>
@@ -183,23 +205,21 @@ class Header extends Component {
 
             onChange={this.handleLanguageChange}
             iconButtonElement={
-              <div style={{display:'flex', alignItems: 'center', color: palette.white}}>
-                <img height={'20px'} width={'35px'} style={{marginRight: '1vw'}} src={this.props.language === 'IS' ? icelandFlagSVG : englishFlagSVG}/>
-                {this.props.language}
-                <IconButton>
-                  <LanguageIcon color="white"/>
-                </IconButton>
+              <div className={css(styles.menuText)}>
+                <img className={css(styles.flags)} style={{marginRight: '1vw'}} src={this.props.language === 'IS' ? icelandFlagSVG : englishFlagSVG}/>
+                <span style={{color: palette.white}}>{this.props.language}</span>
+                <IconButton className={css(styles.menuIconButton)} ><LanguageIcon className={css(styles.menuIcon)} color="white"/></IconButton>
               </div>
             }
             targetOrigin={{horizontal: 'right', vertical: 'top'}}
             anchorOrigin={{horizontal: 'right', vertical: 'top'}}
           >
             <MenuItem
-              primaryText={<span><img height={'20px'} width={'35px'} src={icelandFlagSVG}/>&nbsp;&nbsp;Íslenska</span>}
+              primaryText={<span className={css(styles.menuText)}><img className={css(styles.flags)} src={icelandFlagSVG}/>&nbsp;&nbsp;Íslenska</span>}
               value="IS"
             />
             <MenuItem
-              primaryText={<span><img height={'20px'} width={'35px'} src={englishFlagSVG}/>&nbsp;&nbsp;English</span>}
+              primaryText={<span className={css(styles.menuText)}><img className={css(styles.flags)} src={englishFlagSVG}/>&nbsp;&nbsp;English</span>}
               value="EN"
             />
           </IconMenu>
