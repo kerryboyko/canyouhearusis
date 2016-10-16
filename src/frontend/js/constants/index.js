@@ -11,6 +11,12 @@ export const CURRENCY_TYPES = {
     abbr: "USD",
     symbol: "$",
     amounts: [1000, 2500, 5000, 10000, 25000, 50000, 100000, 250000, 500000]
+  },
+  ISK: {
+    name: "Islandic Krona",
+    abbr: "ISK",
+    symbol: "Kr.",
+    amounts: [50000, 125000, 250000, 500000, 1250000, 2500000, 5000000, 12500000, 25000000]
   }
 };
 
