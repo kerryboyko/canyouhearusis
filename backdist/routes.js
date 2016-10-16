@@ -36,6 +36,7 @@ var stripe = require("stripe")(stripeKey);
 var nodemailer = require('nodemailer');
 
 var launchRoutes = exports.launchRoutes = function launchRoutes(server, app) {
+
   server.listen(port, function () {
     console.log('Server is listening on port ' + port);
   });

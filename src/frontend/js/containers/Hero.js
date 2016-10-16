@@ -111,6 +111,11 @@ const videoLinks = {
   },
 };
 
+const videoLine = {
+  EN: "Watch and share this video to learn why Iceland's democracy needs your help.",
+  IS: "Horfðu á þetta eina myndband til að skilja mikilvægasta mál þessara kosninga.",
+};
+
 class Hero extends Component {
   constructor(props){
     super(props);
@@ -123,6 +128,8 @@ class Hero extends Component {
     }
   }
   render () {
+
+
     return (<div>
       <div className={css(styles.heroStyle)}>
         <div className={css(styles.wrapper)}>
@@ -151,7 +158,7 @@ class Hero extends Component {
                   />
 
           </div>
-            {/*<div className={css(styles.changeElection)}>To change this election, please watch and share this video:</div>*/}
+            <div className={css(styles.changeElection)}>{videoLine[this.props.language]}</div>
             <Social transparent={true}/>
             <div ref="video" className={css(styles.videoWrapper)}>
               <iframe className={css(styles.videoWrapperIframe)} src={videoLinks.second[this.props.language]} width="640" height="360" allowFullScreen></iframe>
