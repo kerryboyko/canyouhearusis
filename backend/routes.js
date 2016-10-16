@@ -9,11 +9,12 @@ let stripeKey = process.env.STRIPE_SECRET_KEY;
 if (!process.env.STRIPE_SECRET_KEY){
   stripeKey = require('../secrets.js').STRIPE_SECRET_KEY;
 }
-const stripe = require("stripe")(stripeKey);
+let stripe = require("stripe")(stripeKey);
 const nodemailer = require('nodemailer');
 
 
 export const launchRoutes = (server, app) => {
+
   server.listen(port, () => {
     console.log('Server is listening on port ' + port);
   });
