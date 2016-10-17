@@ -2,13 +2,13 @@ import chai from 'chai';
 const expect = chai.expect;
 import {
   SET_CURRENCY, CURRENCY_TYPES,
-} from '../../../../src/frontend/js/constants/index';
+} from '../src/frontend/js/constants/index';
 import {
   setCurrency
-} from '../../../../src/frontend/js/actions/currency';
+} from '../src/frontend/js/actions/currency';
 import {
   currency
-} from '../../../../src/frontend/js/reducers/currency';
+} from '../src/frontend/js/reducers/currency';
 
 describe('currency()', () => {
   it('switches the state based on the currency', () => {

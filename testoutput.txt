@@ -1,0 +1,65 @@
+
+> iceland-canyouhearus@1.0.0 test /home/brianboyko/source/Iceland
+> mocha  --compilers js:babel-register -w test/jsdomSetup.js test/**/*.spec.js --recursive
+
+
+[?25l
+
+  loading express
+Server is listening on port 3000
+    ✓ responds to /
+Server is listening on port 3000
+    ✓ should note 301 moved perm for /dist
+Server is listening on port 3000
+    ✓ should note 301 moved perm for  /pdf
+Server is listening on port 3000
+    ✓ should note 301 moved perm for  /img
+Server is listening on port 3000
+    ✓ responds to /favicon.ico
+Server is listening on port 3000
+    ✓ 404 everything else
+Server is listening on port 3000
+    ✓ serves the homepage
+Server is listening on port 3000
+    ✓ serves the homepage
+
+  setCurrency()
+    ✓ creates an action to set the currency
+
+  setLanguage()
+    ✓ creates an action to set the language
+
+  setProcessing()
+    ✓ creates an action to set the payment processing status
+
+  currency()
+    ✓ switches the state based on the currency
+
+  language()
+    ✓ defaults to Icelandic
+    ✓ changes the language on demand
+
+  processing()
+    ✓ starts false
+    ✓ changes to true
+    ✓ goes back to false
+
+  Preliminaries
+{}
+    1) is just gonna console log itself
+
+
+  17 passing (162ms)
+  1 failing
+
+  1) Preliminaries is just gonna console log itself:
+     TypeError: Cannot read property 'query' of undefined
+      at Object.push (node_modules/history/lib/useQueries.js:115:50)
+      at Object.dispatch (node_modules/react-router-redux/lib/middleware.js:29:25)
+      at routeTo (src/frontend/js/store/configureStore.js:32:9)
+      at test/frontend.js.store.configureStore.spec.js:11:19
+      at p (test/frontend.js.store.configureStore.spec.js:9:19)
+      at Context.<anonymous> (test/frontend.js.store.configureStore.spec.js:14:12)
+
+
+
