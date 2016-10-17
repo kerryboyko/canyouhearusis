@@ -2,10 +2,10 @@ import chai from 'chai';
 const expect = chai.expect;
 import {
   setLanguage
-} from '../../../../src/frontend/js/actions/language';
+} from '../src/frontend/js/actions/language';
 import {
   language
-} from '../../../../src/frontend/js/reducers/language';
+} from '../src/frontend/js/reducers/language';
 
 describe('language()', () => {
   it('defaults to Icelandic', () => {
