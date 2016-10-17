@@ -2,10 +2,10 @@ import chai from 'chai';
 const expect = chai.expect;
 import {
   SET_LANGUAGE
-} from '../../../../src/frontend/js/constants/index';
+} from '../src/frontend/js/constants/index';
 import {
   setLanguage
-} from '../../../../src/frontend/js/actions/language';
+} from '../src/frontend/js/actions/language';
 
 describe('setLanguage()', () => {
   it('creates an action to set the language', () => {

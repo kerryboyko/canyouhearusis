@@ -6,7 +6,7 @@ import request from 'supertest';
 import express from 'express';
 const testApp = express();
 import http from 'http';
-import {launchRoutes} from '../../backend/routes';
+import {launchRoutes} from '../backend/routes';
 import sinon from 'sinon';
 
 describe('loading express', function () {

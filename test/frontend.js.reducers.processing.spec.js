@@ -2,10 +2,10 @@ import chai from 'chai';
 const expect = chai.expect;
 import {
   setProcessing
-} from '../../../../src/frontend/js/actions/processing';
+} from '../src/frontend/js/actions/processing';
 import {
   processing
-} from '../../../../src/frontend/js/reducers/processing';
+} from '../src/frontend/js/reducers/processing';
 
 describe('processing()', () => {
   it('starts false', () => {
