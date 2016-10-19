@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
 
 const videoLinks = {
   first: {
-    EN: "http://www.youtube.com/embed/RxguS56TnxQ&cc_load_policy=1", // do shorter first
-    IS: "https://www.youtube.com/embed/RxguS56TnxQ",
+    EN: "https://www.youtube.com/embed/RxguS56TnxQ&cc_load_policy=1", // do shorter first
+    IS: "https://www.youtube.com/embed/RxguS56TnxQ&cc_load_policy=0",
   },
   second: {
     EN: "https://www.youtube.com/embed/C1qk-BQwNlA",
