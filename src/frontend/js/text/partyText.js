@@ -82,7 +82,7 @@ export default {
     hf: {
       EN: 'Humanist Party',
       IS: 'Húmanistaflokkurinn',
-      support: "MEH",
+      support: "YEA",
       logo: hfLogo
     },
     fl: {
