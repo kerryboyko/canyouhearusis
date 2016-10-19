@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
 
 const videoLinks = {
   first: {
-    EN: "https://www.youtube.com/embed/JC0mZnJFhUg", // do shorter first
-    IS: "https://www.youtube.com/embed/tSLoMgiNL6s",
+    EN: "http://www.youtube.com/embed/RxguS56TnxQ?rel=0&cc_load_policy=1", // do shorter first
+    IS: "https://www.youtube.com/embed/RxguS56TnxQ?rel=0&cc_load_policy=0",
   },
   second: {
     EN: "https://www.youtube.com/embed/C1qk-BQwNlA",
@@ -161,7 +161,7 @@ class Hero extends Component {
             <div className={css(styles.changeElection)}>{videoLine[this.props.language]}</div>
             <Social transparent={true}/>
             <div ref="video" className={css(styles.videoWrapper)}>
-              <iframe className={css(styles.videoWrapperIframe)} src={videoLinks.second[this.props.language]} width="640" height="360" allowFullScreen></iframe>
+              <iframe className={css(styles.videoWrapperIframe)} src={videoLinks.first[this.props.language]} width="640" height="360" allowFullScreen></iframe>
             </div>
             </Paper>
         </div>
