@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: '24px',
     fontFamily: "Roboto Condensed",
+    maxWidth: '800px',
     '@media (max-device-width: 800px)': {
       fontSize: '48px',
     }
@@ -149,13 +150,7 @@ class Hero extends Component {
                   labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
                   labelColor={palette.white}
                 />
-              </a>
-                <DonateDialog
-                  backgroundColor={palette.iceFlagRed}
-                  style={{width: '300px', height: '7vh'}}
-                  labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
-                  label={labels.donate[this.props.language]}
-                  />
+              </a>edit
 
           </div>
             <div className={css(styles.changeElection)}>{videoLine[this.props.language]}</div>
