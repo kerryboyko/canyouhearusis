@@ -161,7 +161,7 @@ class Hero extends Component {
             <div className={css(styles.changeElection)}>{videoLine[this.props.language]}</div>
             <Social transparent={true}/>
             <div ref="video" className={css(styles.videoWrapper)}>
-              <iframe className={css(styles.videoWrapperIframe)} src={videoLinks.first[this.props.language]} width="640" height="360" allowFullScreen></iframe>
+              <iframe className={css(styles.videoWrapperIframe)} src={videoLinks.first[this.props.language]} width="640" height="360" frameborder="0" allowFullScreen></iframe>
             </div>
             </Paper>
         </div>
