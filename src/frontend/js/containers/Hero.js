@@ -104,8 +104,8 @@ const styles = StyleSheet.create({
 
 const videoLinks = {
   first: {
-    EN: "https://www.youtube.com/embed/RxguS56TnxQ", // do shorter first
-    IS: "https://www.youtube.com/embed/RxguS56TnxQ",
+    EN: "https://www.youtube.com/embed/JC0mZnJFhUg", // do shorter first
+    IS: "https://www.youtube.com/embed/tSLoMgiNL6s",
   },
   second: {
     EN: "https://www.youtube.com/embed/C1qk-BQwNlA",
@@ -114,8 +114,8 @@ const videoLinks = {
 };
 
 const videoLine = {
-  EN: "The natural beauty of Iceland is considered one of the great wonders of the world. Entertainer and journalist Omar Ragnarsson talks about the strong provisions on the protection of nature and sustainable use of natural resources in the new constitution in this video.",
-  IS: "Íslensk náttúra er talin ein af undrum veraldar eins og Ómar Ragnarsson bendir hér á. Í drögum Stjórnalagaráðs að nýrri stjórnarskrá er að finna mjög sterk ákvæði um náttúruvernd auk kröfu um sjálfbærrar nýtingar náttúruauðlinda.",
+  EN: "Watch and share this video to learn why Iceland's democracy needs your help.",
+  IS: "Horfðu á þetta eina myndband til að skilja mikilvægasta mál þessara kosninga.",
 };
 
 class Hero extends Component {
