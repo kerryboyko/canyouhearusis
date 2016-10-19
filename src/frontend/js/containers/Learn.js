@@ -5,7 +5,11 @@ import {StyleSheet, css} from 'aphrodite';
 import palette from '../constants/palette';
 import Paper from 'material-ui/Paper';
 import LearnPoint from './LearnPoint';
-import points from '../text/learnTexts';
+import LearnArticle from './LearnArticle';
+import learnTexts from '../text/learnTexts';
+
+const videoPoints = learnTexts.videoPoints;
+const articles = learnTexts.articles;
 
 
 const styles = StyleSheet.create({
@@ -19,6 +23,9 @@ const styles = StyleSheet.create({
     padding: '1vh 2vw',
     width: '90vw',
   },
+  videoPaper: {
+    margin: '2vh 2vw',
+  }
 });
 
 class Learn extends Component {
@@ -29,19 +36,22 @@ class Learn extends Component {
   render () {
 
     const header = (<div>
-      {this.props.language === 'EN' ? <Paper className={css(styles.headerPaper)}>Ten reasons why the new Icelandic constitution must be enacted</Paper> : null}
+      {this.props.language === 'EN' ? <Paper className={css(styles.headerPaper)}>Reasons why the new Icelandic constitution must be enacted</Paper> : null}
+      {/*Change this.  It still says "TEN" reasons in Icelandic. */}
       {this.props.language === 'IS' ? <Paper className={css(styles.headerPaper)}>Tíu ástæður fyrir því að nauðsynlegt er að nýja stjórnarskráin taki gildi</Paper> : null}
       </div>);
 
-    const footer = (<div>
-      {this.props.language === 'EN' ? <Paper className={css(styles.headerPaper)}>More to come...</Paper> : null}
-      {this.props.language === 'IS' ? <Paper className={css(styles.headerPaper)}>Meira væntalegt...</Paper> : null}
-      </div>);
+    const letters = (<div>{this.props.language === 'EN' ?
+        <Paper className={css(styles.videoPaper)} zDepth={3}>
+
+        </Paper>
+      : null}</div>);
 
     return (<div>
       {header}
-          {points.map((point, i) => (<LearnPoint pointNumber={10 - i}left={(i % 2 === 0)}key={"point-num-" + i} point={point}/>))}
-      {footer}
+          {videoPoints.map((point, i) => (<LearnPoint pointNumber={10 - i}left={(i % 2 === 0)}key={"point-num-" + i} point={point}/>))}
+          <div className={css(styles.headerPaper)}>Articles</div>
+          {articles.map((arti, i) => <LearnArticle article={arti} key={"article" + i} />)}
     </div>
     );
   }

@@ -16,6 +16,9 @@ class LearnPoint extends Component {
         fontSize: '18px',
         padding: '1vw',
       },
+      boldFirstLine:{
+        fontWeight: 'bold',
+      },
       wrapper: {
         overflow: 'hidden',
         padding: '1vw',
@@ -76,7 +79,7 @@ class LearnPoint extends Component {
       </div>);
     const textBox = (
         <div className={css(this.styles.pointText)}>
-          {this.props.point.text[this.props.language].map((pgraph, i) => (<div key={"pgraph" + i} className={css(this.styles.pointText)}>{(i === 0) ? "#" + this.props.pointNumber + ": " : null}{pgraph}</div>))}
+          {this.props.point.text[this.props.language].map((pgraph, i) => (<div key={"pgraph" + i} className={css(this.styles.pointText, (i === 0) ? this.styles.boldFirstLine : null)}>{pgraph}</div>))}
         </div>
     );
 

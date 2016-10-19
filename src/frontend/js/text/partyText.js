@@ -58,7 +58,7 @@ export default {
     al: {
       EN: 'People\'s Front',
       IS: 'Alþýðufylkingin',
-      support: "MEH",
+      support: "NAY",
       logo: alLogo
     },
     do: {
