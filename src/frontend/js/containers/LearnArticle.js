@@ -38,6 +38,10 @@ const styles = StyleSheet.create({
     maxWidth: '800px',
     margin:'auto',
     marginBottom: '24px',
+  },
+  translator:{
+    fontStyle: "italic",
+    fontSize: '15px',
   }
 });
 
@@ -47,7 +51,7 @@ class LearnArticle extends Component {
     this.state = {
       expanded: false,
     };
-    ["title", "languages", "author", "authorPics", "authorBios", "text"].forEach((dataKey) => {
+    ["title", "languages", "author", "translator", "authorPics", "authorBios", "text"].forEach((dataKey) => {
       this[dataKey] = props.article[dataKey];
     });
     this.handleExpandToggle = this.handleExpandToggle.bind(this);
@@ -61,7 +65,7 @@ class LearnArticle extends Component {
   parseLang (l, i) {
     let str = languageExpand[l][this.props.language];
     if(i < this.languages.length - 1){
-      str += ", ";
+      str += " ";
     }
     return str;
   }
@@ -72,7 +76,7 @@ class LearnArticle extends Component {
       <Card>
         <CardHeader
           title={this.title[this.props.language]}
-          subtitle={this.author + " - Languages: " + this.languages.map((l, i) => this.parseLang(l, i))}
+          subtitle={this.author}
           actAsExpander={true}
           showExpandableButton={true}
           titleStyle={{fontFamily: "Roboto Condensed", fontSize: '18px', fontWeight: '700'}}
@@ -82,13 +86,13 @@ class LearnArticle extends Component {
         <div className={css(styles.outerBio)}>
           {this.authorPics.map((pic, index) => <Card>
             <CardHeader
-              subtitle={this.authorBios[index]}
+              subtitle={this.authorBios[this.props.language][index]}
               avatar={pic}
               />
             </Card>)}
           </div>
-          {/*To be changed when we get icelandic text. */}
-          {this.text["EN"].map((pgraph) => <div className={css(styles.mainText)}>{pgraph}</div>)}
+          {this.props.language === "IS" ? <div className={css(styles.mainText, styles.translator)}>{this.translator + " þýddi"}</div> : null }
+          {this.text[this.props.language].map((pgraph) => <div className={css(styles.mainText)}>{pgraph}</div>)}
         </CardText>
       </Card>
     );
