@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     fontSize: '24px',
     fontFamily: "Roboto Condensed",
     maxWidth: '800px',
+    margin: 'auto',
     '@media (max-device-width: 800px)': {
       fontSize: '48px',
     }
@@ -150,7 +151,7 @@ class Hero extends Component {
                   labelStyle={{fontWeight: '900',  lineHeight: '7vh', fontSize: "4vh", fontFamily: "Roboto Condensed", color: palette.white }}
                   labelColor={palette.white}
                 />
-              </a>edit
+              </a>
 
           </div>
             <div className={css(styles.changeElection)}>{videoLine[this.props.language]}</div>
