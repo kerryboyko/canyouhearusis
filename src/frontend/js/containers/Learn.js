@@ -28,6 +28,11 @@ const styles = StyleSheet.create({
   }
 });
 
+const wordForArticles = {
+  EN: 'Articles',
+  IS: 'Greinar',
+};
+
 class Learn extends Component {
   constructor(props){
     super(props);
@@ -50,7 +55,7 @@ class Learn extends Component {
     return (<div>
       {header}
           {videoPoints.map((point, i) => (<LearnPoint pointNumber={10 - i}left={(i % 2 === 0)}key={"point-num-" + i} point={point}/>))}
-          <div className={css(styles.headerPaper)}>Articles</div>
+          <div className={css(styles.headerPaper)}>{wordForArticles[this.props.language]}</div>
           {articles.map((arti, i) => <LearnArticle article={arti} key={"article" + i} />)}
     </div>
     );
