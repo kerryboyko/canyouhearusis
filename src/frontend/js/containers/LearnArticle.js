@@ -91,7 +91,7 @@ class LearnArticle extends Component {
               />
             </Card>)}
           </div>
-          {this.props.language === "IS" ? <div className={css(styles.mainText, styles.translator)}>{this.translator + " þýddi"}</div> : null }
+          {this.translator ? <div className={css(styles.mainText, styles.translator)}>{(this.translator + " þýddi")}</div> : null }
           {this.text[this.props.language].map((pgraph) => <div className={css(styles.mainText)}>{pgraph}</div>)}
         </CardText>
       </Card>
