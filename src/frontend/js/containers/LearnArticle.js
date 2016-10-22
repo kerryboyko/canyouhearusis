@@ -84,7 +84,7 @@ class LearnArticle extends Component {
         </CardHeader>
         <CardText expandable={true}>
         <div className={css(styles.outerBio)}>
-          {this.authorPics.map((pic, index) => <Card>
+          {this.authorPics.map((pic, index) => <Card key={'kard' + index}>
             <CardHeader
               subtitle={this.authorBios[this.props.language][index]}
               avatar={pic}

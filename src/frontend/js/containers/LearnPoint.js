@@ -72,24 +72,27 @@ class LearnPoint extends Component {
   }
 
   render () {
-
-    const videoBox = (
-      <div  ref="video" className={css(this.styles.videoWrapper)}>
+    if (this.props.point.text[this.props.language] !== null){
+      const videoBox = (
+        <div  ref="video" className={css(this.styles.videoWrapper)}>
         <iframe className={css(this.styles.videoWrapperIframe)} src={this.props.point.video} width="640" height="360" allowFullScreen></iframe>
-      </div>);
-    const textBox = (
-        <div className={css(this.styles.pointText)}>
+        </div>);
+      const textBox = (
+          <div className={css(this.styles.pointText)}>
           {this.props.point.text[this.props.language].map((pgraph, i) => (<div key={"pgraph" + i} className={css(this.styles.pointText, (i === 0) ? this.styles.boldFirstLine : null)}>{pgraph}</div>))}
+          </div>
+        );
+      return (
+        <Paper className={css(this.styles.videoPaper)} zDepth={3}>
+        <div className={css(this.styles.videoAndTextWrapper)}>
+        {videoBox}{textBox}
         </div>
-    );
+        </Paper>
+      );
+    } else {
+      return null;
+    }
 
-    return (
-          <Paper className={css(this.styles.videoPaper)} zDepth={3}>
-            <div className={css(this.styles.videoAndTextWrapper)}>
-              {videoBox}{textBox}
-            </div>
-          </Paper>
-    );
   }
 }
 
