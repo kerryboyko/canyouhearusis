@@ -37,6 +37,8 @@ export const launchRoutes = (server, app) => {
   app.use('/thankyou', express.static('./'));
   app.use('/subscribe', express.static('./'));
   app.use('/parties', express.static('./'));
+  app.use('/privacy', express.static('./'));
+
   app.use('/pdf', express.static('./pdf'));
   app.use('/land', express.static('./'));
   app.use('/is', express.static('./'));

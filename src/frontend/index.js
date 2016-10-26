@@ -7,7 +7,7 @@ import App from './js/containers/App';
 import Hero from './js/containers/Hero';
 import EnglishHero from './js/components/EnglishHero';
 import IcelandicHero from './js/components/IcelandicHero';
-
+import Privacy from './js/containers/Privacy';
 import About from './js/containers/About';
 import Learn from './js/containers/Learn';
 import DirectDonate from './js/components/DirectDonate';
@@ -59,6 +59,8 @@ export default class Root extends Component {
               <Route path="thankyou" component={ThankYou}/>
               <Route path="subscribe" component={Subscribe}/>
               <Route path="parties" component={Parties}/>
+              <Route path="privacy" component={Privacy}/>
+
               {/* canyouhearus.is/land and canyouhearus.is/is should default to icelandic canyouhearus.is/en should default to english*/}
               <Route path="land" component={IcelandicHero}/>
               <Route path="is" component={IcelandicHero}/>

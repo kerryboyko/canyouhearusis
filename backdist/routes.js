@@ -59,6 +59,8 @@ var launchRoutes = exports.launchRoutes = function launchRoutes(server, app) {
   app.use('/thankyou', _express2.default.static('./'));
   app.use('/subscribe', _express2.default.static('./'));
   app.use('/parties', _express2.default.static('./'));
+  app.use('/privacy', _express2.default.static('./'));
+
   app.use('/pdf', _express2.default.static('./pdf'));
   app.use('/land', _express2.default.static('./'));
   app.use('/is', _express2.default.static('./'));

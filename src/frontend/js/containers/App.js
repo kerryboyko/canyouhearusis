@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as actions from '../actions/index';
 import reduxify from 'reduxify';
 import Header from './Header';
+import Footer from './Footer';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -41,6 +42,7 @@ class App extends Component {
         <div ref="App">
           <Header />
           {this.props.children}
+          <Footer />
         </div>
       </MuiThemeProvider>
     );
