@@ -108,8 +108,8 @@ const videoLinks = {
     IS: "https://www.youtube.com/embed/tSLoMgiNL6s",
   },
   second: {
-    EN: "https://www.youtube.com/embed/C1qk-BQwNlA",
-    IS: "https://www.youtube.com/embed/TS3zoZFxmuI",
+    EN: "https://www.youtube.com/embed/xOApM0p-RSE",
+    IS: "https://www.youtube.com/embed/lzuoZk8QI5I",
   },
 };
 
