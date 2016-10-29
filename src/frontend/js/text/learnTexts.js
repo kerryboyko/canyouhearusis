@@ -69,6 +69,18 @@ export default {
         IS: ["Spaugstofan - Bogi og Örvar - nýja stjórnarskrárin"],
       },
       video: "https://www.youtube.com/embed/kvGeFpPbzsw",
+    }, {
+      text: {
+        EN: null,
+        IS: ["Unnsteinn Manuel - Retro Stefson VOTE"],
+      },
+      video: "https://www.youtube.com/embed/1hVU2_qcxMI",
+    },{
+      text: {
+        EN: null,
+        IS: ["Ragnar Adalsteinsson"],
+      },
+      video: "https://www.youtube.com/embed/omkcMK92h1A",
     },
 
 
