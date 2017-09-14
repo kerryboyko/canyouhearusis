@@ -15,7 +15,8 @@ var sendThankYou = exports.sendThankYou = function sendThankYou(to, amount, curr
     from: '"Can You Hear Us" <thankyou@canyouhearus.is>', // sender address
     to: to, // list of receivers
     subject: 'Thank you/Takk! (CAN YOU HEAR US? / HEYRIÐI Í OKKUR?)',
-    text: makeEmailText(amount, currency) };
+    text: makeEmailText(amount, currency) // plaintext body
+  };
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {

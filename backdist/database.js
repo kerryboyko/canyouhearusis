@@ -46,8 +46,8 @@ var retrieveTotal = exports.retrieveTotal = function retrieveTotal() {
 };
 
 var addToTotal = exports.addToTotal = function addToTotal(_ref) {
-  var amount = _ref.amount;
-  var currency = _ref.currency;
+  var amount = _ref.amount,
+      currency = _ref.currency;
   return new Promise(function (resolve, reject) {
     retrieveTotal().then(function (previous) {
       var total = _lodash2.default.pick(previous, ["usd", "isk"]);
@@ -56,8 +56,8 @@ var addToTotal = exports.addToTotal = function addToTotal(_ref) {
     }).then(function (v) {
       return { total: v[0], db: v[1] };
     }).then(function (_ref2) {
-      var total = _ref2.total;
-      var db = _ref2.db;
+      var total = _ref2.total,
+          db = _ref2.db;
 
       var totals = db.collection('liveTotal');
       totals.insert(total, function (err, result) {

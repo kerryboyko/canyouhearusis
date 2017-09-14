@@ -20,28 +20,12 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loaders: [
-        'react-hot',
-        'babel',
-      ],
-      include: path.join(__dirname, 'src/')
-    },
-    {
-      test: /\.json$/,
-      loader: 'json'
-    },
-    {
-      test: /\.css$/,
-      loader: 'style!css'
-    }, {
-      test: /\.(jpe?g|png|gif|svg)$/i,
-      loaders: [
-        'file?hash=sha512&digest=hex&name=[hash].[ext]',
-        'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-      ]
-    }],
+    loaders: [
+      { test: /\.jsx?$/, loaders: ['react-hot-loader', 'babel-loader'], include: path.join(__dirname, 'src/') },
+      { test: /\.json$/, loader: 'json-loader' },
+      { test: /\.css$/, loaders: ['style-loader', 'css-loader'] },
+      { test: /\.(jpe?g|png|gif|svg)$/i, loaders: ['file?hash=sha512&digest=hex&name=[hash].[ext]', 'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'] }
+    ],
   },
   externals: {
     fs: '{}',
