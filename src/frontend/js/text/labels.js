@@ -1,8 +1,4 @@
 export default {
-  donate: {
-    EN: "Donate",
-    IS: "Styðja",
-  },
   home: {
     EN: "Home",
     IS: "Heim",

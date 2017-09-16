@@ -15,7 +15,6 @@ import {Toolbar, ToolbarGroup} from 'material-ui/Toolbar';
 import palette from '../constants/palette';
 import {Tab} from 'material-ui/Tabs';
 import {StyleSheet, css} from 'aphrodite';
-import DonateDialog from './DonateDialog';
 import labels from '../text/labels';
 
 
@@ -24,17 +23,6 @@ const styles = StyleSheet.create({
   buttonStyle: {
     marginLeft: '0.5vw',
     marginRight: '0.5vw',
-  },
-  donateButtonStyle: {
-    marginTop: '10px',
-    '@media (max-device-width: 800px)': {
-      marginTop: '15px',
-    }
-  },
-  donateButtonLabelStyle: {
-    '@media (max-device-width: 800px)': {
-      marginTop: '15px',
-    }
   },
   hideMobile: {
     '@media (max-width: 850px)': {
@@ -189,15 +177,7 @@ class Header extends Component {
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleAboutButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.about[this.props.language]} />
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handleConstitutionButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.theConstitution[this.props.language]} />
         <RaisedButton className={css(styles.buttonStyle, styles.hideMobile)} backgroundColor={palette.white} onClick={this.handlePartiesButton} labelStyle={{fontWeight: '900', fontFamily: "Roboto Condensed"}} label={labels.parties[this.props.language]} />
-        <DonateDialog className={css(styles.buttonStyle, styles.donateButtonStyle, styles.showSmall)} backgroundColor={palette.iceFlagRed} labelStyle={{fontWeight: '900', color: palette.white, fontFamily: "Roboto Condensed"}} label={labels.donate[this.props.language]} />
-        {/*Shown only on Mobile*/}
-        <DonateDialog
-          className={css(styles.showMobile)}
-          backgroundColor={palette.iceFlagRed}
-          style={{margin: 'auto', width: '100%', height: '80px', marginTop: '10px'}}
-          labelStyle={{fontWeight: '900',  lineHeight: '80px', fontSize: "3em", fontFamily: "Roboto Condensed", color: palette.white }}
-          label={labels.donate[this.props.language]}
-          />
+       
         </ToolbarGroup>
         <ToolbarGroup lastChild={true}>
           <IconMenu

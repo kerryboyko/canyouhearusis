@@ -61,6 +61,7 @@
     "redux-thunk": "^2.1.0",
     "reduxify": "^1.0.2",
     "request": "^2.75.0",
+    "semver": "^5.4.1",
     "stripe": "^4.11.0",
     "style-loader": "^0.13.1",
     "superagent": "^2.3.0",

@@ -5,7 +5,6 @@ import {StyleSheet, css} from 'aphrodite';
 import palette from '../constants/palette';
 
 import Paper from 'material-ui/Paper';
-import DonateDialog from './DonateDialog';
 
 import Social from './Social';
 
@@ -64,14 +63,6 @@ class About extends Component {
             {us[this.props.language]}
           </Paper>
         </Paper>
-        <div className={css(styles.buttonStyle)}>
-        <DonateDialog
-          backgroundColor={palette.iceFlagRed}
-          style={{margin: 'auto', marginTop: '20px', marginBottom: '20px', width: '25%', height: '5vh'}}
-          labelStyle={{fontWeight: '900',  lineHeight: '5vh', fontSize: "2.5vh", fontFamily: "Roboto Condensed", color: palette.white }}
-          label={labels.donate[this.props.language]}
-          />
-        </div>
         <Social />
 
       </Paper>

@@ -7,7 +7,6 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import theConstitutionText from '../text/theConstitutionText';
 import FileDownload from 'material-ui/svg-icons/file/file-download';
-import DonateDialog from './DonateDialog';
 import Social from './Social';
 import labels from '../text/labels';
 
@@ -82,14 +81,6 @@ class TheConstitution extends Component {
           label={theConstitutionText.buttonIS[this.props.language]}
           /></a>
 
-        </div>
-        <div className={css(styles.buttonStyle)}>
-        <DonateDialog
-          backgroundColor={palette.iceFlagRed}
-          style={{margin: 'auto', marginTop: '20px', marginBottom: '20px', width: '25%', height: '5vh'}}
-          labelStyle={{fontWeight: '900',  lineHeight: '5vh', fontSize: "2.5vh", fontFamily: "Roboto Condensed", color: palette.white }}
-          label={labels.donate[this.props.language]}
-          />
         </div>
         <Social />
       </Paper>
