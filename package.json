@@ -6,8 +6,9 @@
   "author": "Brian Boyko <brian.boyko@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "npm run build && node ./server/server.js",
-    "build": "rimraf ./dist && cross-env NODE_ENV=production webpack -p",
+    "pack": "node ./node_modules/.bin/webpack -p",
+    "build": "npm run pack && ./node_modules/.bin/babel server -d distServer",
+    "start": "npm run build && node distServer/server.js",
     "blind:dev": "cross-env NODE_ENV=development ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "start:dev": "cross-env NODE_ENV=development ./node_modules/webpack-dashboard/bin/webpack-dashboard.js -t 'Preview Mode - React-Redux Boilerplate' -- ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "pretty": "./node_modules/.bin/prettier --write src/js/**/*.js src/js/**/*.jsx webpack.config.js test/**/*.js"
@@ -20,6 +21,7 @@
     "cors": "^2.8.4",
     "cross-env": "^5.0.5",
     "express": "^4.15.4",
+    "lodash.pick": "^4.4.0",
     "material-ui": "^0.19.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
