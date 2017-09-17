@@ -10,7 +10,6 @@ import IcelandicHero from './js/components/IcelandicHero';
 
 import About from './js/containers/About';
 import Learn from './js/containers/Learn';
-import DirectDonate from './js/components/DirectDonate';
 import Subscribe from './js/containers/Subscribe';
 import ThankYou from './js/containers/ThankYou';
 import Parties from './js/containers/Parties';
@@ -55,7 +54,6 @@ export default class Root extends Component {
               <Route path="about" component={About}/>
               <Route path="learn" component={Learn}/>
               <Route path="constitution" component={TheConstitution}/>
-              <Route path="donate" component={DirectDonate}/>
               <Route path="thankyou" component={ThankYou}/>
               <Route path="subscribe" component={Subscribe}/>
               <Route path="parties" component={Parties}/>
