@@ -43,7 +43,8 @@ var launchRoutes = function(server, app) {
   app.use("/favicon.ico", express.static(path.join(__dirname, "../src/img/favicon.ico")));
   app.use("/img", express.static(path.join(__dirname, "../src/img")));
   app.get("*", function(req, res){
-    res.sendFile(path.join(__dirname, "../dist/index.html"))
+    res.send("Hello World")
+    // res.sendFile(path.join(__dirname, "../dist/index.html"))
   })
 };
 
