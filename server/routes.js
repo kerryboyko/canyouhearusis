@@ -39,17 +39,7 @@ var launchRoutes = function(server, app) {
   });
 
   // to serve the pages.
-  app.use('/', express.static('./'));
-  app.use('/about', express.static('./'));
-  app.use('/constitution', express.static('./'));
-  app.use('/learn', express.static('./'));
-  app.use('/thankyou', express.static('./'));
-  app.use('/subscribe', express.static('./'));
-  app.use('/parties', express.static('./'));
-  app.use('/pdf', express.static('./pdf'));
-  app.use('/land', express.static('./'));
-  app.use('/is', express.static('./'));
-  app.use('/en', express.static('./'));
+  app.use(express.static(__dirname + '/'));
 
   // to serve the pages.
   app.use("/pdf", express.static(path.join(__dirname, "../src/pdf")));
