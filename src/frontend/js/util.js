@@ -1,5 +1,7 @@
 import isFunction from "lodash/isFunction";
 import pick from "lodash/pick";
+import {connect} from 'react-redux'; 
+import {bindActionCreators} from 'redux'; 
 
 /** function bindAllMethods()
  * This takes and ES6 class with methods, and automatically binds "this" - ie.,
