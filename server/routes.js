@@ -17,20 +17,19 @@ var launchRoutes = function(server, app) {
     extended: true
   }));
   // to serve the pages.
-  app.use("/", express.static("./"));
-  app.use("/dist", express.static("./dist"));
-  app.use("/about", express.static("./"));
-  app.use("/constitution", express.static("./"));
-  app.use("/learn", express.static("./"));
-  app.use("/thankyou", express.static("./"));
-  app.use("/subscribe", express.static("./"));
-  app.use("/parties", express.static("./"));
-  app.use("/pdf", express.static("./src/pdf"));
-  app.use("/land", express.static("./"));
-  app.use("/is", express.static("./"));
-  app.use("/en", express.static("./"));
-  app.use("/favicon.ico", express.static("./src/img/favicon.ico"));
-  app.use("/img", express.static("./src/img"));
+  app.use("/", express.static("../dist/"));
+  app.use("/about", express.static("../dist/"));
+  app.use("/constitution", express.static("../dist/"));
+  app.use("/learn", express.static("../dist/"));
+  app.use("/thankyou", express.static("../dist/"));
+  app.use("/subscribe", express.static("../dist/"));
+  app.use("/parties", express.static("../dist/"));
+  app.use("/pdf", express.static("../src/pdf"));
+  app.use("/land", express.static("../dist/"));
+  app.use("/is", express.static("../dist/"));
+  app.use("/en", express.static("../dist/"));
+  app.use("/favicon.ico", express.static("../src/img/favicon.ico"));
+  app.use("/img", express.static("../src/img"));
 };
 ,
 module.exports = {
