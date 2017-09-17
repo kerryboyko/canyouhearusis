@@ -26,20 +26,15 @@ var launchRoutes = function(server, app) {
   });
 
   app.get('/dirname', (req, res) => {
-    res.send("__dirname: " + __dirname)
+    let items = {
+      "__dirname": __dirname,
+      "DIST": DIST,
+      "sending file": path.join(__dirname, "../dist/index.html"),
+    }
+    res.send(JSON.stringify(items, null, 2))
   })
   // to serve the pages.
-  app.use("/", express.static(DIST));
-  app.use("/about", express.static(DIST));
-  app.use("/constitution", express.static(DIST));
-  app.use("/learn", express.static(DIST));
-  app.use("/thankyou", express.static(DIST));
-  app.use("/subscribe", express.static(DIST));
-  app.use("/parties", express.static(DIST));
   app.use("/pdf", express.static(path.join(__dirname, "../src/pdf")));
-  app.use("/land", express.static(DIST));
-  app.use("/is", express.static(DIST));
-  app.use("/en", express.static(DIST));
   app.use("/favicon.ico", express.static(path.join(__dirname, "../src/img/favicon.ico")));
   app.use("/img", express.static(path.join(__dirname, "../src/img")));
   app.get("*", function(req, res){
