@@ -24,23 +24,7 @@ var launchRoutes = function(server, app) {
     })
   );
 
-  app.get("/api/test", (req, res) => {
-    console.log(req.body);
-    res.send("body" + JSON.stringify(req.body) + "answer: Foo");
-  });
-
-  app.get("/dirname", (req, res) => {
-    let items = {
-      __dirname: __dirname,
-      DIST: DIST,
-      "sending file": path.join(__dirname, "../dist/index.html")
-    };
-    res.send(JSON.stringify(items, null, 2));
-  });
-
-  // to serve the pages.
-  app.use(express.static(__dirname + '/'));
-
+  app.use("/", express.static(path.join(__dirname, "../dist")))
   // to serve the pages.
   app.use("/pdf", express.static(path.join(__dirname, "../src/pdf")));
   app.use(
