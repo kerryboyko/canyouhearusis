@@ -4,8 +4,7 @@
 node_modules
 
 dist
-coverage
+distServer
 
 .idea/
 
-secrets.js

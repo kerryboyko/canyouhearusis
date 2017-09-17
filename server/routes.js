@@ -27,7 +27,7 @@ var launchRoutes = function(server, app) {
 
   app.get('/dirname', (req, res) => {
     res.send("__dirname: " + __dirname)
-  }
+  })
   // to serve the pages.
   app.use("/", express.static(DIST));
   app.use("/about", express.static(DIST));
