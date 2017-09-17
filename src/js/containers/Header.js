@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   menuLanguageText: {
     fontFamily: "Roboto",
-    color: palette.white,
+    color: palette.white
   },
   flags: {
     height: "20px",

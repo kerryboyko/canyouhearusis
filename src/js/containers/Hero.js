@@ -193,4 +193,4 @@ class Hero extends Component {
   }
 }
 
-export default reduxify({setLanguage}, ["language"], Hero);
+export default reduxify({ setLanguage }, ["language"], Hero);
