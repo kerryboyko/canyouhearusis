@@ -31,7 +31,7 @@ var launchRoutes = function(server, app) {
   app.use("/favicon.ico", express.static("../src/img/favicon.ico"));
   app.use("/img", express.static("../src/img"));
 };
-,
+
 module.exports = {
   default: launchRoutes
   launchRoutes: launchRoutes
