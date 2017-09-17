@@ -1,5 +1,5 @@
 // import {bindAllMethods} from './util';
-import reduxify from 'reduxify';
+import {reduxify} from '../util'
 import * as actions from '../actions/index';
 import React, {Component} from 'react';
 import _ from 'lodash';
@@ -108,6 +108,7 @@ class Header extends Component {
   }
 
   handleLanguageChange (event, value) {
+    console.log(value, {event}, {value})
     this.props.actions.setLanguage(value);
   }
   handlePageSelect (event, value) {

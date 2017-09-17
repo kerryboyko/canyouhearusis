@@ -9,6 +9,7 @@ import {
 export function language(state = 'IS', action = {}) {
   switch(action.type){
   case SET_LANGUAGE:
+    console.log('action', action)
     return action.language;
   default: return state;
   }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as actions from '../actions/index';
-import reduxify from 'reduxify';
+import {reduxify} from '../util'
 import Header from './Header';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';

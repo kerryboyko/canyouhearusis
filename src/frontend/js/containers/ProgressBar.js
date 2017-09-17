@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import reduxify from 'reduxify';
+import {reduxify} from '../util'
 import * as actions from '../actions/index';
 import ProgressMeter from '../components/ProgressMeter';
 
