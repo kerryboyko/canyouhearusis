@@ -19,6 +19,15 @@ var launchRoutes = function(server, app) {
     limit: "100mb",
     extended: true
   }));
+
+  app.get('/api/test', (req, res) => {
+    console.log(req.body);
+    res.send("body" + JSON.stringify(req.body) + "answer: Foo");
+  });
+
+  app.get('/dirname', (req, res) => {
+    res.send("__dirname: " + __dirname)
+  }
   // to serve the pages.
   app.use("/", express.static(DIST));
   app.use("/about", express.static(DIST));
